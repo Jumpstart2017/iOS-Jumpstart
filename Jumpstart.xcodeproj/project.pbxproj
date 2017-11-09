@@ -17,6 +17,7 @@
 		C00EB72D1FB501D300EF3335 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C00EB72B1FB501D300EF3335 /* LaunchScreen.storyboard */; };
 		C00EB7381FB501D300EF3335 /* JumpstartTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00EB7371FB501D300EF3335 /* JumpstartTests.swift */; };
 		C00EB7431FB501D300EF3335 /* JumpstartUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00EB7421FB501D300EF3335 /* JumpstartUITests.swift */; };
+		C04F2C7C1FB50C0700A36A81 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04F2C7B1FB50C0700A36A81 /* Colors.swift */; };
 		EA17F2B47012E45ECCC04328 /* Pods_Jumpstart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6AB9EA550EC6189D3C0BB35 /* Pods_Jumpstart.framework */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +60,7 @@
 		C00EB73E1FB501D300EF3335 /* JumpstartUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JumpstartUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C00EB7421FB501D300EF3335 /* JumpstartUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JumpstartUITests.swift; sourceTree = "<group>"; };
 		C00EB7441FB501D300EF3335 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C04F2C7B1FB50C0700A36A81 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		E4AB77B4CEE89B4FDADA6D0B /* Pods-Jumpstart.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jumpstart.release.xcconfig"; path = "Pods/Target Support Files/Pods-Jumpstart/Pods-Jumpstart.release.xcconfig"; sourceTree = "<group>"; };
 		E6AB9EA550EC6189D3C0BB35 /* Pods_Jumpstart.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Jumpstart.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -145,6 +147,7 @@
 				C00EB7261FB501D300EF3335 /* Main.storyboard */,
 				C00EB7291FB501D300EF3335 /* Assets.xcassets */,
 				C00EB72B1FB501D300EF3335 /* LaunchScreen.storyboard */,
+				C04F2C7D1FB50E3200A36A81 /* Extensions */,
 				C00EB72E1FB501D300EF3335 /* Info.plist */,
 			);
 			path = Jumpstart;
@@ -166,6 +169,14 @@
 				C00EB7441FB501D300EF3335 /* Info.plist */,
 			);
 			path = JumpstartUITests;
+			sourceTree = "<group>";
+		};
+		C04F2C7D1FB50E3200A36A81 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C04F2C7B1FB50C0700A36A81 /* Colors.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -450,6 +461,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C00EB7251FB501D300EF3335 /* SecondViewController.swift in Sources */,
+				C04F2C7C1FB50C0700A36A81 /* Colors.swift in Sources */,
 				C00EB7211FB501D300EF3335 /* AppDelegate.swift in Sources */,
 				C00EB7231FB501D300EF3335 /* FirstViewController.swift in Sources */,
 			);
