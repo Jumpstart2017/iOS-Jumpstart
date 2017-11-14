@@ -9,6 +9,7 @@ target 'Jumpstart' do
   pod 'ObjectMapper'
   pod 'Alamofire' 
   pod 'MaterialComponents' 
+  pod 'Firebase'
 
   target 'JumpstartTests' do
     inherit! :search_paths
