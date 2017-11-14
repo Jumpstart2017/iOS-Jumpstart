@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import MaterialComponents
 
 class LandingPageViewController : UIViewController {
     

@@ -19,6 +19,7 @@
 		C00EB7431FB501D300EF3335 /* JumpstartUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00EB7421FB501D300EF3335 /* JumpstartUITests.swift */; };
 		C04F2C7C1FB50C0700A36A81 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04F2C7B1FB50C0700A36A81 /* Colors.swift */; };
 		C09B09751FBBA52A00DE17C3 /* LandingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09B09741FBBA52A00DE17C3 /* LandingPageViewController.swift */; };
+		C09B09791FBBAEB800DE17C3 /* LoginSignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C09B09781FBBAEB800DE17C3 /* LoginSignUp.storyboard */; };
 		EA17F2B47012E45ECCC04328 /* Pods_Jumpstart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6AB9EA550EC6189D3C0BB35 /* Pods_Jumpstart.framework */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +64,7 @@
 		C00EB7441FB501D300EF3335 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C04F2C7B1FB50C0700A36A81 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		C09B09741FBBA52A00DE17C3 /* LandingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingPageViewController.swift; sourceTree = "<group>"; };
+		C09B09781FBBAEB800DE17C3 /* LoginSignUp.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LoginSignUp.storyboard; path = Jumpstart/StoryBoards/LoginSignUp.storyboard; sourceTree = SOURCE_ROOT; };
 		E4AB77B4CEE89B4FDADA6D0B /* Pods-Jumpstart.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jumpstart.release.xcconfig"; path = "Pods/Target Support Files/Pods-Jumpstart/Pods-Jumpstart.release.xcconfig"; sourceTree = "<group>"; };
 		E6AB9EA550EC6189D3C0BB35 /* Pods_Jumpstart.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Jumpstart.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -144,14 +146,11 @@
 			isa = PBXGroup;
 			children = (
 				C00EB7201FB501D300EF3335 /* AppDelegate.swift */,
-				C00EB7221FB501D300EF3335 /* FirstViewController.swift */,
-				C00EB7241FB501D300EF3335 /* SecondViewController.swift */,
-				C00EB7261FB501D300EF3335 /* Main.storyboard */,
+				C09B097B1FBBAEE500DE17C3 /* ViewControllers */,
+				C09B097A1FBBAED000DE17C3 /* StoryBoards */,
 				C00EB7291FB501D300EF3335 /* Assets.xcassets */,
-				C00EB72B1FB501D300EF3335 /* LaunchScreen.storyboard */,
 				C04F2C7D1FB50E3200A36A81 /* Extensions */,
 				C00EB72E1FB501D300EF3335 /* Info.plist */,
-				C09B09741FBBA52A00DE17C3 /* LandingPageViewController.swift */,
 			);
 			path = Jumpstart;
 			sourceTree = "<group>";
@@ -180,6 +179,26 @@
 				C04F2C7B1FB50C0700A36A81 /* Colors.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C09B097A1FBBAED000DE17C3 /* StoryBoards */ = {
+			isa = PBXGroup;
+			children = (
+				C00EB72B1FB501D300EF3335 /* LaunchScreen.storyboard */,
+				C00EB7261FB501D300EF3335 /* Main.storyboard */,
+				C09B09781FBBAEB800DE17C3 /* LoginSignUp.storyboard */,
+			);
+			path = StoryBoards;
+			sourceTree = "<group>";
+		};
+		C09B097B1FBBAEE500DE17C3 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				C00EB7221FB501D300EF3335 /* FirstViewController.swift */,
+				C00EB7241FB501D300EF3335 /* SecondViewController.swift */,
+				C09B09741FBBA52A00DE17C3 /* LandingPageViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,6 +317,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C09B09791FBBAEB800DE17C3 /* LoginSignUp.storyboard in Resources */,
 				C00EB72D1FB501D300EF3335 /* LaunchScreen.storyboard in Resources */,
 				C00EB72A1FB501D300EF3335 /* Assets.xcassets in Resources */,
 				C00EB7281FB501D300EF3335 /* Main.storyboard in Resources */,
