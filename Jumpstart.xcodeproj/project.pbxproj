@@ -10,16 +10,17 @@
 		88E0E5D8BB06215A1B871B78 /* Pods_JumpstartUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE1FF19A1E3A6049C590D5E9 /* Pods_JumpstartUITests.framework */; };
 		A06319ACB3F8B13AAB8AA5A0 /* Pods_JumpstartTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F3CDEF17FED4E9A967139F2 /* Pods_JumpstartTests.framework */; };
 		C00EB7211FB501D300EF3335 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00EB7201FB501D300EF3335 /* AppDelegate.swift */; };
-		C00EB7231FB501D300EF3335 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00EB7221FB501D300EF3335 /* FirstViewController.swift */; };
-		C00EB7251FB501D300EF3335 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00EB7241FB501D300EF3335 /* SecondViewController.swift */; };
 		C00EB7281FB501D300EF3335 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C00EB7261FB501D300EF3335 /* Main.storyboard */; };
 		C00EB72A1FB501D300EF3335 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C00EB7291FB501D300EF3335 /* Assets.xcassets */; };
 		C00EB72D1FB501D300EF3335 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C00EB72B1FB501D300EF3335 /* LaunchScreen.storyboard */; };
 		C00EB7381FB501D300EF3335 /* JumpstartTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00EB7371FB501D300EF3335 /* JumpstartTests.swift */; };
 		C00EB7431FB501D300EF3335 /* JumpstartUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00EB7421FB501D300EF3335 /* JumpstartUITests.swift */; };
 		C04F2C7C1FB50C0700A36A81 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04F2C7B1FB50C0700A36A81 /* Colors.swift */; };
-		C09B09751FBBA52A00DE17C3 /* LandingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09B09741FBBA52A00DE17C3 /* LandingPageViewController.swift */; };
 		C09B09791FBBAEB800DE17C3 /* LoginSignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C09B09781FBBAEB800DE17C3 /* LoginSignUp.storyboard */; };
+		C09B098A1FBBF2BD00DE17C3 /* LandingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09B09871FBBF2BC00DE17C3 /* LandingPageViewController.swift */; };
+		C09B098B1FBBF2BD00DE17C3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09B09881FBBF2BC00DE17C3 /* LoginViewController.swift */; };
+		C09B098C1FBBF2BD00DE17C3 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09B09891FBBF2BD00DE17C3 /* FirstViewController.swift */; };
+		C09B098E1FBBF2CA00DE17C3 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09B098D1FBBF2CA00DE17C3 /* SecondViewController.swift */; };
 		EA17F2B47012E45ECCC04328 /* Pods_Jumpstart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6AB9EA550EC6189D3C0BB35 /* Pods_Jumpstart.framework */; };
 /* End PBXBuildFile section */
 
@@ -50,8 +51,6 @@
 		BF11D0CA6914AB1BD1A92872 /* Pods-JumpstartUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JumpstartUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-JumpstartUITests/Pods-JumpstartUITests.release.xcconfig"; sourceTree = "<group>"; };
 		C00EB71D1FB501D300EF3335 /* Jumpstart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jumpstart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C00EB7201FB501D300EF3335 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C00EB7221FB501D300EF3335 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		C00EB7241FB501D300EF3335 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		C00EB7271FB501D300EF3335 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C00EB7291FB501D300EF3335 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C00EB72C1FB501D300EF3335 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -63,8 +62,11 @@
 		C00EB7421FB501D300EF3335 /* JumpstartUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JumpstartUITests.swift; sourceTree = "<group>"; };
 		C00EB7441FB501D300EF3335 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C04F2C7B1FB50C0700A36A81 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
-		C09B09741FBBA52A00DE17C3 /* LandingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingPageViewController.swift; sourceTree = "<group>"; };
 		C09B09781FBBAEB800DE17C3 /* LoginSignUp.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LoginSignUp.storyboard; path = Jumpstart/StoryBoards/LoginSignUp.storyboard; sourceTree = SOURCE_ROOT; };
+		C09B09871FBBF2BC00DE17C3 /* LandingPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingPageViewController.swift; sourceTree = "<group>"; };
+		C09B09881FBBF2BC00DE17C3 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		C09B09891FBBF2BD00DE17C3 /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		C09B098D1FBBF2CA00DE17C3 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		E4AB77B4CEE89B4FDADA6D0B /* Pods-Jumpstart.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jumpstart.release.xcconfig"; path = "Pods/Target Support Files/Pods-Jumpstart/Pods-Jumpstart.release.xcconfig"; sourceTree = "<group>"; };
 		E6AB9EA550EC6189D3C0BB35 /* Pods_Jumpstart.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Jumpstart.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -147,6 +149,10 @@
 			children = (
 				C00EB7201FB501D300EF3335 /* AppDelegate.swift */,
 				C09B097B1FBBAEE500DE17C3 /* ViewControllers */,
+				C09B09891FBBF2BD00DE17C3 /* FirstViewController.swift */,
+				C09B098D1FBBF2CA00DE17C3 /* SecondViewController.swift */,
+				C09B09871FBBF2BC00DE17C3 /* LandingPageViewController.swift */,
+				C09B09881FBBF2BC00DE17C3 /* LoginViewController.swift */,
 				C09B097A1FBBAED000DE17C3 /* StoryBoards */,
 				C00EB7291FB501D300EF3335 /* Assets.xcassets */,
 				C04F2C7D1FB50E3200A36A81 /* Extensions */,
@@ -194,9 +200,6 @@
 		C09B097B1FBBAEE500DE17C3 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				C00EB7221FB501D300EF3335 /* FirstViewController.swift */,
-				C00EB7241FB501D300EF3335 /* SecondViewController.swift */,
-				C09B09741FBBA52A00DE17C3 /* LandingPageViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -483,11 +486,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C09B09751FBBA52A00DE17C3 /* LandingPageViewController.swift in Sources */,
-				C00EB7251FB501D300EF3335 /* SecondViewController.swift in Sources */,
+				C09B098E1FBBF2CA00DE17C3 /* SecondViewController.swift in Sources */,
+				C09B098C1FBBF2BD00DE17C3 /* FirstViewController.swift in Sources */,
+				C09B098B1FBBF2BD00DE17C3 /* LoginViewController.swift in Sources */,
 				C04F2C7C1FB50C0700A36A81 /* Colors.swift in Sources */,
+				C09B098A1FBBF2BD00DE17C3 /* LandingPageViewController.swift in Sources */,
 				C00EB7211FB501D300EF3335 /* AppDelegate.swift in Sources */,
-				C00EB7231FB501D300EF3335 /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
