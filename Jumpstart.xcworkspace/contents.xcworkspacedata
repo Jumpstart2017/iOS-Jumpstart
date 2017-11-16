@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/Gabriel/Desktop/Jumpstart/Jumpstart/StoryBoards/Projects.storyboard">
+   </FileRef>
+   <FileRef
       location = "group:Jumpstart.xcodeproj">
    </FileRef>
    <FileRef
