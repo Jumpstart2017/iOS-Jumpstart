@@ -10,6 +10,7 @@ target 'Jumpstart' do
   pod 'Alamofire' 
   pod 'MaterialComponents' 
   pod 'Firebase'
+  pod "Material", :git => "https://github.com/CosmicMind/Material"  
 
   target 'JumpstartTests' do
     inherit! :search_paths
