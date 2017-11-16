@@ -20,6 +20,8 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIScrollVie
     @IBOutlet weak var confirmPasswordTextField: TextField!
     @IBOutlet weak var submitButton: MDCRaisedButton!
     
+    var newUser: NewUser?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.prepareFirstNameTextField()
@@ -29,6 +31,8 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIScrollVie
         self.prepareConfirmPasswordTextField()
         self.prepareSubmitButton()
         self.prepareScrollView()
+        
+       // newUser = NewUser(map: <#Map#>)
     }
     
     func prepareFirstNameTextField() {
