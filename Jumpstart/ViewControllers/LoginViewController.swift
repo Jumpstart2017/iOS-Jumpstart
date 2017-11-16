@@ -34,7 +34,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     func prepareEmailTextField() {
-        emailTextField.placeholder = "email"
+        emailTextField.placeholder = "Email"
         emailTextField.isClearIconButtonEnabled = true
         emailTextField.dividerActiveColor = .jBlue
         emailTextField.dividerNormalColor = .jBlue
@@ -49,7 +49,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     func preparePasswordTextField() {
-        passwordTextField.placeholder = "password"
+        passwordTextField.placeholder = "Password"
         passwordTextField.isClearIconButtonEnabled = true
         passwordTextField.dividerActiveColor = .jBlue
         passwordTextField.dividerNormalColor = .jBlue
