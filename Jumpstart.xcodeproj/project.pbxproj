@@ -17,6 +17,10 @@
 		C00EB7431FB501D300EF3335 /* JumpstartUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00EB7421FB501D300EF3335 /* JumpstartUITests.swift */; };
 		C02C4B021FC4D8E10070B524 /* Tasks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C02C4B001FC4D8E10070B524 /* Tasks.storyboard */; };
 		C04F2C7C1FB50C0700A36A81 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04F2C7B1FB50C0700A36A81 /* Colors.swift */; };
+		C07271FC1FCCE4010003F006 /* VideoCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07271FB1FCCE4010003F006 /* VideoCard.swift */; };
+		C07271FE1FCE10C70003F006 /* VideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07271FD1FCE10C70003F006 /* VideoModel.swift */; };
+		C07272021FCE14800003F006 /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07272011FCE14800003F006 /* VideoCell.swift */; };
+		C07272041FCE16070003F006 /* FakeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07272031FCE16070003F006 /* FakeData.swift */; };
 		C0776AE61FBE2D7C004D6A85 /* NewUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0776AE51FBE2D7C004D6A85 /* NewUser.swift */; };
 		C0776AEA1FBE484C004D6A85 /* Projects.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0776AE91FBE484C004D6A85 /* Projects.storyboard */; };
 		C09B09791FBBAEB800DE17C3 /* LoginSignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C09B09781FBBAEB800DE17C3 /* LoginSignUp.storyboard */; };
@@ -67,6 +71,10 @@
 		C00EB7441FB501D300EF3335 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C02C4B011FC4D8E10070B524 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Tasks.storyboard; sourceTree = "<group>"; };
 		C04F2C7B1FB50C0700A36A81 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		C07271FB1FCCE4010003F006 /* VideoCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCard.swift; sourceTree = "<group>"; };
+		C07271FD1FCE10C70003F006 /* VideoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoModel.swift; sourceTree = "<group>"; };
+		C07272011FCE14800003F006 /* VideoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
+		C07272031FCE16070003F006 /* FakeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeData.swift; sourceTree = "<group>"; };
 		C0776AE51FBE2D7C004D6A85 /* NewUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUser.swift; sourceTree = "<group>"; };
 		C0776AE91FBE484C004D6A85 /* Projects.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Projects.storyboard; sourceTree = "<group>"; };
 		C09B09781FBBAEB800DE17C3 /* LoginSignUp.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LoginSignUp.storyboard; path = Jumpstart/StoryBoards/LoginSignUp.storyboard; sourceTree = SOURCE_ROOT; };
@@ -160,8 +168,10 @@
 				C09B097B1FBBAEE500DE17C3 /* ViewControllers */,
 				C09B097A1FBBAED000DE17C3 /* StoryBoards */,
 				C00EB7291FB501D300EF3335 /* Assets.xcassets */,
+				C07271FA1FCCE3EC0003F006 /* Subclasses */,
 				C04F2C7D1FB50E3200A36A81 /* Extensions */,
 				C00EB72E1FB501D300EF3335 /* Info.plist */,
+				C07272031FCE16070003F006 /* FakeData.swift */,
 			);
 			path = Jumpstart;
 			sourceTree = "<group>";
@@ -192,10 +202,20 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		C07271FA1FCCE3EC0003F006 /* Subclasses */ = {
+			isa = PBXGroup;
+			children = (
+				C07272011FCE14800003F006 /* VideoCell.swift */,
+				C07271FB1FCCE4010003F006 /* VideoCard.swift */,
+			);
+			path = Subclasses;
+			sourceTree = "<group>";
+		};
 		C0776AE41FBE2D34004D6A85 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				C0776AE51FBE2D7C004D6A85 /* NewUser.swift */,
+				C07271FD1FCE10C70003F006 /* VideoModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -509,10 +529,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				C09B098E1FBBF2CA00DE17C3 /* SecondViewController.swift in Sources */,
+				C07271FC1FCCE4010003F006 /* VideoCard.swift in Sources */,
 				C0776AE61FBE2D7C004D6A85 /* NewUser.swift in Sources */,
+				C07271FE1FCE10C70003F006 /* VideoModel.swift in Sources */,
 				C09B098C1FBBF2BD00DE17C3 /* FirstViewController.swift in Sources */,
 				C0DEBE7D1FBD329700741DBA /* RegisterViewController.swift in Sources */,
+				C07272041FCE16070003F006 /* FakeData.swift in Sources */,
 				C09B098B1FBBF2BD00DE17C3 /* LoginViewController.swift in Sources */,
+				C07272021FCE14800003F006 /* VideoCell.swift in Sources */,
 				C04F2C7C1FB50C0700A36A81 /* Colors.swift in Sources */,
 				C09B098A1FBBF2BD00DE17C3 /* LandingPageViewController.swift in Sources */,
 				C00EB7211FB501D300EF3335 /* AppDelegate.swift in Sources */,
