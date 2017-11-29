@@ -45,12 +45,12 @@ class VideoCard : Card, UIWebViewDelegate {
     fileprivate func prepareCard() {
         self.bottomBar = self.contentBar
         self.bottomBarEdgeInsetsPreset = .wideRectangle3
-//        self.bottomBarEdgeInsets.bottom = 0
-//        self.bottomBarEdgeInsets.right = 8
-        
-        
+
         self.contentView = self.webView
         self.contentViewEdgeInsetsPreset = .wideRectangle2
+        
     }
+    
+  
     
 }

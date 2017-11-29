@@ -29,6 +29,7 @@
 		C09B098C1FBBF2BD00DE17C3 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09B09891FBBF2BD00DE17C3 /* FirstViewController.swift */; };
 		C09B098E1FBBF2CA00DE17C3 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09B098D1FBBF2CA00DE17C3 /* SecondViewController.swift */; };
 		C0DEBE7D1FBD329700741DBA /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DEBE7C1FBD329600741DBA /* RegisterViewController.swift */; };
+		C0F1C3171FCE67A6000270CB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F1C3161FCE67A6000270CB /* ViewController.swift */; };
 		EA17F2B47012E45ECCC04328 /* Pods_Jumpstart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6AB9EA550EC6189D3C0BB35 /* Pods_Jumpstart.framework */; };
 /* End PBXBuildFile section */
 
@@ -83,6 +84,7 @@
 		C09B09891FBBF2BD00DE17C3 /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		C09B098D1FBBF2CA00DE17C3 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		C0DEBE7C1FBD329600741DBA /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		C0F1C3161FCE67A6000270CB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E4AB77B4CEE89B4FDADA6D0B /* Pods-Jumpstart.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jumpstart.release.xcconfig"; path = "Pods/Target Support Files/Pods-Jumpstart/Pods-Jumpstart.release.xcconfig"; sourceTree = "<group>"; };
 		E6AB9EA550EC6189D3C0BB35 /* Pods_Jumpstart.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Jumpstart.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -240,6 +242,7 @@
 				C09B09871FBBF2BC00DE17C3 /* LandingPageViewController.swift */,
 				C0DEBE7C1FBD329600741DBA /* RegisterViewController.swift */,
 				C09B09881FBBF2BC00DE17C3 /* LoginViewController.swift */,
+				C0F1C3161FCE67A6000270CB /* ViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -536,6 +539,7 @@
 				C0DEBE7D1FBD329700741DBA /* RegisterViewController.swift in Sources */,
 				C07272041FCE16070003F006 /* FakeData.swift in Sources */,
 				C09B098B1FBBF2BD00DE17C3 /* LoginViewController.swift in Sources */,
+				C0F1C3171FCE67A6000270CB /* ViewController.swift in Sources */,
 				C07272021FCE14800003F006 /* VideoCell.swift in Sources */,
 				C04F2C7C1FB50C0700A36A81 /* Colors.swift in Sources */,
 				C09B098A1FBBF2BD00DE17C3 /* LandingPageViewController.swift in Sources */,
