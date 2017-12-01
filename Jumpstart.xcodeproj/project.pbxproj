@@ -17,6 +17,10 @@
 		C00EB7431FB501D300EF3335 /* JumpstartUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00EB7421FB501D300EF3335 /* JumpstartUITests.swift */; };
 		C02C4B021FC4D8E10070B524 /* Tasks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C02C4B001FC4D8E10070B524 /* Tasks.storyboard */; };
 		C04F2C7C1FB50C0700A36A81 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04F2C7B1FB50C0700A36A81 /* Colors.swift */; };
+		C07271FC1FCCE4010003F006 /* VideoCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07271FB1FCCE4010003F006 /* VideoCard.swift */; };
+		C07271FE1FCE10C70003F006 /* VideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07271FD1FCE10C70003F006 /* VideoModel.swift */; };
+		C07272021FCE14800003F006 /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07272011FCE14800003F006 /* VideoCell.swift */; };
+		C07272041FCE16070003F006 /* FakeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07272031FCE16070003F006 /* FakeData.swift */; };
 		C0776AE61FBE2D7C004D6A85 /* NewUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0776AE51FBE2D7C004D6A85 /* NewUser.swift */; };
 		C0776AEA1FBE484C004D6A85 /* Projects.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0776AE91FBE484C004D6A85 /* Projects.storyboard */; };
 		C09B09791FBBAEB800DE17C3 /* LoginSignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C09B09781FBBAEB800DE17C3 /* LoginSignUp.storyboard */; };
@@ -25,6 +29,7 @@
 		C09B098C1FBBF2BD00DE17C3 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09B09891FBBF2BD00DE17C3 /* FirstViewController.swift */; };
 		C09B098E1FBBF2CA00DE17C3 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09B098D1FBBF2CA00DE17C3 /* SecondViewController.swift */; };
 		C0DEBE7D1FBD329700741DBA /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DEBE7C1FBD329600741DBA /* RegisterViewController.swift */; };
+		C0F1C3171FCE67A6000270CB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F1C3161FCE67A6000270CB /* ViewController.swift */; };
 		EA17F2B47012E45ECCC04328 /* Pods_Jumpstart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6AB9EA550EC6189D3C0BB35 /* Pods_Jumpstart.framework */; };
 		EE2400E11FD0987200B52DD4 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2400E01FD0987200B52DD4 /* Project.swift */; };
 		EE94EDBB1FCE16C00062E445 /* ProjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE94EDBA1FCE16C00062E445 /* ProjectTableViewCell.swift */; };
@@ -69,6 +74,10 @@
 		C00EB7441FB501D300EF3335 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C02C4B011FC4D8E10070B524 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Tasks.storyboard; sourceTree = "<group>"; };
 		C04F2C7B1FB50C0700A36A81 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		C07271FB1FCCE4010003F006 /* VideoCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCard.swift; sourceTree = "<group>"; };
+		C07271FD1FCE10C70003F006 /* VideoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoModel.swift; sourceTree = "<group>"; };
+		C07272011FCE14800003F006 /* VideoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
+		C07272031FCE16070003F006 /* FakeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeData.swift; sourceTree = "<group>"; };
 		C0776AE51FBE2D7C004D6A85 /* NewUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUser.swift; sourceTree = "<group>"; };
 		C0776AE91FBE484C004D6A85 /* Projects.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Projects.storyboard; sourceTree = "<group>"; };
 		C09B09781FBBAEB800DE17C3 /* LoginSignUp.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LoginSignUp.storyboard; path = Jumpstart/StoryBoards/LoginSignUp.storyboard; sourceTree = SOURCE_ROOT; };
@@ -77,6 +86,7 @@
 		C09B09891FBBF2BD00DE17C3 /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		C09B098D1FBBF2CA00DE17C3 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		C0DEBE7C1FBD329600741DBA /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		C0F1C3161FCE67A6000270CB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E4AB77B4CEE89B4FDADA6D0B /* Pods-Jumpstart.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jumpstart.release.xcconfig"; path = "Pods/Target Support Files/Pods-Jumpstart/Pods-Jumpstart.release.xcconfig"; sourceTree = "<group>"; };
 		E6AB9EA550EC6189D3C0BB35 /* Pods_Jumpstart.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Jumpstart.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE2400E01FD0987200B52DD4 /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
@@ -164,8 +174,10 @@
 				C09B097B1FBBAEE500DE17C3 /* ViewControllers */,
 				C09B097A1FBBAED000DE17C3 /* StoryBoards */,
 				C00EB7291FB501D300EF3335 /* Assets.xcassets */,
+				C07271FA1FCCE3EC0003F006 /* Subclasses */,
 				C04F2C7D1FB50E3200A36A81 /* Extensions */,
 				C00EB72E1FB501D300EF3335 /* Info.plist */,
+				C07272031FCE16070003F006 /* FakeData.swift */,
 			);
 			path = Jumpstart;
 			sourceTree = "<group>";
@@ -196,11 +208,24 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		C07271FA1FCCE3EC0003F006 /* Subclasses */ = {
+			isa = PBXGroup;
+			children = (
+				C07272011FCE14800003F006 /* VideoCell.swift */,
+				C07271FB1FCCE4010003F006 /* VideoCard.swift */,
+			);
+			path = Subclasses;
+			sourceTree = "<group>";
+		};
 		C0776AE41FBE2D34004D6A85 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				C0776AE51FBE2D7C004D6A85 /* NewUser.swift */,
+
+				C07271FD1FCE10C70003F006 /* VideoModel.swift */,
+
 				EE2400E01FD0987200B52DD4 /* Project.swift */,
+
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -226,6 +251,7 @@
 				C09B09871FBBF2BC00DE17C3 /* LandingPageViewController.swift */,
 				C0DEBE7C1FBD329600741DBA /* RegisterViewController.swift */,
 				C09B09881FBBF2BC00DE17C3 /* LoginViewController.swift */,
+				C0F1C3161FCE67A6000270CB /* ViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -551,12 +577,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				C09B098E1FBBF2CA00DE17C3 /* SecondViewController.swift in Sources */,
+
+				C07271FC1FCCE4010003F006 /* VideoCard.swift in Sources */,
+				C0776AE61FBE2D7C004D6A85 /* NewUser.swift in Sources */,
+				C07271FE1FCE10C70003F006 /* VideoModel.swift in Sources */,
+
 				EE94EDBB1FCE16C00062E445 /* ProjectTableViewCell.swift in Sources */,
 				C0776AE61FBE2D7C004D6A85 /* NewUser.swift in Sources */,
 				EE2400E11FD0987200B52DD4 /* Project.swift in Sources */,
+
 				C09B098C1FBBF2BD00DE17C3 /* FirstViewController.swift in Sources */,
 				C0DEBE7D1FBD329700741DBA /* RegisterViewController.swift in Sources */,
+				C07272041FCE16070003F006 /* FakeData.swift in Sources */,
 				C09B098B1FBBF2BD00DE17C3 /* LoginViewController.swift in Sources */,
+				C0F1C3171FCE67A6000270CB /* ViewController.swift in Sources */,
+				C07272021FCE14800003F006 /* VideoCell.swift in Sources */,
 				C04F2C7C1FB50C0700A36A81 /* Colors.swift in Sources */,
 				C09B098A1FBBF2BD00DE17C3 /* LandingPageViewController.swift in Sources */,
 				C00EB7211FB501D300EF3335 /* AppDelegate.swift in Sources */,

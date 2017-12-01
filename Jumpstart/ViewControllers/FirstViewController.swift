@@ -10,19 +10,25 @@ import UIKit
 import ObjectMapper
 import Alamofire
 import MaterialComponents
+import Material
 
 class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
 
     @IBOutlet weak var tableView: UITableView!
+    
+    var names = ["Research", "Writing", "Revision"]
+    var videoModels = makeVideoModels()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.bounces = false
+
+        self.view.backgroundColor = Color.grey.lighten5
     }
     
-    var names = ["Research", "Writing", "Revision"]
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -36,7 +42,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     //MARK: DELEGATE & DATASOURCE METHODS
      func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return videoModels.count
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -49,6 +55,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         
+        view.alpha = 1
         switch section {
         case 0:
             view.tintColor = .jIndependent
@@ -71,10 +78,16 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return 3
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 300
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.backgroundColor = .white
+        let cell = tableView.dequeueReusableCell(withIdentifier: "VideoCell", for: indexPath) as! VideoCell
+        cell.initVideoCellWith(videoModel: videoModels[indexPath.row])
+        cell.backgroundColor = Color.grey.lighten5
+        tableView.separatorStyle = .none
         
         return cell
     }
