@@ -23,11 +23,8 @@ class ProjectTableViewCell: UITableViewCell {
         progressCard.backgroundColor = UIColor.white
         contentView.backgroundColor = Color.grey.lighten5
         dropShadow()
-//        progressCard.layer.cornerRadius = 2.0
-//        progressCard.layer.masksToBounds = false
-//        progressCard.layer.shadowColor = Color.black.cgColor
-//        progressCard.layer.shadowOffset = CGSize(width: 0.2, height: 0.2)
-//        progressCard.layer.shadowOpacity = 0.8
+        prepareProgressCircle()
+
     }
     
     override func awakeFromNib() {
@@ -52,6 +49,17 @@ class ProjectTableViewCell: UITableViewCell {
         progressCard.layer.shadowPath = UIBezierPath(rect: self.bounds).cgPath
         progressCard.layer.shouldRasterize = true
         progressCard.layer.rasterizationScale = scale ? UIScreen.main.scale : 0.0001
+    }
+    
+    func prepareProgressCircle() {
+        progressCircle.innerRingWidth = 2
+        progressCircle.innerRingColor = .jGreen
+        
+        progressCircle.outerRingWidth = 1
+        progressCircle.outerRingColor = .lightGray
+        
+        progressCircle.setProgress(value: 30, animationDuration: 2)
+        
     }
 
 }
