@@ -25,6 +25,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // Do any additional setup after loading the view, typically from a nib.
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        self.tableView.reloadData()
         
         
     }
@@ -49,7 +50,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -62,6 +63,8 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cell.progressCircle.innerRingColor = UIColor.jGreen
         cell.progressCircle.value = 20.0
         //cell.progressCircle.value = CGFloat(p1?.progress)
+        
+        tableView.separatorStyle = .none
         
         return cell
     }

@@ -22,11 +22,12 @@ class ProjectTableViewCell: UITableViewCell {
     override func layoutSubviews() {
         progressCard.backgroundColor = UIColor.white
         contentView.backgroundColor = Color.grey.lighten5
-        progressCard.layer.cornerRadius = 2.0
-        progressCard.layer.masksToBounds = false
-        progressCard.layer.shadowColor = Color.black.cgColor
-        progressCard.layer.shadowOffset = CGSize(width: 0.2, height: 0.2)
-        progressCard.layer.shadowOpacity = 0.8
+        dropShadow()
+//        progressCard.layer.cornerRadius = 2.0
+//        progressCard.layer.masksToBounds = false
+//        progressCard.layer.shadowColor = Color.black.cgColor
+//        progressCard.layer.shadowOffset = CGSize(width: 0.2, height: 0.2)
+//        progressCard.layer.shadowOpacity = 0.8
     }
     
     override func awakeFromNib() {
@@ -38,6 +39,19 @@ class ProjectTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func dropShadow(scale: Bool = true) {
+        
+        progressCard.layer.masksToBounds = false
+        progressCard.layer.shadowColor = UIColor.lightGray.cgColor
+        progressCard.layer.shadowOpacity = 0.1
+        progressCard.layer.shadowOffset = CGSize(width: -1, height: 0.1)
+        progressCard.layer.shadowRadius = 0.001
+        
+        progressCard.layer.shadowPath = UIBezierPath(rect: self.bounds).cgPath
+        progressCard.layer.shouldRasterize = true
+        progressCard.layer.rasterizationScale = scale ? UIScreen.main.scale : 0.0001
     }
 
 }

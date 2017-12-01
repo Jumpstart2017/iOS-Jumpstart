@@ -21,8 +21,8 @@
 		C07271FE1FCE10C70003F006 /* VideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07271FD1FCE10C70003F006 /* VideoModel.swift */; };
 		C07272021FCE14800003F006 /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07272011FCE14800003F006 /* VideoCell.swift */; };
 		C07272041FCE16070003F006 /* FakeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07272031FCE16070003F006 /* FakeData.swift */; };
-		C0776AE61FBE2D7C004D6A85 /* NewUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0776AE51FBE2D7C004D6A85 /* NewUser.swift */; };
 		C0776AEA1FBE484C004D6A85 /* Projects.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0776AE91FBE484C004D6A85 /* Projects.storyboard */; };
+		C07F60971FD1C9D9001A8AA3 /* NewUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07F60961FD1C9D9001A8AA3 /* NewUser.swift */; };
 		C09B09791FBBAEB800DE17C3 /* LoginSignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C09B09781FBBAEB800DE17C3 /* LoginSignUp.storyboard */; };
 		C09B098A1FBBF2BD00DE17C3 /* LandingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09B09871FBBF2BC00DE17C3 /* LandingPageViewController.swift */; };
 		C09B098B1FBBF2BD00DE17C3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09B09881FBBF2BC00DE17C3 /* LoginViewController.swift */; };
@@ -78,8 +78,8 @@
 		C07271FD1FCE10C70003F006 /* VideoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoModel.swift; sourceTree = "<group>"; };
 		C07272011FCE14800003F006 /* VideoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
 		C07272031FCE16070003F006 /* FakeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeData.swift; sourceTree = "<group>"; };
-		C0776AE51FBE2D7C004D6A85 /* NewUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUser.swift; sourceTree = "<group>"; };
 		C0776AE91FBE484C004D6A85 /* Projects.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Projects.storyboard; sourceTree = "<group>"; };
+		C07F60961FD1C9D9001A8AA3 /* NewUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUser.swift; sourceTree = "<group>"; };
 		C09B09781FBBAEB800DE17C3 /* LoginSignUp.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LoginSignUp.storyboard; path = Jumpstart/StoryBoards/LoginSignUp.storyboard; sourceTree = SOURCE_ROOT; };
 		C09B09871FBBF2BC00DE17C3 /* LandingPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingPageViewController.swift; sourceTree = "<group>"; };
 		C09B09881FBBF2BC00DE17C3 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -211,6 +211,7 @@
 		C07271FA1FCCE3EC0003F006 /* Subclasses */ = {
 			isa = PBXGroup;
 			children = (
+				EE94EDBA1FCE16C00062E445 /* ProjectTableViewCell.swift */,
 				C07272011FCE14800003F006 /* VideoCell.swift */,
 				C07271FB1FCCE4010003F006 /* VideoCard.swift */,
 			);
@@ -220,12 +221,9 @@
 		C0776AE41FBE2D34004D6A85 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				C0776AE51FBE2D7C004D6A85 /* NewUser.swift */,
-
 				C07271FD1FCE10C70003F006 /* VideoModel.swift */,
-
 				EE2400E01FD0987200B52DD4 /* Project.swift */,
-
+				C07F60961FD1C9D9001A8AA3 /* NewUser.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -245,7 +243,6 @@
 		C09B097B1FBBAEE500DE17C3 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				EE94EDBA1FCE16C00062E445 /* ProjectTableViewCell.swift */,
 				C09B09891FBBF2BD00DE17C3 /* FirstViewController.swift */,
 				C09B098D1FBBF2CA00DE17C3 /* SecondViewController.swift */,
 				C09B09871FBBF2BC00DE17C3 /* LandingPageViewController.swift */,
@@ -428,7 +425,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		4C7986D3C200215AC7635C2F /* [CP] Embed Pods Frameworks */ = {
@@ -503,7 +500,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		9B4388407831C4C8079C3E41 /* [CP] Copy Pods Resources */ = {
@@ -536,7 +533,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		F4FC430D643B118CB820289D /* [CP] Embed Pods Frameworks */ = {
@@ -577,20 +574,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				C09B098E1FBBF2CA00DE17C3 /* SecondViewController.swift in Sources */,
-
 				C07271FC1FCCE4010003F006 /* VideoCard.swift in Sources */,
-				C0776AE61FBE2D7C004D6A85 /* NewUser.swift in Sources */,
 				C07271FE1FCE10C70003F006 /* VideoModel.swift in Sources */,
-
 				EE94EDBB1FCE16C00062E445 /* ProjectTableViewCell.swift in Sources */,
-				C0776AE61FBE2D7C004D6A85 /* NewUser.swift in Sources */,
 				EE2400E11FD0987200B52DD4 /* Project.swift in Sources */,
-
 				C09B098C1FBBF2BD00DE17C3 /* FirstViewController.swift in Sources */,
 				C0DEBE7D1FBD329700741DBA /* RegisterViewController.swift in Sources */,
 				C07272041FCE16070003F006 /* FakeData.swift in Sources */,
 				C09B098B1FBBF2BD00DE17C3 /* LoginViewController.swift in Sources */,
 				C0F1C3171FCE67A6000270CB /* ViewController.swift in Sources */,
+				C07F60971FD1C9D9001A8AA3 /* NewUser.swift in Sources */,
 				C07272021FCE14800003F006 /* VideoCell.swift in Sources */,
 				C04F2C7C1FB50C0700A36A81 /* Colors.swift in Sources */,
 				C09B098A1FBBF2BD00DE17C3 /* LandingPageViewController.swift in Sources */,
