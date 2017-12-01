@@ -11,6 +11,7 @@ target 'Jumpstart' do
   pod 'MaterialComponents' 
   pod 'Firebase'
   pod "Material", :git => "https://github.com/CosmicMind/Material"  
+  pod "UICircularProgressRing"
 
   target 'JumpstartTests' do
     inherit! :search_paths
