@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		64309E9D1FD1086400AAE96F /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64309E9C1FD1086400AAE96F /* Task.swift */; };
+		64BCCAAE1FD1BE200001D290 /* TasksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BCCAAD1FD1BE200001D290 /* TasksTableViewCell.swift */; };
+		64BCCAB01FD1EC620001D290 /* TaskTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BCCAAF1FD1EC620001D290 /* TaskTableViewController.swift */; };
 		88E0E5D8BB06215A1B871B78 /* Pods_JumpstartUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE1FF19A1E3A6049C590D5E9 /* Pods_JumpstartUITests.framework */; };
 		A06319ACB3F8B13AAB8AA5A0 /* Pods_JumpstartTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F3CDEF17FED4E9A967139F2 /* Pods_JumpstartTests.framework */; };
 		C00EB7211FB501D300EF3335 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00EB7201FB501D300EF3335 /* AppDelegate.swift */; };
@@ -50,6 +53,9 @@
 /* Begin PBXFileReference section */
 		20EA4E2A9C71AD6A2391FFB9 /* Pods-JumpstartUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JumpstartUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JumpstartUITests/Pods-JumpstartUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		62DC9DB95063279E66C2B715 /* Pods-JumpstartTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JumpstartTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JumpstartTests/Pods-JumpstartTests.debug.xcconfig"; sourceTree = "<group>"; };
+		64309E9C1FD1086400AAE96F /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		64BCCAAD1FD1BE200001D290 /* TasksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksTableViewCell.swift; sourceTree = "<group>"; };
+		64BCCAAF1FD1EC620001D290 /* TaskTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TaskTableViewController.swift; path = Jumpstart/ViewControllers/TaskTableViewController.swift; sourceTree = SOURCE_ROOT; };
 		7D3BC06F67F79B2277CEC8F3 /* Pods-Jumpstart.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jumpstart.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Jumpstart/Pods-Jumpstart.debug.xcconfig"; sourceTree = "<group>"; };
 		7F3CDEF17FED4E9A967139F2 /* Pods_JumpstartTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JumpstartTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		897B796EE4F5957DCC049EE7 /* Pods-JumpstartTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JumpstartTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-JumpstartTests/Pods-JumpstartTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -201,6 +207,7 @@
 			children = (
 				C0776AE51FBE2D7C004D6A85 /* NewUser.swift */,
 				EE2400E01FD0987200B52DD4 /* Project.swift */,
+				64309E9C1FD1086400AAE96F /* Task.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -220,12 +227,14 @@
 		C09B097B1FBBAEE500DE17C3 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				64BCCAAF1FD1EC620001D290 /* TaskTableViewController.swift */,
 				EE94EDBA1FCE16C00062E445 /* ProjectTableViewCell.swift */,
 				C09B09891FBBF2BD00DE17C3 /* FirstViewController.swift */,
 				C09B098D1FBBF2CA00DE17C3 /* SecondViewController.swift */,
 				C09B09871FBBF2BC00DE17C3 /* LandingPageViewController.swift */,
 				C0DEBE7C1FBD329600741DBA /* RegisterViewController.swift */,
 				C09B09881FBBF2BC00DE17C3 /* LoginViewController.swift */,
+				64BCCAAD1FD1BE200001D290 /* TasksTableViewCell.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -550,10 +559,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64BCCAAE1FD1BE200001D290 /* TasksTableViewCell.swift in Sources */,
 				C09B098E1FBBF2CA00DE17C3 /* SecondViewController.swift in Sources */,
+				64BCCAB01FD1EC620001D290 /* TaskTableViewController.swift in Sources */,
 				EE94EDBB1FCE16C00062E445 /* ProjectTableViewCell.swift in Sources */,
 				C0776AE61FBE2D7C004D6A85 /* NewUser.swift in Sources */,
 				EE2400E11FD0987200B52DD4 /* Project.swift in Sources */,
+				64309E9D1FD1086400AAE96F /* Task.swift in Sources */,
 				C09B098C1FBBF2BD00DE17C3 /* FirstViewController.swift in Sources */,
 				C0DEBE7D1FBD329700741DBA /* RegisterViewController.swift in Sources */,
 				C09B098B1FBBF2BD00DE17C3 /* LoginViewController.swift in Sources */,
