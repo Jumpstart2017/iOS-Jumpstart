@@ -19,10 +19,26 @@ class TasksTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        styleCellContents()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-
+    
+    private func styleCellContents() {
+        //descriptionLabel
+        
+        //deadlineLabel
+        deadlineLabel.textColor = .jRed
+        
+        //reminderLabel
+        
+        //progressSlider
+        progressSlider.minimumTrackTintColor = .jGreen
+        progressSlider.isContinuous = false 
+        
+        //removeButton
+    }
 }
