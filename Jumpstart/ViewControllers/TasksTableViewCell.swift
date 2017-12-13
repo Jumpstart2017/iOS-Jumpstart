@@ -7,15 +7,24 @@
 //
 
 import UIKit
+import Material
 
 class TasksTableViewCell: UITableViewCell {
     
     //MARK: Properties
+    @IBOutlet weak var taskCard: UIView!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var deadlineLabel: UILabel!
     @IBOutlet weak var reminderLabel: UILabel!
     @IBOutlet weak var progressSlider: UISlider!
     @IBOutlet weak var removeButton: UIButton!
+    
+    //MARK: Actions
+    @IBAction func updateProgress(_ sender: Any) {
+    }
+    
+    @IBAction func deleteTask(_ sender: Any) {
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -37,8 +46,11 @@ class TasksTableViewCell: UITableViewCell {
         
         //progressSlider
         progressSlider.minimumTrackTintColor = .jGreen
-        progressSlider.isContinuous = false 
+        progressSlider.isContinuous = false
         
         //removeButton
+    }
+    
+    override func layoutSubviews() {
     }
 }

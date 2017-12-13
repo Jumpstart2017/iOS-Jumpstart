@@ -62,6 +62,7 @@ class TaskTableViewController: UITableViewController {
         cell.descriptionLabel.text = task.description
         cell.reminderLabel.text = reminderString[task.reminder!]
         cell.deadlineLabel.text = task.deadline
+        cell.progressSlider.value = Float(task.progress!) / 100.0
     
         return cell
     }
@@ -115,10 +116,10 @@ class TaskTableViewController: UITableViewController {
     
     //create three tasks and append them to list
     private func loadSampleTasks() {
-    
+        //modify this later to pull from database
         var Task1 = Task(
             deadline: "11/24/17", 
-            description: "Dissertaion", 
+            description: "Paper",
             progress: 75, 
             reminder: 0
         )
@@ -132,12 +133,11 @@ class TaskTableViewController: UITableViewController {
         
         var Task3 = Task(
             deadline: "3/30/18", 
-            description: "Dissertaion", 
+            description: "Introduction to book",
             progress: 10, 
             reminder: 2
         )
         
         taskList += [Task1, Task2, Task3] 
-        print(taskList)
     }
 }
