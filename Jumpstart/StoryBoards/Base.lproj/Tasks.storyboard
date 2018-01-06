@@ -21,49 +21,66 @@
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TasksTableViewCell" rowHeight="130" id="Km0-ol-cA9" customClass="TasksTableViewCell" customModule="Jumpstart" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="130"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Km0-ol-cA9" id="vjR-Ze-gVt" userLabel="Task">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Km0-ol-cA9" id="vjR-Ze-gVt" userLabel="TaskView">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="129.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ilz-Cm-luF" userLabel="Description">
-                                            <rect key="frame" x="30" y="15" width="289" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j7k-Xg-9Gq" userLabel="Deadline">
-                                            <rect key="frame" x="30" y="40" width="289" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4mC-7F-t1w" userLabel="Reminder">
-                                            <rect key="frame" x="30" y="65" width="289" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="P1z-sG-I9w" userLabel="Progress">
-                                            <rect key="frame" x="28" y="90" width="349" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <connections>
-                                                <action selector="updateProgress:" destination="Km0-ol-cA9" eventType="valueChanged" id="0z0-9B-PLs"/>
-                                            </connections>
-                                        </slider>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BJo-ve-gbP" userLabel="Remove">
-                                            <rect key="frame" x="330" y="11" width="46" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="X">
-                                                <color key="titleColor" red="1" green="0.0" blue="0.011644906383057929" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="deleteTask:" destination="Km0-ol-cA9" eventType="touchUpInside" id="ikI-uh-DiJ"/>
-                                            </connections>
-                                        </button>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rEh-LH-oTT" userLabel="TaskCard">
+                                            <rect key="frame" x="6" y="6" width="363" height="117.5"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ilz-Cm-luF" userLabel="Description">
+                                                    <rect key="frame" x="18" y="65" width="289" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j7k-Xg-9Gq" userLabel="Deadline">
+                                                    <rect key="frame" x="18" y="38" width="289" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4mC-7F-t1w" userLabel="Reminder">
+                                                    <rect key="frame" x="18" y="9" width="289" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BJo-ve-gbP" userLabel="Remove">
+                                                    <rect key="frame" x="325" y="2" width="30" height="30"/>
+                                                    <state key="normal" title="X">
+                                                        <color key="titleColor" red="1" green="0.0" blue="0.011644906383057929" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="deleteTask:" destination="Km0-ol-cA9" eventType="touchUpInside" id="ikI-uh-DiJ"/>
+                                                    </connections>
+                                                </button>
+                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="P1z-sG-I9w" userLabel="Progress">
+                                                    <rect key="frame" x="16" y="83" width="331" height="31"/>
+                                                    <connections>
+                                                        <action selector="updateProgress:" destination="Km0-ol-cA9" eventType="valueChanged" id="0z0-9B-PLs"/>
+                                                    </connections>
+                                                </slider>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="P1z-sG-I9w" secondAttribute="bottom" constant="4.5" id="9AG-4Z-DIL"/>
+                                                <constraint firstItem="BJo-ve-gbP" firstAttribute="top" secondItem="rEh-LH-oTT" secondAttribute="top" constant="2" id="AJu-3y-ghs"/>
+                                                <constraint firstAttribute="trailing" secondItem="BJo-ve-gbP" secondAttribute="trailing" constant="8" id="Rf4-UD-hNZ"/>
+                                                <constraint firstItem="P1z-sG-I9w" firstAttribute="leading" secondItem="rEh-LH-oTT" secondAttribute="leading" constant="18" id="w0N-s4-tvg"/>
+                                                <constraint firstAttribute="trailing" secondItem="P1z-sG-I9w" secondAttribute="trailing" constant="18" id="xHH-4v-hL8"/>
+                                            </constraints>
+                                        </view>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="rEh-LH-oTT" firstAttribute="leading" secondItem="vjR-Ze-gVt" secondAttribute="leading" constant="6" id="IIe-v4-XcL"/>
+                                        <constraint firstItem="rEh-LH-oTT" firstAttribute="top" secondItem="vjR-Ze-gVt" secondAttribute="top" constant="6" id="Mn5-nL-enA"/>
+                                        <constraint firstAttribute="bottom" secondItem="rEh-LH-oTT" secondAttribute="bottom" constant="6" id="bfw-vJ-NFz"/>
+                                        <constraint firstAttribute="trailing" secondItem="rEh-LH-oTT" secondAttribute="trailing" constant="6" id="ybk-ih-sRt"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="deadlineLabel" destination="j7k-Xg-9Gq" id="Ulq-Dy-1Ln"/>
@@ -71,7 +88,7 @@
                                     <outlet property="progressSlider" destination="P1z-sG-I9w" id="ZQb-Kz-KCE"/>
                                     <outlet property="reminderLabel" destination="4mC-7F-t1w" id="8Q1-jw-vTJ"/>
                                     <outlet property="removeButton" destination="BJo-ve-gbP" id="LBY-oY-F4M"/>
-                                    <outlet property="taskCard" destination="vjR-Ze-gVt" id="jaI-wg-6mG"/>
+                                    <outlet property="taskCard" destination="rEh-LH-oTT" id="1LU-9r-VMz"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -84,7 +101,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JZM-k5-etC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="364" y="-279"/>
+            <point key="canvasLocation" x="364" y="-279.31034482758622"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fYO-2q-ccG">

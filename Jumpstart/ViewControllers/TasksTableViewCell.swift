@@ -19,12 +19,7 @@ class TasksTableViewCell: UITableViewCell {
     @IBOutlet weak var progressSlider: UISlider!
     @IBOutlet weak var removeButton: UIButton!
     
-    //MARK: Actions
-    @IBAction func updateProgress(_ sender: Any) {
-    }
-    
-    @IBAction func deleteTask(_ sender: Any) {
-    }
+
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -36,6 +31,14 @@ class TasksTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
+    //MARK: Actions
+    @IBAction func updateProgress(_ sender: Any) {
+    }
+    
+    @IBAction func deleteTask(_ sender: Any) {
+    }
+    
+    //MARK: Styling
     private func styleCellContents() {
         //descriptionLabel
         
@@ -47,10 +50,17 @@ class TasksTableViewCell: UITableViewCell {
         //progressSlider
         progressSlider.minimumTrackTintColor = .jGreen
         progressSlider.isContinuous = false
+        progressSlider.
         
         //removeButton
-    }
-    
-    override func layoutSubviews() {
+        
+        //card
+        taskCard.backgroundColor = UIColor.white
+        contentView.backgroundColor = Color.grey.lighten5
+        taskCard.layer.cornerRadius = 2.0
+        taskCard.layer.masksToBounds = false
+        taskCard.layer.shadowColor = Color.black.cgColor
+        taskCard.layer.shadowOffset = CGSize(width: 0.2, height: 0.2)
+        taskCard.layer.shadowOpacity = 0.8
     }
 }
