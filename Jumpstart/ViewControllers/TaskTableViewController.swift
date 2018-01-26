@@ -52,13 +52,15 @@ class TaskTableViewController: UITableViewController {
             
         //get task for row index
         let task = taskList[indexPath.row]
+        
+        //based on the integer value for 'reminder' get string value
         let reminderString = [
             "Daily",
             "Weekly",
             "Monthly"
         ]
         
-        //config
+        //set label and slider values
         cell.descriptionLabel.text = task.description
         cell.reminderLabel.text = reminderString[task.reminder!]
         cell.deadlineLabel.text = task.deadline

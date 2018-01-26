@@ -19,8 +19,6 @@ class TasksTableViewCell: UITableViewCell {
     @IBOutlet weak var progressSlider: UISlider!
     @IBOutlet weak var removeButton: UIButton!
     
-
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -32,10 +30,13 @@ class TasksTableViewCell: UITableViewCell {
     }
     
     //MARK: Actions
-    @IBAction func updateProgress(_ sender: Any) {
+    @IBAction func updateProgress(_ sender: UISlider) {
+        //if progress slider complete, need to hide task
+        //update the value of the task 
     }
     
     @IBAction func deleteTask(_ sender: Any) {
+        //if the sender is the progress slider
     }
     
     //MARK: Styling
@@ -50,7 +51,6 @@ class TasksTableViewCell: UITableViewCell {
         //progressSlider
         progressSlider.minimumTrackTintColor = .jGreen
         progressSlider.isContinuous = false
-        progressSlider.
         
         //removeButton
         
