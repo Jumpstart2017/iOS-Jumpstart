@@ -19,9 +19,6 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var p1: Project?
     override func viewDidLoad() {
         super.viewDidLoad()
-        p1?.title = "Paper 1"
-        p1?.deadline = "11/24/2017"
-        p1?.progress = 70
         // Do any additional setup after loading the view, typically from a nib.
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -68,6 +65,14 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         return cell
     }
-
+    @IBAction func showNewProjectPopUp(_ sender: Any) {
+        let popUpVC = UIStoryboard(name: "Projects", bundle: nil).instantiateViewController(withIdentifier: "newProjectPopUpID") as! NewProjectPopUpViewController
+        self.addChildViewController(popUpVC)
+        popUpVC.view.frame = self.view.frame
+        self.view.addSubview(popUpVC.view)
+        popUpVC.didMove(toParentViewController: self)
+        
+    }
+    
 }
 
