@@ -65,6 +65,12 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         return cell
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination as! SubprojectViewController
+        destination.title = "Project Title" 
+    }
+    
+    
     @IBAction func showNewProjectPopUp(_ sender: Any) {
         let popUpVC = UIStoryboard(name: "Projects", bundle: nil).instantiateViewController(withIdentifier: "newProjectPopUpID") as! NewProjectPopUpViewController
         self.addChildViewController(popUpVC)

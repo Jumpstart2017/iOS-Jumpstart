@@ -89,6 +89,7 @@ class NewProjectPopUpViewController: UIViewController {
         reasearchButton.setBorderWidth(1.0, for: .normal)
         reasearchButton.setBackgroundColor(.jIndependent, for: .selected)
         reasearchButton.setTitleColor(.white, for: .selected)
+        reasearchButton.tintColor = .clear
         reasearchButton.addTarget(self, action: #selector(buttonClicked), for: UIControlEvents.touchUpInside)
 
         
@@ -97,6 +98,7 @@ class NewProjectPopUpViewController: UIViewController {
         writingButton.setBorderWidth(1.0, for: .normal)
         writingButton.setBackgroundColor(.jOrange, for: .selected)
         writingButton.setTitleColor(.white, for: .selected)
+        writingButton.tintColor = .clear
         writingButton.addTarget(self, action: #selector(buttonClicked), for: UIControlEvents.touchUpInside)
 
 
@@ -105,6 +107,7 @@ class NewProjectPopUpViewController: UIViewController {
         revisionButton.setBorderWidth(1.0, for: .normal)
         revisionButton.setBackgroundColor(.jPurple, for: .selected)
         revisionButton.setTitleColor(.white, for: .selected)
+        revisionButton.tintColor = .clear
         revisionButton.addTarget(self, action: #selector(buttonClicked), for: UIControlEvents.touchUpInside)
     }
     

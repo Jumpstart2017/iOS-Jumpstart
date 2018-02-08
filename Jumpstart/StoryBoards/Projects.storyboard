@@ -96,6 +96,7 @@
                                             <outlet property="progressCircle" destination="hWB-3x-f7T" id="xA9-aV-JAO"/>
                                             <outlet property="progressDeadline" destination="lTc-oB-z6q" id="rRn-z2-qpr"/>
                                             <outlet property="progressTitle" destination="l0e-HS-gcF" id="YBL-4B-HiJ"/>
+                                            <segue destination="4JG-wo-Tie" kind="show" identifier="showSubProject" id="dRH-24-7sV"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -125,6 +126,110 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1809" y="818"/>
+        </scene>
+        <!--Subproject View Controller-->
+        <scene sceneID="4R8-Tr-Mna">
+            <objects>
+                <viewController storyboardIdentifier="Subproject" id="4JG-wo-Tie" customClass="SubprojectViewController" customModule="Jumpstart" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="WUQ-lo-cEc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g5c-92-dRh">
+                                <rect key="frame" x="0.0" y="94" width="375" height="135"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Deadline: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S1D-vx-XNF">
+                                        <rect key="frame" x="22" y="30" width="107" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="107" id="Gnl-p8-F2M"/>
+                                            <constraint firstAttribute="height" constant="21" id="SAx-QZ-m1n"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sdQ-Ps-Z65" customClass="MDCFlatButton">
+                                        <rect key="frame" x="22" y="81" width="64" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="64" id="0KV-oM-1ak"/>
+                                            <constraint firstAttribute="height" constant="30" id="N4N-eO-wMk"/>
+                                        </constraints>
+                                        <state key="normal" title="Research"/>
+                                    </button>
+                                    <view contentMode="center" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E7f-Vw-TcP" customClass="UICircularProgressRingView" customModule="UICircularProgressRing">
+                                        <rect key="frame" x="267" y="30" width="75" height="75"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="75" id="KZw-yQ-2cB"/>
+                                            <constraint firstAttribute="height" constant="75" id="T1Q-t2-RM2"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="minValue">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="outerRingWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="innerRingWidth">
+                                                <real key="value" value="3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="maxValue">
+                                                <real key="value" value="100"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="fontColor">
+                                                <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qOh-yi-Ojq" customClass="MDCFlatButton">
+                                        <rect key="frame" x="173" y="68" width="67" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="64" id="1dn-y3-irq"/>
+                                            <constraint firstAttribute="height" constant="30" id="2gM-zA-D6l"/>
+                                        </constraints>
+                                        <state key="normal" title="Revision"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fse-hL-Kxt" customClass="MDCFlatButton">
+                                        <rect key="frame" x="101" y="68" width="64" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="PFC-Ub-3gW"/>
+                                            <constraint firstAttribute="width" constant="64" id="h9z-vC-Rk7"/>
+                                        </constraints>
+                                        <state key="normal" title="Writing"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="E7f-Vw-TcP" secondAttribute="trailing" constant="30" id="GOH-hh-2yD"/>
+                                    <constraint firstItem="S1D-vx-XNF" firstAttribute="top" secondItem="g5c-92-dRh" secondAttribute="top" constant="30" id="IA2-bt-jg2"/>
+                                    <constraint firstItem="S1D-vx-XNF" firstAttribute="leading" secondItem="g5c-92-dRh" secondAttribute="leading" constant="10" id="IKY-Gi-yg0"/>
+                                    <constraint firstAttribute="height" constant="135" id="beZ-h7-nGn"/>
+                                    <constraint firstAttribute="width" constant="350" id="j49-MB-yle"/>
+                                    <constraint firstItem="sdQ-Ps-Z65" firstAttribute="top" secondItem="S1D-vx-XNF" secondAttribute="bottom" constant="30" id="lCX-Pq-gDK"/>
+                                    <constraint firstItem="E7f-Vw-TcP" firstAttribute="top" secondItem="g5c-92-dRh" secondAttribute="top" constant="30" id="vDU-od-f5W"/>
+                                    <constraint firstAttribute="bottom" secondItem="E7f-Vw-TcP" secondAttribute="bottom" constant="30" id="wpM-lV-DD0"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="g5c-92-dRh" firstAttribute="leading" secondItem="yd4-YQ-XDm" secondAttribute="leading" id="GUY-Af-qUt"/>
+                            <constraint firstItem="g5c-92-dRh" firstAttribute="trailing" secondItem="yd4-YQ-XDm" secondAttribute="trailing" id="lqj-57-wal"/>
+                            <constraint firstItem="g5c-92-dRh" firstAttribute="top" secondItem="yd4-YQ-XDm" secondAttribute="top" constant="30" id="wCi-3d-vmE"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="yd4-YQ-XDm"/>
+                    </view>
+                    <connections>
+                        <outlet property="deadlineTitle" destination="S1D-vx-XNF" id="feU-f9-OIO"/>
+                        <outlet property="researchButton" destination="sdQ-Ps-Z65" id="7GZ-7B-YrI"/>
+                        <outlet property="revisionButton" destination="qOh-yi-Ojq" id="9iU-oB-fXB"/>
+                        <outlet property="totalProgressCircle" destination="E7f-Vw-TcP" id="abH-a5-Fdd"/>
+                        <outlet property="writingButton" destination="fse-hL-Kxt" id="slh-c8-x4w"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JCJ-op-8fF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2800.8000000000002" y="815.44227886056979"/>
         </scene>
         <!--New Project Pop Up View Controller-->
         <scene sceneID="G7u-i5-qjk">
