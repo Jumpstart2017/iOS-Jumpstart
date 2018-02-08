@@ -19,6 +19,10 @@ class NewUser: Mappable {
         
     }
     
+    required init?() {
+        
+    }
+    
     func mapping(map: Map) {
         firstName <- map["firstName"]
         lastName <- map["lastName"]

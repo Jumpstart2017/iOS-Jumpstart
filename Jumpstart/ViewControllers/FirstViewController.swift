@@ -12,6 +12,26 @@ import Alamofire
 import MaterialComponents
 import Material
 
+//struct Section {
+//    var name: String
+//    var items: [String]
+//    var collapsed: Bool
+//    
+//    init(name: String, items: [Item], collapsed: Bool = false) {
+//        self.name = name
+//        self.items = items
+//        self.collapsed = collapsed
+//    }
+//}
+//
+//var sections = [Section]()
+//
+//sections = [
+//    Section(name: "Mac", items: ["MacBook", "MacBook Air"]),
+//    Section(name: "iPad", items: ["iPad Pro", "iPad Air 2"]),
+//    Section(name: "iPhone", items: ["iPhone 7", "iPhone 6"])
+//]
+
 class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
 
     @IBOutlet weak var tableView: UITableView!
@@ -25,6 +45,8 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         tableView.delegate = self
         tableView.dataSource = self
         tableView.bounces = false
+        tableView.estimatedRowHeight = 44.0
+        tableView.rowHeight = UITableViewAutomaticDimension
 
         self.view.backgroundColor = Color.grey.lighten5
     }

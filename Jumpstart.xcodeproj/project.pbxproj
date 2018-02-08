@@ -15,8 +15,10 @@
 		C00EB72D1FB501D300EF3335 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C00EB72B1FB501D300EF3335 /* LaunchScreen.storyboard */; };
 		C00EB7381FB501D300EF3335 /* JumpstartTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00EB7371FB501D300EF3335 /* JumpstartTests.swift */; };
 		C00EB7431FB501D300EF3335 /* JumpstartUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00EB7421FB501D300EF3335 /* JumpstartUITests.swift */; };
+		C0127F562023F70F00681D17 /* CollapsibleTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0127F552023F70F00681D17 /* CollapsibleTableViewHeader.swift */; };
 		C02C4B021FC4D8E10070B524 /* Tasks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C02C4B001FC4D8E10070B524 /* Tasks.storyboard */; };
 		C04F2C7C1FB50C0700A36A81 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04F2C7B1FB50C0700A36A81 /* Colors.swift */; };
+		C062D50F201A8639009C90AA /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C062D50E201A8639009C90AA /* RegisterViewModel.swift */; };
 		C07271FC1FCCE4010003F006 /* VideoCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07271FB1FCCE4010003F006 /* VideoCard.swift */; };
 		C07271FE1FCE10C70003F006 /* VideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07271FD1FCE10C70003F006 /* VideoModel.swift */; };
 		C07272021FCE14800003F006 /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07272011FCE14800003F006 /* VideoCell.swift */; };
@@ -74,8 +76,10 @@
 		C00EB73E1FB501D300EF3335 /* JumpstartUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JumpstartUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C00EB7421FB501D300EF3335 /* JumpstartUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JumpstartUITests.swift; sourceTree = "<group>"; };
 		C00EB7441FB501D300EF3335 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C0127F552023F70F00681D17 /* CollapsibleTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollapsibleTableViewHeader.swift; sourceTree = "<group>"; };
 		C02C4B011FC4D8E10070B524 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Tasks.storyboard; sourceTree = "<group>"; };
 		C04F2C7B1FB50C0700A36A81 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		C062D50E201A8639009C90AA /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		C07271FB1FCCE4010003F006 /* VideoCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCard.swift; sourceTree = "<group>"; };
 		C07271FD1FCE10C70003F006 /* VideoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoModel.swift; sourceTree = "<group>"; };
 		C07272011FCE14800003F006 /* VideoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
@@ -175,6 +179,7 @@
 			children = (
 				C00EB7201FB501D300EF3335 /* AppDelegate.swift */,
 				C0776AE41FBE2D34004D6A85 /* Models */,
+				C062D50C201A860E009C90AA /* ViewModels */,
 				C09B097B1FBBAEE500DE17C3 /* ViewControllers */,
 				C09B097A1FBBAED000DE17C3 /* StoryBoards */,
 				C00EB7291FB501D300EF3335 /* Assets.xcassets */,
@@ -212,12 +217,21 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		C062D50C201A860E009C90AA /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				C062D50E201A8639009C90AA /* RegisterViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		C07271FA1FCCE3EC0003F006 /* Subclasses */ = {
 			isa = PBXGroup;
 			children = (
 				EE94EDBA1FCE16C00062E445 /* ProjectTableViewCell.swift */,
 				C07272011FCE14800003F006 /* VideoCell.swift */,
 				C07271FB1FCCE4010003F006 /* VideoCard.swift */,
+				C0127F552023F70F00681D17 /* CollapsibleTableViewHeader.swift */,
 			);
 			path = Subclasses;
 			sourceTree = "<group>";
@@ -583,12 +597,14 @@
 				C07271FC1FCCE4010003F006 /* VideoCard.swift in Sources */,
 				EE418A0A201A8809005D94C9 /* NewProjectPopUpViewController.swift in Sources */,
 				C07271FE1FCE10C70003F006 /* VideoModel.swift in Sources */,
+				C062D50F201A8639009C90AA /* RegisterViewModel.swift in Sources */,
 				EE94EDBB1FCE16C00062E445 /* ProjectTableViewCell.swift in Sources */,
 				EE2400E11FD0987200B52DD4 /* Project.swift in Sources */,
 				C09B098C1FBBF2BD00DE17C3 /* FirstViewController.swift in Sources */,
 				C0DEBE7D1FBD329700741DBA /* RegisterViewController.swift in Sources */,
 				C07272041FCE16070003F006 /* FakeData.swift in Sources */,
 				EE146F9B2023BECA000CEDAC /* SubprojectViewController.swift in Sources */,
+				C0127F562023F70F00681D17 /* CollapsibleTableViewHeader.swift in Sources */,
 				C09B098B1FBBF2BD00DE17C3 /* LoginViewController.swift in Sources */,
 				C0F1C3171FCE67A6000270CB /* ViewController.swift in Sources */,
 				C07F60971FD1C9D9001A8AA3 /* NewUser.swift in Sources */,
