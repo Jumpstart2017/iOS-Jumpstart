@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		645C9A50202D00AC00F4A44B /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645C9A4F202D00AC00F4A44B /* Task.swift */; };
+		645C9A53202D00B300F4A44B /* TaskTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645C9A51202D00B300F4A44B /* TaskTableViewController.swift */; };
+		645C9A54202D00B300F4A44B /* TasksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645C9A52202D00B300F4A44B /* TasksTableViewCell.swift */; };
 		88E0E5D8BB06215A1B871B78 /* Pods_JumpstartUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE1FF19A1E3A6049C590D5E9 /* Pods_JumpstartUITests.framework */; };
 		A06319ACB3F8B13AAB8AA5A0 /* Pods_JumpstartTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F3CDEF17FED4E9A967139F2 /* Pods_JumpstartTests.framework */; };
 		C00EB7211FB501D300EF3335 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00EB7201FB501D300EF3335 /* AppDelegate.swift */; };
@@ -55,6 +58,9 @@
 /* Begin PBXFileReference section */
 		20EA4E2A9C71AD6A2391FFB9 /* Pods-JumpstartUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JumpstartUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JumpstartUITests/Pods-JumpstartUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		62DC9DB95063279E66C2B715 /* Pods-JumpstartTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JumpstartTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JumpstartTests/Pods-JumpstartTests.debug.xcconfig"; sourceTree = "<group>"; };
+		645C9A4F202D00AC00F4A44B /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		645C9A51202D00B300F4A44B /* TaskTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskTableViewController.swift; sourceTree = "<group>"; };
+		645C9A52202D00B300F4A44B /* TasksTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksTableViewCell.swift; sourceTree = "<group>"; };
 		7D3BC06F67F79B2277CEC8F3 /* Pods-Jumpstart.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jumpstart.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Jumpstart/Pods-Jumpstart.debug.xcconfig"; sourceTree = "<group>"; };
 		7F3CDEF17FED4E9A967139F2 /* Pods_JumpstartTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JumpstartTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		897B796EE4F5957DCC049EE7 /* Pods-JumpstartTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JumpstartTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-JumpstartTests/Pods-JumpstartTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -221,6 +227,7 @@
 		C0776AE41FBE2D34004D6A85 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				645C9A4F202D00AC00F4A44B /* Task.swift */,
 				C07271FD1FCE10C70003F006 /* VideoModel.swift */,
 				EE2400E01FD0987200B52DD4 /* Project.swift */,
 				C07F60961FD1C9D9001A8AA3 /* NewUser.swift */,
@@ -243,6 +250,8 @@
 		C09B097B1FBBAEE500DE17C3 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				645C9A52202D00B300F4A44B /* TasksTableViewCell.swift */,
+				645C9A51202D00B300F4A44B /* TaskTableViewController.swift */,
 				C09B09891FBBF2BD00DE17C3 /* FirstViewController.swift */,
 				C09B098D1FBBF2CA00DE17C3 /* SecondViewController.swift */,
 				C09B09871FBBF2BC00DE17C3 /* LandingPageViewController.swift */,
@@ -581,8 +590,11 @@
 				C09B098C1FBBF2BD00DE17C3 /* FirstViewController.swift in Sources */,
 				C0DEBE7D1FBD329700741DBA /* RegisterViewController.swift in Sources */,
 				C07272041FCE16070003F006 /* FakeData.swift in Sources */,
+				645C9A50202D00AC00F4A44B /* Task.swift in Sources */,
 				C09B098B1FBBF2BD00DE17C3 /* LoginViewController.swift in Sources */,
 				C0F1C3171FCE67A6000270CB /* ViewController.swift in Sources */,
+				645C9A53202D00B300F4A44B /* TaskTableViewController.swift in Sources */,
+				645C9A54202D00B300F4A44B /* TasksTableViewCell.swift in Sources */,
 				C07F60971FD1C9D9001A8AA3 /* NewUser.swift in Sources */,
 				C07272021FCE14800003F006 /* VideoCell.swift in Sources */,
 				C04F2C7C1FB50C0700A36A81 /* Colors.swift in Sources */,
