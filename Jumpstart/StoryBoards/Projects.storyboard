@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dE7-VJ-wtt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dE7-VJ-wtt">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -96,6 +96,7 @@
                                             <outlet property="progressCircle" destination="hWB-3x-f7T" id="xA9-aV-JAO"/>
                                             <outlet property="progressDeadline" destination="lTc-oB-z6q" id="rRn-z2-qpr"/>
                                             <outlet property="progressTitle" destination="l0e-HS-gcF" id="YBL-4B-HiJ"/>
+                                            <segue destination="4JG-wo-Tie" kind="show" identifier="showSubProject" id="dRH-24-7sV"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -110,7 +111,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Projects" id="Mcj-oC-4a5"/>
+                    <navigationItem key="navigationItem" title="Projects" id="Mcj-oC-4a5">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="pVP-3m-hVu">
+                            <connections>
+                                <action selector="showNewProjectPopUp:" destination="8rJ-Kc-sve" id="wJF-wl-vGG"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="Ncn-lE-NZV" id="97p-iV-99O"/>
                         <segue destination="XpQ-LZ-NhK" kind="show" id="wrk-c2-fke"/>
@@ -119,6 +126,241 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1809" y="818"/>
+        </scene>
+        <!--Subproject View Controller-->
+        <scene sceneID="4R8-Tr-Mna">
+            <objects>
+                <viewController storyboardIdentifier="Subproject" id="4JG-wo-Tie" customClass="SubprojectViewController" customModule="Jumpstart" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="WUQ-lo-cEc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g5c-92-dRh">
+                                <rect key="frame" x="0.0" y="94" width="375" height="135"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Deadline: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S1D-vx-XNF">
+                                        <rect key="frame" x="22" y="30" width="107" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="107" id="Gnl-p8-F2M"/>
+                                            <constraint firstAttribute="height" constant="21" id="SAx-QZ-m1n"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sdQ-Ps-Z65" customClass="MDCFlatButton">
+                                        <rect key="frame" x="22" y="81" width="64" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="64" id="0KV-oM-1ak"/>
+                                            <constraint firstAttribute="height" constant="30" id="N4N-eO-wMk"/>
+                                        </constraints>
+                                        <state key="normal" title="Research"/>
+                                    </button>
+                                    <view contentMode="center" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E7f-Vw-TcP" customClass="UICircularProgressRingView" customModule="UICircularProgressRing">
+                                        <rect key="frame" x="267" y="30" width="75" height="75"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="75" id="KZw-yQ-2cB"/>
+                                            <constraint firstAttribute="height" constant="75" id="T1Q-t2-RM2"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="minValue">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="outerRingWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="innerRingWidth">
+                                                <real key="value" value="3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="maxValue">
+                                                <real key="value" value="100"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="fontColor">
+                                                <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qOh-yi-Ojq" customClass="MDCFlatButton">
+                                        <rect key="frame" x="173" y="68" width="67" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="64" id="1dn-y3-irq"/>
+                                            <constraint firstAttribute="height" constant="30" id="2gM-zA-D6l"/>
+                                        </constraints>
+                                        <state key="normal" title="Revision"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fse-hL-Kxt" customClass="MDCFlatButton">
+                                        <rect key="frame" x="101" y="68" width="64" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="PFC-Ub-3gW"/>
+                                            <constraint firstAttribute="width" constant="64" id="h9z-vC-Rk7"/>
+                                        </constraints>
+                                        <state key="normal" title="Writing"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="E7f-Vw-TcP" secondAttribute="trailing" constant="30" id="GOH-hh-2yD"/>
+                                    <constraint firstItem="S1D-vx-XNF" firstAttribute="top" secondItem="g5c-92-dRh" secondAttribute="top" constant="30" id="IA2-bt-jg2"/>
+                                    <constraint firstItem="S1D-vx-XNF" firstAttribute="leading" secondItem="g5c-92-dRh" secondAttribute="leading" constant="10" id="IKY-Gi-yg0"/>
+                                    <constraint firstAttribute="height" constant="135" id="beZ-h7-nGn"/>
+                                    <constraint firstAttribute="width" constant="350" id="j49-MB-yle"/>
+                                    <constraint firstItem="sdQ-Ps-Z65" firstAttribute="top" secondItem="S1D-vx-XNF" secondAttribute="bottom" constant="30" id="lCX-Pq-gDK"/>
+                                    <constraint firstItem="E7f-Vw-TcP" firstAttribute="top" secondItem="g5c-92-dRh" secondAttribute="top" constant="30" id="vDU-od-f5W"/>
+                                    <constraint firstAttribute="bottom" secondItem="E7f-Vw-TcP" secondAttribute="bottom" constant="30" id="wpM-lV-DD0"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="g5c-92-dRh" firstAttribute="leading" secondItem="yd4-YQ-XDm" secondAttribute="leading" id="GUY-Af-qUt"/>
+                            <constraint firstItem="g5c-92-dRh" firstAttribute="trailing" secondItem="yd4-YQ-XDm" secondAttribute="trailing" id="lqj-57-wal"/>
+                            <constraint firstItem="g5c-92-dRh" firstAttribute="top" secondItem="yd4-YQ-XDm" secondAttribute="top" constant="30" id="wCi-3d-vmE"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="yd4-YQ-XDm"/>
+                    </view>
+                    <connections>
+                        <outlet property="deadlineTitle" destination="S1D-vx-XNF" id="feU-f9-OIO"/>
+                        <outlet property="researchButton" destination="sdQ-Ps-Z65" id="7GZ-7B-YrI"/>
+                        <outlet property="revisionButton" destination="qOh-yi-Ojq" id="9iU-oB-fXB"/>
+                        <outlet property="totalProgressCircle" destination="E7f-Vw-TcP" id="abH-a5-Fdd"/>
+                        <outlet property="writingButton" destination="fse-hL-Kxt" id="slh-c8-x4w"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JCJ-op-8fF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2800.8000000000002" y="815.44227886056979"/>
+        </scene>
+        <!--New Project Pop Up View Controller-->
+        <scene sceneID="G7u-i5-qjk">
+            <objects>
+                <viewController storyboardIdentifier="newProjectPopUpID" id="Tzf-La-RHm" customClass="NewProjectPopUpViewController" customModule="Jumpstart" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="i5Y-2T-bwK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ryU-OG-zGO">
+                                <rect key="frame" x="52" y="198.5" width="270" height="270"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p99-RV-7ys">
+                                        <rect key="frame" x="8" y="8" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="KvQ-ER-Yhy"/>
+                                            <constraint firstAttribute="width" constant="30" id="xpi-1R-XTC"/>
+                                        </constraints>
+                                        <state key="normal" title="X"/>
+                                        <connections>
+                                            <action selector="cancleNewProject:" destination="Tzf-La-RHm" eventType="touchUpInside" id="d4h-gC-YxS"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ed5-7T-WZN" customClass="MDCRaisedButton">
+                                        <rect key="frame" x="85" y="222" width="100" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="UhQ-nF-XpP"/>
+                                            <constraint firstAttribute="width" constant="100" id="aZo-1D-crv"/>
+                                        </constraints>
+                                        <state key="normal" title="Create"/>
+                                        <connections>
+                                            <action selector="createButtonSelected:" destination="Tzf-La-RHm" eventType="touchUpInside" id="C69-on-Ezt"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Fp-cf-6fi" customClass="MDCFlatButton">
+                                        <rect key="frame" x="110.5" y="176" width="49" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="DTZ-Cx-t8J"/>
+                                        </constraints>
+                                        <state key="normal" title="Writing"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sEr-vA-HMQ" customClass="MDCFlatButton">
+                                        <rect key="frame" x="2" y="176" width="64" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="trv-Qo-4SW"/>
+                                        </constraints>
+                                        <state key="normal" title="Research"/>
+                                    </button>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vy4-zt-DaE" customClass="TextField" customModule="Material">
+                                        <rect key="frame" x="55" y="74" width="160" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="Adi-HP-l8E"/>
+                                            <constraint firstAttribute="width" constant="160" id="bXv-BE-YWn"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5kd-EF-i6B" customClass="TextField" customModule="Material">
+                                        <rect key="frame" x="55" y="134" width="160" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="4kC-qI-Pg0"/>
+                                            <constraint firstAttribute="width" constant="160" id="u6S-kc-T8Y"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Project" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eu4-pA-e50">
+                                        <rect key="frame" x="88.5" y="15" width="93" height="29"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="29" id="EnP-qr-B1y"/>
+                                            <constraint firstAttribute="width" constant="93" id="fSK-Kc-hoK"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cz7-tB-iZH" customClass="MDCFlatButton">
+                                        <rect key="frame" x="210" y="176" width="58" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="Pyj-Kx-P0D"/>
+                                        </constraints>
+                                        <state key="normal" title="Revision"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstItem="eu4-pA-e50" firstAttribute="top" secondItem="ryU-OG-zGO" secondAttribute="top" constant="15" id="0m5-Yg-cnh"/>
+                                    <constraint firstAttribute="width" constant="270" id="3KR-RE-YvR"/>
+                                    <constraint firstItem="cz7-tB-iZH" firstAttribute="top" secondItem="5kd-EF-i6B" secondAttribute="bottom" constant="12" id="70u-PS-JJQ"/>
+                                    <constraint firstItem="eu4-pA-e50" firstAttribute="centerX" secondItem="ryU-OG-zGO" secondAttribute="centerX" id="AoW-LB-dut"/>
+                                    <constraint firstItem="p99-RV-7ys" firstAttribute="leading" secondItem="ryU-OG-zGO" secondAttribute="leading" constant="8" id="DBj-3s-geX"/>
+                                    <constraint firstItem="Vy4-zt-DaE" firstAttribute="centerX" secondItem="ryU-OG-zGO" secondAttribute="centerX" id="E8c-ax-CJN"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ed5-7T-WZN" secondAttribute="bottom" constant="8" id="IlZ-6j-oco"/>
+                                    <constraint firstItem="sEr-vA-HMQ" firstAttribute="top" secondItem="5kd-EF-i6B" secondAttribute="bottom" constant="12" id="Jcj-j7-ds4"/>
+                                    <constraint firstItem="6Fp-cf-6fi" firstAttribute="top" secondItem="5kd-EF-i6B" secondAttribute="bottom" constant="12" id="Jdf-jd-UTy"/>
+                                    <constraint firstItem="5kd-EF-i6B" firstAttribute="top" secondItem="Vy4-zt-DaE" secondAttribute="bottom" constant="30" id="R7P-E1-R5T"/>
+                                    <constraint firstItem="5kd-EF-i6B" firstAttribute="centerX" secondItem="ryU-OG-zGO" secondAttribute="centerX" id="RNm-aA-4CB"/>
+                                    <constraint firstItem="Vy4-zt-DaE" firstAttribute="top" secondItem="eu4-pA-e50" secondAttribute="bottom" constant="30" id="WdX-eS-e8r"/>
+                                    <constraint firstItem="Ed5-7T-WZN" firstAttribute="centerX" secondItem="ryU-OG-zGO" secondAttribute="centerX" id="X50-0a-1dX"/>
+                                    <constraint firstAttribute="trailing" secondItem="cz7-tB-iZH" secondAttribute="trailing" constant="2" id="bOK-uN-pjB"/>
+                                    <constraint firstAttribute="height" constant="270" id="dz4-36-KdV"/>
+                                    <constraint firstItem="cz7-tB-iZH" firstAttribute="leading" secondItem="6Fp-cf-6fi" secondAttribute="trailing" constant="2" id="fKj-84-u5g"/>
+                                    <constraint firstItem="6Fp-cf-6fi" firstAttribute="leading" secondItem="sEr-vA-HMQ" secondAttribute="trailing" constant="2" id="mD3-Uc-ZKN"/>
+                                    <constraint firstItem="sEr-vA-HMQ" firstAttribute="leading" secondItem="ryU-OG-zGO" secondAttribute="leading" constant="2" id="s1g-iO-1yO"/>
+                                    <constraint firstItem="p99-RV-7ys" firstAttribute="top" secondItem="ryU-OG-zGO" secondAttribute="top" constant="8" id="wIy-f6-U31"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ryU-OG-zGO" firstAttribute="centerY" secondItem="i5Y-2T-bwK" secondAttribute="centerY" id="BP8-UJ-joC"/>
+                            <constraint firstItem="ryU-OG-zGO" firstAttribute="centerX" secondItem="i5Y-2T-bwK" secondAttribute="centerX" id="NAl-eu-eW0"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="aFm-Ag-eVB"/>
+                    </view>
+                    <connections>
+                        <outlet property="cancelNewProjectButton" destination="p99-RV-7ys" id="vxz-jW-GdC"/>
+                        <outlet property="createNewProjectButton" destination="Ed5-7T-WZN" id="TfR-D9-efM"/>
+                        <outlet property="newProjectDeadlineTextField" destination="5kd-EF-i6B" id="Wk0-yL-ja1"/>
+                        <outlet property="newProjectLabel" destination="eu4-pA-e50" id="sw2-rd-H5E"/>
+                        <outlet property="newProjectNameTextField" destination="Vy4-zt-DaE" id="ddL-dd-SJJ"/>
+                        <outlet property="reasearchButton" destination="sEr-vA-HMQ" id="SH9-Dc-lhd"/>
+                        <outlet property="revisionButton" destination="cz7-tB-iZH" id="jhY-ac-beV"/>
+                        <outlet property="writingButton" destination="6Fp-cf-6fi" id="vrE-cS-1R8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hnI-lS-Ta6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1809" y="122"/>
         </scene>
         <!--LoginSignUp-->
         <scene sceneID="aFG-no-q20">
