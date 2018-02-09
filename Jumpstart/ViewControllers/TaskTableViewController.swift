@@ -19,13 +19,23 @@ class TaskTableViewController: UITableViewController {
         super.viewDidLoad()
 
         loadSampleTasks() //test data
-        self.tableView.separatorColor = .clear
+        
+        // View styling
+        self.tableView.separatorColor = .clear //hide separator between cells
+        
       
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.barTintColor = .jBlue
+        self.navigationController?.navigationBar.backgroundColor = .jBlue
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor:UIColor.white]
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,7 +53,7 @@ class TaskTableViewController: UITableViewController {
         return taskList.count
     }
 
-    /* This function loads the table view with the tasks from taskList */
+    // This function loads the table view with the tasks from taskList
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         //update template identifier
@@ -123,21 +133,21 @@ class TaskTableViewController: UITableViewController {
     //create three tasks and append them to list
     private func loadSampleTasks() {
         //modify this later to pull from database
-        var Task1 = Task(
+        let Task1 = Task(
             deadline: "11/24/17", 
             description: "Paper",
             progress: 75, 
             reminder: 0
         )
         
-        var Task2 = Task(
+        let Task2 = Task(
             deadline: "12/13/18", 
             description: "Dissertaion", 
             progress: 24, 
             reminder: 1
         )
         
-        var Task3 = Task(
+        let Task3 = Task(
             deadline: "3/30/18", 
             description: "Introduction to book",
             progress: 10, 
