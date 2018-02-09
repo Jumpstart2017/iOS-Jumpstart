@@ -28,4 +28,23 @@ func makeVideoModels() -> [VideoModel] {
 
 
 
+struct Section {
+    var name: String
+    var items: [VideoModel]
+    var collapsed: Bool
+    
+    init(name: String, items: [VideoModel], collapsed: Bool = false) {
+        self.name = name
+        self.items = items
+        self.collapsed = collapsed
+    }
+}
+
+var sections = [
+    Section(name: "Research", items: makeVideoModels()),
+    Section(name: "Writing", items: makeVideoModels()),
+    Section(name: "Revision", items: makeVideoModels())
+]
+
+
 
