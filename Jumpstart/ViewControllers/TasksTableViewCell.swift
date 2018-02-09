@@ -57,7 +57,7 @@ class TasksTableViewCell: UITableViewCell {
         
         //card
         taskCard.layer.shadowOpacity = 0.5 //show shadow
-        taskCard.layer.shadowOffset = CGSize(width: -3, height: 3) //left and bottom only
+        taskCard.layer.shadowOffset = CGSize(width: 6, height: 6) //left and bottom only
         taskCard.layer.shadowRadius = 0 //sharp corners
         taskCard.layer.shadowColor = UIColor.lightGray.cgColor
     }
