@@ -11,6 +11,8 @@ import UIKit
 class TaskTableViewController: UITableViewController {
 
     //MARK: Properties
+    
+    // Edit loadSampleTasks() to change contents of the task list
     var taskList = [Task]()
     
     override func viewDidLoad() {
@@ -40,6 +42,7 @@ class TaskTableViewController: UITableViewController {
         return taskList.count
     }
 
+    /* This function loads the table view with the tasks from taskList */
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         //update template identifier
@@ -62,22 +65,22 @@ class TaskTableViewController: UITableViewController {
         
         //set label and slider values
         cell.descriptionLabel.text = task.description
-        cell.reminderLabel.text = reminderString[task.reminder!]
-        cell.deadlineLabel.text = task.deadline
+        cell.reminderLabel.text = reminderString[task.reminder!] + " Reminder"
+        cell.deadlineLabel.text = "Deadline: " + task.deadline!
         cell.progressSlider.value = Float(task.progress!) / 100.0
     
         return cell
     }
 
-    
+    /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-    
+    */
 
-    
+    /*
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
@@ -87,7 +90,7 @@ class TaskTableViewController: UITableViewController {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    
+    */
 
     /*
     // Override to support rearranging the table view.
