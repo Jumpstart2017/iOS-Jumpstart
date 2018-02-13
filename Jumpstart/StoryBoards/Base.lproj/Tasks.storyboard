@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -100,12 +101,41 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Goals" id="aJB-Ap-TLf" userLabel="Goals">
                         <barButtonItem key="backBarButtonItem" title="Back" id="BEt-Br-iay"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="5Aq-rR-pTH" userLabel="New Task"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="5Aq-rR-pTH" userLabel="New Task">
+                            <connections>
+                                <action selector="newTask:" destination="P28-T8-WmV" id="I6K-qj-nnm"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JZM-k5-etC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="364" y="-279.31034482758622"/>
+        </scene>
+        <!--NewTaskPopup-->
+        <scene sceneID="pv7-FF-PWg">
+            <objects>
+                <viewController storyboardIdentifier="NewTaskPopupView" id="oga-k4-acu" userLabel="NewTaskPopup" customClass="NewTaskPopup" customModule="Jumpstart" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QZg-bQ-4oI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fvf-uq-igb" userLabel="Popup">
+                                <rect key="frame" x="71" y="86" width="240" height="469"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="5N6-ZZ-Ssu"/>
+                    </view>
+                    <connections>
+                        <outlet property="popupview" destination="fvf-uq-igb" id="lR1-KC-LQI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D5M-Hj-Fta" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="364" y="450.22488755622192"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fYO-2q-ccG">

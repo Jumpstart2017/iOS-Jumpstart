@@ -19,7 +19,6 @@ class TasksTableViewCell: UITableViewCell {
     @IBOutlet weak var progressSlider: UISlider!
     @IBOutlet weak var removeButton: UIButton!
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         

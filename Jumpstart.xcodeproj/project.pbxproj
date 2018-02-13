@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		642D0C2520339DCE00387A4F /* NewTaskPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642D0C2420339DCE00387A4F /* NewTaskPopupViewController.swift */; };
 		645C9A50202D00AC00F4A44B /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645C9A4F202D00AC00F4A44B /* Task.swift */; };
 		645C9A53202D00B300F4A44B /* TaskTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645C9A51202D00B300F4A44B /* TaskTableViewController.swift */; };
 		645C9A54202D00B300F4A44B /* TasksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645C9A52202D00B300F4A44B /* TasksTableViewCell.swift */; };
@@ -58,6 +59,7 @@
 /* Begin PBXFileReference section */
 		20EA4E2A9C71AD6A2391FFB9 /* Pods-JumpstartUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JumpstartUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JumpstartUITests/Pods-JumpstartUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		62DC9DB95063279E66C2B715 /* Pods-JumpstartTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JumpstartTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JumpstartTests/Pods-JumpstartTests.debug.xcconfig"; sourceTree = "<group>"; };
+		642D0C2420339DCE00387A4F /* NewTaskPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskPopupViewController.swift; sourceTree = "<group>"; };
 		645C9A4F202D00AC00F4A44B /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		645C9A51202D00B300F4A44B /* TaskTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskTableViewController.swift; sourceTree = "<group>"; };
 		645C9A52202D00B300F4A44B /* TasksTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksTableViewCell.swift; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 				C0DEBE7C1FBD329600741DBA /* RegisterViewController.swift */,
 				C09B09881FBBF2BC00DE17C3 /* LoginViewController.swift */,
 				C0F1C3161FCE67A6000270CB /* ViewController.swift */,
+				642D0C2420339DCE00387A4F /* NewTaskPopupViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -582,6 +585,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				642D0C2520339DCE00387A4F /* NewTaskPopupViewController.swift in Sources */,
 				C09B098E1FBBF2CA00DE17C3 /* SecondViewController.swift in Sources */,
 				C07271FC1FCCE4010003F006 /* VideoCard.swift in Sources */,
 				C07271FE1FCE10C70003F006 /* VideoModel.swift in Sources */,

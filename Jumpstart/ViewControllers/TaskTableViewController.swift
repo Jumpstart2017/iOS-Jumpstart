@@ -83,6 +83,16 @@ class TaskTableViewController: UITableViewController {
         return cell
     }
 
+    @IBAction func newTask(_ sender: Any) {
+        print("New task clicked")
+        
+        // Open new task popup
+        let storyboard = UIStoryboard(name: "Tasks", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "NewTaskPopupView")
+        vc.modalPresentationStyle = .overFullScreen
+        vc.modalTransitionStyle = .crossDissolve
+        self.present(vc, animated: true, completion: nil)
+    }
     
     /*
     // Override to support conditional editing of the table view.
