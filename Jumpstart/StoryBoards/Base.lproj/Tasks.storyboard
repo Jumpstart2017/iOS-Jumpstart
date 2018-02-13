@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--#Goals-->
+        <!--Goals-->
         <scene sceneID="Tyh-zo-byG">
             <objects>
                 <tableViewController id="P28-T8-WmV" customClass="TaskTableViewController" customModule="Jumpstart" customModuleProvider="target" sceneMemberID="viewController">
@@ -42,15 +42,6 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BJo-ve-gbP" userLabel="Remove">
-                                                    <rect key="frame" x="325" y="2" width="30" height="30"/>
-                                                    <state key="normal" title="X">
-                                                        <color key="titleColor" red="1" green="0.0" blue="0.011644906383057929" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="deleteTask:" destination="Km0-ol-cA9" eventType="touchUpInside" id="ikI-uh-DiJ"/>
-                                                    </connections>
-                                                </button>
                                                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="P1z-sG-I9w" userLabel="Progress">
                                                     <rect key="frame" x="16" y="83" width="331" height="31"/>
                                                     <connections>
@@ -64,6 +55,16 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BJo-ve-gbP" userLabel="Remove">
+                                                    <rect key="frame" x="325" y="2" width="30" height="30"/>
+                                                    <state key="normal" title="X">
+                                                        <color key="titleColor" red="1" green="0.0" blue="0.011644906383057929" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="deleteTask:" destination="P28-T8-WmV" eventType="touchUpInside" id="7E5-Ii-4PB"/>
+                                                        <action selector="deleteTask:" destination="Km0-ol-cA9" eventType="touchUpInside" id="ikI-uh-DiJ"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
@@ -97,9 +98,9 @@
                             <outlet property="delegate" destination="P28-T8-WmV" id="Eox-uJ-TcA"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="#Goals" id="aJB-Ap-TLf">
+                    <navigationItem key="navigationItem" title="Goals" id="aJB-Ap-TLf" userLabel="Goals">
                         <barButtonItem key="backBarButtonItem" title="Back" id="BEt-Br-iay"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="5Aq-rR-pTH"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="5Aq-rR-pTH" userLabel="New Task"/>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JZM-k5-etC" userLabel="First Responder" sceneMemberID="firstResponder"/>
