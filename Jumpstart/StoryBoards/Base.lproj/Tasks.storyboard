@@ -120,17 +120,81 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fvf-uq-igb" userLabel="Popup">
-                                <rect key="frame" x="71" y="86" width="240" height="469"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fvf-uq-igb" userLabel="Popup">
+                                <rect key="frame" x="67" y="115" width="241" height="421"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="81j-gW-mVD" userLabel="descriptionTextField">
+                                        <rect key="frame" x="8" y="152" width="224" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W8Z-uz-Ztb" userLabel="exitButton">
+                                        <rect key="frame" x="8" y="7" width="46" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pQS-mb-4b9" userLabel="createButton">
+                                        <rect key="frame" x="97" y="374" width="46" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B5t-9N-tP9" userLabel="deadlineLabel">
+                                        <rect key="frame" x="10" y="190" width="42" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="fbm-Op-WbS" userLabel="reminderSelector">
+                                        <rect key="frame" x="60" y="338" width="121" height="29"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <segments>
+                                            <segment title="First"/>
+                                            <segment title="Second"/>
+                                        </segments>
+                                    </segmentedControl>
+                                    <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Xb4-0L-7JL" userLabel="deadline">
+                                        <rect key="frame" x="8" y="213" width="225" height="108"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <date key="date" timeIntervalSinceReferenceDate="540425351.41215396">
+                                            <!--2018-02-15 22:09:11 +0000-->
+                                        </date>
+                                    </datePicker>
+                                    <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dbu-8O-bKM" userLabel="projectSelect">
+                                        <rect key="frame" x="8" y="40" width="233" height="98"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    </pickerView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uQU-Wh-GPO" userLabel="newTaskLabel">
+                                        <rect key="frame" x="99" y="12" width="42" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="5N6-ZZ-Ssu" firstAttribute="bottom" secondItem="fvf-uq-igb" secondAttribute="bottom" constant="131" id="2sz-9C-Nrz"/>
+                            <constraint firstItem="5N6-ZZ-Ssu" firstAttribute="trailing" secondItem="fvf-uq-igb" secondAttribute="trailing" constant="67" id="AiE-Ro-RwE"/>
+                            <constraint firstItem="fvf-uq-igb" firstAttribute="leading" secondItem="5N6-ZZ-Ssu" secondAttribute="leading" constant="67" id="UXe-GQ-tcN"/>
+                            <constraint firstItem="fvf-uq-igb" firstAttribute="top" secondItem="5N6-ZZ-Ssu" secondAttribute="top" constant="95" id="uSd-l0-TPx"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="5N6-ZZ-Ssu"/>
                     </view>
                     <connections>
+                        <outlet property="createButton" destination="pQS-mb-4b9" id="Bgw-WX-oia"/>
+                        <outlet property="deadlineLabel" destination="B5t-9N-tP9" id="fF4-5n-BSr"/>
+                        <outlet property="descriptionTextField" destination="81j-gW-mVD" id="Dag-7M-FsH"/>
+                        <outlet property="exitButton" destination="W8Z-uz-Ztb" id="hx9-Sp-NjL"/>
+                        <outlet property="newTaskLabel" destination="uQU-Wh-GPO" id="Iqq-fX-eh3"/>
                         <outlet property="popupview" destination="fvf-uq-igb" id="lR1-KC-LQI"/>
+                        <outlet property="projectPicker" destination="Dbu-8O-bKM" id="IZc-IW-gAU"/>
+                        <outlet property="reminderSelect" destination="fbm-Op-WbS" id="ic1-Ya-3K8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D5M-Hj-Fta" userLabel="First Responder" sceneMemberID="firstResponder"/>
