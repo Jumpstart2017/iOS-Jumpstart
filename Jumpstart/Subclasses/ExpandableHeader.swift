@@ -17,7 +17,7 @@ class ExpandableHeader:  LUExpandableTableViewSectionHeader{
     override var isExpanded: Bool {
         didSet {
             // Change the title of the button when section header expand/collapse
-            expandCollapseButton?.setTitle(isExpanded ? "Collapse" : "Expand", for: .normal)
+            expandCollapseButton?.setTitle(isExpanded ? "^" : "v", for: .normal)
         }
     }
     
@@ -28,6 +28,9 @@ class ExpandableHeader:  LUExpandableTableViewSectionHeader{
         
         label?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapOnLabel)))
         label?.isUserInteractionEnabled = true
+        label?.font = UIFont(name: "Roboto", size: 16)
+        
+        expandCollapseButton.tintColor = .white
     }
     
     // MARK: - IBActions

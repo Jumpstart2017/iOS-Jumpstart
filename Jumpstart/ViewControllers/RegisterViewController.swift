@@ -114,7 +114,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIScrollVie
     func prepareSubmitButton() {
         submitButton.backgroundColor = .jGreen
         submitButton.setTitleColor(.white, for: .normal)
-        submitButton.isEnabled = false
+        //submitButton.isEnabled = false
     }
     
     func prepareScrollView() {
@@ -125,40 +125,35 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIScrollVie
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
-        firstNameTextField = checkTextFields(textField: firstNameTextField)
-        lastNameTextField = checkTextFields(textField: lastNameTextField)
         
-        if formIsFilledOut {
-            submitButton.isEnabled = true
-        }
-        
-        return false
-    }
-    
-    func checkTextFields(textField: TextField) -> TextField {
-        if textField.isEmpty {
-            textField.dividerActiveColor = .jRed
-            textField.dividerNormalColor = .jRed
-            textField.placeholderActiveColor = .jRed
-        } else {
-            textField.dividerActiveColor = .jBlue
-            textField.dividerNormalColor = .jBlue
-            textField.placeholderActiveColor = .jBlue
-        }
-        
-        return textField
-    }
-    
-    func finalFormCheck() {
         newUser?.firstName = firstNameTextField.text
         newUser?.lastName = lastNameTextField.text
         newUser?.email = emailTextField.text
         newUser?.password = passwordTextField.text
         
-        //TODO: ADD Model Check
+        switch textField {
+        case firstNameTextField:
+            newUser?.firstName = firstNameTextField.text
+            break
+        case lastNameTextField:
+            newUser?.lastName = lastNameTextField.text
+            break
+        case emailTextField:
+            newUser?.email = emailTextField.text
+            break
+        case passwordTextField:
+            newUser?.password = passwordTextField.text
+            break
+        default:
+            break
+        }
+        return false
     }
     
+
+    
     @IBAction func submitButtonPressed(_ sender: Any) {
+     
         let register = RegisterViewModel()
         register.user = self.newUser
         register.registerUser() { responseObject, error in
