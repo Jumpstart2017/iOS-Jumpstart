@@ -22,6 +22,7 @@ class NewTaskPopup: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        prepareView()
         preparePopup()
         prepareDescriptionTextField()
         prepareExitButton()
@@ -45,6 +46,9 @@ extension NewTaskPopup {
         popupview.layer.shadowOffset = CGSize(width: 6, height: 6) //left and bottom only
         popupview.layer.shadowRadius = 0 //sharp corners
         popupview.layer.shadowColor = UIColor.lightGray.cgColor
+        
+        popupview.layer.borderWidth = 1
+        popupview.layer.borderColor = UIColor.black.cgColor
     }
     
     fileprivate func prepareDescriptionTextField() {
@@ -62,9 +66,11 @@ extension NewTaskPopup {
     }
     
     fileprivate func prepareCreateButton() {
-        createButton.titleLabel?.text = "Create"
-        createButton.titleLabel?.backgroundColor = .jGreen
-        createButton.tintColor = .white
+        createButton.setTitle("Create", for: .normal)
+        createButton.setTitleColor(UIColor.white, for: .normal)
+        createButton.frame.size = CGSize(width: 100, height: 50)
+        createButton.backgroundColor = .jGreen
+        createButton.layer.cornerRadius = 7
     }
     
     fileprivate func prepareReminderSelect() {
@@ -86,5 +92,9 @@ extension NewTaskPopup {
     
     fileprivate func prepareProjectSelect() {
         
+    }
+    
+    fileprivate func prepareView() {
+        view.backgroundColor = UIColor(white: 1, alpha: 0.5)
     }
 }
