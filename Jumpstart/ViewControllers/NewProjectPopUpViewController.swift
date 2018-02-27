@@ -23,11 +23,9 @@ class NewProjectPopUpViewController: UIViewController {
     
     let datePicker = UIDatePicker()
     
+    var dateSelected: Bool!
     var newProject: Project?
-    var formIsFilledOut = false
-    var type: Int!
-    var date: Date!
-    var projectTitle: String!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +35,6 @@ class NewProjectPopUpViewController: UIViewController {
         self.prepareProjectNameTextField()
         self.prepareProjectDeadlineTextField()
         
-        newProject = Project()
     }
 
     
@@ -52,8 +49,8 @@ class NewProjectPopUpViewController: UIViewController {
         newProjectNameTextField.dividerActiveColor = .jBlue
         newProjectNameTextField.dividerNormalColor = .jBlue
         newProjectNameTextField.placeholderActiveColor = .jBlue
+        newProjectNameTextField.addTarget(self, action: #selector(editingChanged),for: .editingChanged)
         
-        self.projectTitle = newProjectNameTextField.text
     }
     
     func prepareProjectDeadlineTextField(){
@@ -62,6 +59,7 @@ class NewProjectPopUpViewController: UIViewController {
         newProjectDeadlineTextField.dividerActiveColor = .jBlue
         newProjectDeadlineTextField.dividerNormalColor = .jBlue
         newProjectDeadlineTextField.placeholderActiveColor = .jBlue
+        dateSelected = false
         
         //Making Text Box have Date Picker Keyboard
         datePicker.datePickerMode = .date
@@ -71,7 +69,6 @@ class NewProjectPopUpViewController: UIViewController {
         toolbar.setItems([doneButton], animated: false)
         newProjectDeadlineTextField.inputAccessoryView = toolbar
         newProjectDeadlineTextField.inputView = datePicker
-
     }
     
     //Closes Date Picker
@@ -81,13 +78,16 @@ class NewProjectPopUpViewController: UIViewController {
         dateFormatter.timeStyle = .none
         
         newProjectDeadlineTextField.text = dateFormatter.string(from: datePicker.date)
-        self.date = datePicker.date
+        dateSelected = true
+        editingChanged(sender: newProjectDeadlineTextField)
         self.view.endEditing(true)
+        
     }
     
     func prepareButtons() {
         createNewProjectButton.backgroundColor = .jGreen
         createNewProjectButton.setTitleColor(.white, for: .normal)
+        createNewProjectButton.isEnabled = false
         
         cancelNewProjectButton.setTitleColor(.red, for: .normal)
         
@@ -98,27 +98,20 @@ class NewProjectPopUpViewController: UIViewController {
         writingStagesSeg.subviews[1].tintColor = UIColor.jOrange
         writingStagesSeg.subviews[2].tintColor = UIColor.jPurple
         
-        self.type = writingStagesSeg.selectedSegmentIndex
+    }
+ 
+    @objc func editingChanged(sender: TextField) {
+        
+        if (newProjectNameTextField.isEmpty || dateSelected == false){
+            createNewProjectButton.isEnabled = false
+        }
+        else{
+        createNewProjectButton.isEnabled = true
+        }
     }
     
-   /* func finalFormCheck() {
-        newProject?.title = projectTitle
-        newProject?.deadline = date
-        newProject?.type = type
-        newProject?.progress = 0
-        newProject?.subProjects = []
-        
-        //TODO: ADD Model Check
-    }*/
-    
     @IBAction func submitButtonPressed(_ sender: Any) {
-       /* let create = NewProjectViewModel()
-        create.project = self.newProject
-        create.createProject() { responseObject, error in
-            
-        }*/
         self.view.removeFromSuperview()
-        
     }
     
     //Exit new project popup
@@ -127,10 +120,10 @@ class NewProjectPopUpViewController: UIViewController {
     }
 
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    /*func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
-    }
+    }*/
     
     
 }

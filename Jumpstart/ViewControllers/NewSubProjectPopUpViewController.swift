@@ -20,7 +20,7 @@ class NewSubProjectPopUpViewController: UIViewController {
     @IBOutlet weak var newSubProjectDeadline: TextField!
     
     let datePicker = UIDatePicker()
-
+    var dateSelected: Bool!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +43,8 @@ class NewSubProjectPopUpViewController: UIViewController {
         newSubProjectName.dividerActiveColor = .jBlue
         newSubProjectName.dividerNormalColor = .jBlue
         newSubProjectName.placeholderActiveColor = .jBlue
-        
+        newSubProjectName.addTarget(self, action: #selector(editingChanged),for: .editingChanged)
+
     }
     
     func prepareProjectDeadlineTextField(){
@@ -52,6 +53,7 @@ class NewSubProjectPopUpViewController: UIViewController {
         newSubProjectDeadline.dividerActiveColor = .jBlue
         newSubProjectDeadline.dividerNormalColor = .jBlue
         newSubProjectDeadline.placeholderActiveColor = .jBlue
+        dateSelected = false
         
         //Making Text Box have Date Picker Keyboard
         datePicker.datePickerMode = .date
@@ -71,12 +73,15 @@ class NewSubProjectPopUpViewController: UIViewController {
         dateFormatter.timeStyle = .none
         
         newSubProjectDeadline.text = dateFormatter.string(from: datePicker.date)
+        dateSelected = true
+        editingChanged(sender: newSubProjectDeadline)
         self.view.endEditing(true)
     }
     
     func prepareButtons() {
         createNewButton.backgroundColor = .jGreen
         createNewButton.setTitleColor(.white, for: .normal)
+        createNewButton.isEnabled = false
         
         cancelButton.setTitleColor(.red, for: .normal)
         
@@ -85,6 +90,16 @@ class NewSubProjectPopUpViewController: UIViewController {
 
     @IBAction func submitButtonPressed(_ sender: Any) {
         self.view.removeFromSuperview()
+    }
+    
+    @objc func editingChanged(sender: TextField) {
+        
+        if (newSubProjectName.isEmpty || dateSelected == false){
+            createNewButton.isEnabled = false
+        }
+        else{
+            createNewButton.isEnabled = true
+        }
     }
     
     //Exit new project popup
