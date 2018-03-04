@@ -21,17 +21,18 @@ class NewTaskPopup: UIViewController {
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+       
         prepareView()
         preparePopup()
         prepareDescriptionTextField()
         prepareExitButton()
         prepareNewTaskLabel()
-        prepareCreateButton()
-        prepareReminderSelect()
-        prepareDeadline()
-        prepareDeadlineLabel()
-        prepareProjectSelect()
+        //prepareCreateButton()
+        //prepareReminderSelect()
+        //prepareDeadline()
+        //prepareDeadlineLabel()
+        //prepareProjectSelect()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -56,8 +57,8 @@ extension NewTaskPopup {
     }
     
     fileprivate func prepareExitButton() {
-        exitButton.titleLabel?.text = "X"
-        exitButton.titleLabel?.textColor = .jRed
+        exitButton.setTitle("X", for: .normal)
+        exitButton.setTitleColor(.jRed, for: .normal)
     }
     
     fileprivate func prepareNewTaskLabel() {

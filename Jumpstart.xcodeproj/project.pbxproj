@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		642D0C2520339DCE00387A4F /* NewTaskPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642D0C2420339DCE00387A4F /* NewTaskPopupViewController.swift */; };
+		6443BD7D204C9F98000A3173 /* NewTaskPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642D0C2420339DCE00387A4F /* NewTaskPopupViewController.swift */; };
 		645C9A50202D00AC00F4A44B /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645C9A4F202D00AC00F4A44B /* Task.swift */; };
 		645C9A53202D00B300F4A44B /* TaskTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645C9A51202D00B300F4A44B /* TaskTableViewController.swift */; };
 		645C9A54202D00B300F4A44B /* TasksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645C9A52202D00B300F4A44B /* TasksTableViewCell.swift */; };
@@ -585,7 +585,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				642D0C2520339DCE00387A4F /* NewTaskPopupViewController.swift in Sources */,
+				6443BD7D204C9F98000A3173 /* NewTaskPopupViewController.swift in Sources */,
 				C09B098E1FBBF2CA00DE17C3 /* SecondViewController.swift in Sources */,
 				C07271FC1FCCE4010003F006 /* VideoCard.swift in Sources */,
 				C07271FE1FCE10C70003F006 /* VideoModel.swift in Sources */,
