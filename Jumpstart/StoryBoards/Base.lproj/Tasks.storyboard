@@ -142,6 +142,13 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="It1-JR-EYS" userLabel="projectPicker">
+                                        <rect key="frame" x="8" y="96" width="225" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="225" id="IqW-65-eYa"/>
+                                            <constraint firstAttribute="height" constant="100" id="Sm8-aK-qz8"/>
+                                        </constraints>
+                                    </pickerView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -149,9 +156,11 @@
                                     <constraint firstItem="yjc-Lr-EDZ" firstAttribute="leading" secondItem="fvf-uq-igb" secondAttribute="leading" constant="14" id="639-nE-h8Y"/>
                                     <constraint firstItem="X6c-7N-Kdd" firstAttribute="top" secondItem="fvf-uq-igb" secondAttribute="top" constant="8" id="Jae-uR-u91"/>
                                     <constraint firstAttribute="width" constant="241" id="Wbv-ZN-x0U"/>
+                                    <constraint firstItem="It1-JR-EYS" firstAttribute="top" secondItem="yjc-Lr-EDZ" secondAttribute="bottom" constant="14" id="Wjc-EN-1ec"/>
                                     <constraint firstItem="oQV-zm-X07" firstAttribute="centerX" secondItem="fvf-uq-igb" secondAttribute="centerX" id="Xoj-bw-DC1"/>
                                     <constraint firstAttribute="height" constant="421" id="e7j-ut-brq"/>
                                     <constraint firstItem="yjc-Lr-EDZ" firstAttribute="top" secondItem="X6c-7N-Kdd" secondAttribute="bottom" constant="14" id="gRC-Re-Jtq"/>
+                                    <constraint firstItem="It1-JR-EYS" firstAttribute="centerX" secondItem="fvf-uq-igb" secondAttribute="centerX" id="shd-qy-nM0"/>
                                     <constraint firstItem="oQV-zm-X07" firstAttribute="top" secondItem="fvf-uq-igb" secondAttribute="top" constant="14" id="ymE-mT-tnR"/>
                                 </constraints>
                             </view>
@@ -168,6 +177,7 @@
                         <outlet property="exitButton" destination="X6c-7N-Kdd" id="glu-l9-AP7"/>
                         <outlet property="newTaskLabel" destination="oQV-zm-X07" id="xp3-td-x7k"/>
                         <outlet property="popupview" destination="fvf-uq-igb" id="lR1-KC-LQI"/>
+                        <outlet property="projectPicker" destination="It1-JR-EYS" id="DSJ-CO-bQI"/>
                         <outlet property="view" destination="QZg-bQ-4oI" id="iRk-gX-ZI8"/>
                     </connections>
                 </viewController>
