@@ -20,7 +20,6 @@ class NewTaskPopup: UIViewController, UIPickerViewDelegate, UIPickerViewDataSour
     @IBOutlet weak var projectPicker: UIPickerView!
     @IBOutlet weak var projectPickerLabel: UILabel!
     
-
     var projectList = [String]();
     
     override func viewDidLoad() {
@@ -33,8 +32,8 @@ class NewTaskPopup: UIViewController, UIPickerViewDelegate, UIPickerViewDataSour
         prepareNewTaskLabel()
         //prepareCreateButton()
         //prepareReminderSelect()
-        //prepareDeadline()
-        //prepareDeadlineLabel()
+        //prepareDeadlinePicker()
+        prepareDeadlinePickerLabel()
         prepareProjectSelect()
         prepareProjectPickerLabel()
         
@@ -108,12 +107,9 @@ extension NewTaskPopup {
         //colors
     }
     
-    fileprivate func prepareDeadline() {
-        
-    }
-    
-    fileprivate func prepareDeadlineLabel() {
+    fileprivate func prepareDeadlinePickerLabel() {
         deadlineLabel.text = "Deadline"
+        deadlineLabel.textColor = UIColor.darkGray
     }
     
     fileprivate func prepareProjectSelect() {
