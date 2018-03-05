@@ -32,6 +32,7 @@
 		C09B098B1FBBF2BD00DE17C3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09B09881FBBF2BC00DE17C3 /* LoginViewController.swift */; };
 		C09B098C1FBBF2BD00DE17C3 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09B09891FBBF2BD00DE17C3 /* FirstViewController.swift */; };
 		C09B098E1FBBF2CA00DE17C3 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09B098D1FBBF2CA00DE17C3 /* SecondViewController.swift */; };
+		C0CD66012048B45000D4E75D /* VideoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CD66002048B45000D4E75D /* VideoViewModel.swift */; };
 		C0DEBE7D1FBD329700741DBA /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DEBE7C1FBD329600741DBA /* RegisterViewController.swift */; };
 		C0F1C3171FCE67A6000270CB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F1C3161FCE67A6000270CB /* ViewController.swift */; };
 		EA17F2B47012E45ECCC04328 /* Pods_Jumpstart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6AB9EA550EC6189D3C0BB35 /* Pods_Jumpstart.framework */; };
@@ -95,6 +96,7 @@
 		C09B09881FBBF2BC00DE17C3 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C09B09891FBBF2BD00DE17C3 /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		C09B098D1FBBF2CA00DE17C3 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		C0CD66002048B45000D4E75D /* VideoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewModel.swift; sourceTree = "<group>"; };
 		C0DEBE7C1FBD329600741DBA /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		C0F1C3161FCE67A6000270CB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E4AB77B4CEE89B4FDADA6D0B /* Pods-Jumpstart.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jumpstart.release.xcconfig"; path = "Pods/Target Support Files/Pods-Jumpstart/Pods-Jumpstart.release.xcconfig"; sourceTree = "<group>"; };
@@ -227,6 +229,7 @@
 			isa = PBXGroup;
 			children = (
 				C062D50E201A8639009C90AA /* RegisterViewModel.swift */,
+				C0CD66002048B45000D4E75D /* VideoViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -606,6 +609,7 @@
 				C07271FC1FCCE4010003F006 /* VideoCard.swift in Sources */,
 				EE418A0A201A8809005D94C9 /* NewProjectPopUpViewController.swift in Sources */,
 				C07271FE1FCE10C70003F006 /* VideoModel.swift in Sources */,
+				C0CD66012048B45000D4E75D /* VideoViewModel.swift in Sources */,
 				C00876BE202D47270007ECC8 /* ExpandableHeader.swift in Sources */,
 				C062D50F201A8639009C90AA /* RegisterViewModel.swift in Sources */,
 				EE94EDBB1FCE16C00062E445 /* ProjectTableViewCell.swift in Sources */,

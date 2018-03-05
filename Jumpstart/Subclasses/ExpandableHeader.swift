@@ -17,7 +17,21 @@ class ExpandableHeader:  LUExpandableTableViewSectionHeader{
     override var isExpanded: Bool {
         didSet {
             // Change the title of the button when section header expand/collapse
-            expandCollapseButton?.setTitle(isExpanded ? "^" : "v", for: .normal)
+           // expandCollapseButton?.setTitle(isExpanded ? "^" : "v", for: .normal)
+            
+            let upArrow = UIImageView(image: #imageLiteral(resourceName: "up_arrow_icon"))
+            upArrow.image = upArrow.image?.withRenderingMode(.alwaysTemplate)
+            upArrow.tintColor = .white
+            
+            let downArrow = UIImageView(image: #imageLiteral(resourceName: "down_arrow_icon"))
+            downArrow.image = downArrow.image?.withRenderingMode(.alwaysTemplate)
+            downArrow.tintColor = .white
+            
+            if isExpanded {
+                expandCollapseButton.setImage(upArrow.image, for: .normal)
+            } else {
+                expandCollapseButton.setImage(downArrow.image, for: .normal)
+            }
         }
     }
     
@@ -25,6 +39,12 @@ class ExpandableHeader:  LUExpandableTableViewSectionHeader{
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        let downArrow = UIImageView(image: #imageLiteral(resourceName: "down_arrow_icon"))
+        downArrow.image = downArrow.image?.withRenderingMode(.alwaysTemplate)
+        downArrow.tintColor = .white
+        
+        expandCollapseButton.setImage(downArrow.image, for: .normal)
         
         label?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapOnLabel)))
         label?.isUserInteractionEnabled = true
