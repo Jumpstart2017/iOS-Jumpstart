@@ -21,7 +21,7 @@ class NewProjectViewModel: NSObject {
     private func createProjectCall(completionHandler: @escaping ([String:Any]?, Error?) -> ()) {
         let parameters : Parameters = ["scanType": "Complete"]
         
-        Alamofire.request("http://192.168.1.4/Scanner/Scan", method: .post, parameters: parameters, headers: nil).responseJSON { response in
+        Alamofire.request("https://us-central1-jumpstart-f48ac.cloudfunctions.net/createProject", method: .post, parameters: parameters, headers: nil).responseJSON { response in
             switch response.result {
             case .success(let value):
                 print(value)

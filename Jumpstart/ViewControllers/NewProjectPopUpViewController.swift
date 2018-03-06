@@ -23,6 +23,7 @@ class NewProjectPopUpViewController: UIViewController {
     
     let datePicker = UIDatePicker()
     
+    var date: Date!
     var dateSelected: Bool!
     var newProject: Project?
     
@@ -34,6 +35,8 @@ class NewProjectPopUpViewController: UIViewController {
         self.setWritingStages()
         self.prepareProjectNameTextField()
         self.prepareProjectDeadlineTextField()
+        
+        newProject = Project()
         
     }
 
@@ -78,6 +81,7 @@ class NewProjectPopUpViewController: UIViewController {
         dateFormatter.timeStyle = .none
         
         newProjectDeadlineTextField.text = dateFormatter.string(from: datePicker.date)
+        self.date = datePicker.date
         dateSelected = true
         editingChanged(sender: newProjectDeadlineTextField)
         self.view.endEditing(true)
@@ -110,7 +114,22 @@ class NewProjectPopUpViewController: UIViewController {
         }
     }
     
+    func finalFormCheck() {
+        newProject?.title = newProjectNameTextField.text
+        newProject?.deadline = self.date
+        newProject?.type = writingStagesSeg.selectedSegmentIndex
+        //TODO: ADD Model Check
+    }
+    
+    
     @IBAction func submitButtonPressed(_ sender: Any) {
+        
+        finalFormCheck()
+        let create = NewProjectViewModel()
+        create.project = self.newProject
+        create.createProject() { responseObject, error in
+            
+        }
         self.view.removeFromSuperview()
     }
     
