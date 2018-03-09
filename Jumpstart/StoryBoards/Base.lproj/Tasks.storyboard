@@ -121,7 +121,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fvf-uq-igb" userLabel="Popup">
-                                <rect key="frame" x="37.5" y="83.5" width="300" height="500"/>
+                                <rect key="frame" x="37.5" y="173.5" width="300" height="320"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oQV-zm-X07" userLabel="newTaskLabel">
                                         <rect key="frame" x="128.5" y="14" width="42" height="21"/>
@@ -134,7 +134,7 @@
                                         <state key="normal" title="Button"/>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yjc-Lr-EDZ" userLabel="descriptionTextField">
-                                        <rect key="frame" x="14" y="52" width="250" height="30"/>
+                                        <rect key="frame" x="25" y="52" width="250" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="250" id="43L-hu-a7l"/>
                                         </constraints>
@@ -142,33 +142,8 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="It1-JR-EYS" userLabel="projectPicker">
-                                        <rect key="frame" x="40" y="117" width="220" height="100"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="220" id="IqW-65-eYa"/>
-                                            <constraint firstAttribute="height" constant="100" id="Sm8-aK-qz8"/>
-                                        </constraints>
-                                    </pickerView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o09-dq-e62" userLabel="projectPickerLabel">
-                                        <rect key="frame" x="14" y="96" width="42" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qnc-3Z-4yz" userLabel="deadlinePickerLabel">
-                                        <rect key="frame" x="14" y="217" width="42" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="S6f-gg-KnI" userLabel="deadlinePicker">
-                                        <rect key="frame" x="40" y="238" width="220" height="100"/>
-                                        <date key="date" timeIntervalSinceReferenceDate="541896530.34762204">
-                                            <!--2018-03-04 22:48:50 +0000-->
-                                        </date>
-                                    </datePicker>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="6A5-ch-vgP">
-                                        <rect key="frame" x="25" y="346" width="250" height="28"/>
+                                        <rect key="frame" x="25" y="182" width="250" height="28"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="27" id="LoN-1T-WRD"/>
                                             <constraint firstAttribute="width" constant="250" id="vhv-Em-2qy"/>
@@ -179,36 +154,47 @@
                                         </segments>
                                     </segmentedControl>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k8O-DE-4O3">
-                                        <rect key="frame" x="100" y="387" width="100" height="30"/>
+                                        <rect key="frame" x="100" y="249" width="100" height="50"/>
                                         <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="jKg-12-Nmx"/>
                                             <constraint firstAttribute="width" constant="100" id="nuW-yv-C7J"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                     </button>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G5L-aj-Gf1" userLabel="projectSelectText">
+                                        <rect key="frame" x="25" y="90" width="250" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="o6R-oS-ccn" userLabel="deadlineText">
+                                        <rect key="frame" x="25" y="128" width="250" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="6A5-ch-vgP" firstAttribute="centerX" secondItem="fvf-uq-igb" secondAttribute="centerX" id="1pH-Nn-HN3"/>
-                                    <constraint firstItem="o09-dq-e62" firstAttribute="leading" secondItem="fvf-uq-igb" secondAttribute="leading" constant="14" id="2Fk-9s-uzu"/>
                                     <constraint firstItem="X6c-7N-Kdd" firstAttribute="leading" secondItem="fvf-uq-igb" secondAttribute="leading" constant="8" id="48T-ic-Aeq"/>
-                                    <constraint firstItem="It1-JR-EYS" firstAttribute="top" secondItem="o09-dq-e62" secondAttribute="bottom" id="4wb-yD-vLs"/>
-                                    <constraint firstItem="yjc-Lr-EDZ" firstAttribute="leading" secondItem="fvf-uq-igb" secondAttribute="leading" constant="14" id="639-nE-h8Y"/>
                                     <constraint firstItem="k8O-DE-4O3" firstAttribute="centerX" secondItem="fvf-uq-igb" secondAttribute="centerX" id="6Y0-og-ccM"/>
-                                    <constraint firstItem="It1-JR-EYS" firstAttribute="width" secondItem="S6f-gg-KnI" secondAttribute="width" id="8FJ-hS-IE2"/>
-                                    <constraint firstItem="S6f-gg-KnI" firstAttribute="top" secondItem="qnc-3Z-4yz" secondAttribute="bottom" id="HFP-AV-1FJ"/>
-                                    <constraint firstItem="6A5-ch-vgP" firstAttribute="top" secondItem="S6f-gg-KnI" secondAttribute="bottom" constant="8" id="JY5-la-IIk"/>
+                                    <constraint firstItem="G5L-aj-Gf1" firstAttribute="top" secondItem="yjc-Lr-EDZ" secondAttribute="bottom" constant="8" id="HMi-Ch-gqQ"/>
+                                    <constraint firstItem="o6R-oS-ccn" firstAttribute="centerX" secondItem="fvf-uq-igb" secondAttribute="centerX" id="I24-Vz-5K1"/>
                                     <constraint firstItem="X6c-7N-Kdd" firstAttribute="top" secondItem="fvf-uq-igb" secondAttribute="top" constant="8" id="Jae-uR-u91"/>
-                                    <constraint firstItem="qnc-3Z-4yz" firstAttribute="leading" secondItem="fvf-uq-igb" secondAttribute="leading" constant="14" id="PHR-mZ-ikm"/>
+                                    <constraint firstItem="yjc-Lr-EDZ" firstAttribute="centerX" secondItem="fvf-uq-igb" secondAttribute="centerX" id="Ssd-Oq-eVi"/>
                                     <constraint firstAttribute="width" constant="300" id="Wbv-ZN-x0U"/>
+                                    <constraint firstItem="o6R-oS-ccn" firstAttribute="height" secondItem="yjc-Lr-EDZ" secondAttribute="height" id="Wha-uY-KzE"/>
                                     <constraint firstItem="oQV-zm-X07" firstAttribute="centerX" secondItem="fvf-uq-igb" secondAttribute="centerX" id="Xoj-bw-DC1"/>
-                                    <constraint firstAttribute="height" constant="500" id="e7j-ut-brq"/>
-                                    <constraint firstItem="k8O-DE-4O3" firstAttribute="top" secondItem="6A5-ch-vgP" secondAttribute="bottom" constant="14" id="eay-JR-642"/>
+                                    <constraint firstItem="o6R-oS-ccn" firstAttribute="top" secondItem="G5L-aj-Gf1" secondAttribute="bottom" constant="8" id="dIN-cq-y56"/>
+                                    <constraint firstAttribute="height" constant="320" id="e7j-ut-brq"/>
+                                    <constraint firstItem="k8O-DE-4O3" firstAttribute="top" secondItem="6A5-ch-vgP" secondAttribute="bottom" constant="40" id="eay-JR-642"/>
+                                    <constraint firstItem="G5L-aj-Gf1" firstAttribute="centerX" secondItem="fvf-uq-igb" secondAttribute="centerX" id="ffO-sq-nvt"/>
+                                    <constraint firstItem="G5L-aj-Gf1" firstAttribute="height" secondItem="yjc-Lr-EDZ" secondAttribute="height" id="gJ6-FM-lxj"/>
                                     <constraint firstItem="yjc-Lr-EDZ" firstAttribute="top" secondItem="X6c-7N-Kdd" secondAttribute="bottom" constant="14" id="gRC-Re-Jtq"/>
-                                    <constraint firstItem="o09-dq-e62" firstAttribute="top" secondItem="yjc-Lr-EDZ" secondAttribute="bottom" constant="14" id="gva-jL-hQU"/>
-                                    <constraint firstItem="qnc-3Z-4yz" firstAttribute="top" secondItem="It1-JR-EYS" secondAttribute="bottom" id="o8C-k3-YxH"/>
-                                    <constraint firstItem="S6f-gg-KnI" firstAttribute="centerX" secondItem="fvf-uq-igb" secondAttribute="centerX" id="qlu-kd-0tm"/>
-                                    <constraint firstItem="It1-JR-EYS" firstAttribute="centerX" secondItem="fvf-uq-igb" secondAttribute="centerX" id="shd-qy-nM0"/>
-                                    <constraint firstItem="It1-JR-EYS" firstAttribute="height" secondItem="S6f-gg-KnI" secondAttribute="height" id="xoN-xC-4f9"/>
+                                    <constraint firstItem="6A5-ch-vgP" firstAttribute="top" secondItem="o6R-oS-ccn" secondAttribute="bottom" constant="24" id="iCP-rB-Rco"/>
+                                    <constraint firstItem="o6R-oS-ccn" firstAttribute="width" secondItem="yjc-Lr-EDZ" secondAttribute="width" id="juZ-Hr-vgm"/>
+                                    <constraint firstItem="G5L-aj-Gf1" firstAttribute="width" secondItem="yjc-Lr-EDZ" secondAttribute="width" id="xxh-uV-Env"/>
                                     <constraint firstItem="oQV-zm-X07" firstAttribute="top" secondItem="fvf-uq-igb" secondAttribute="top" constant="14" id="ymE-mT-tnR"/>
                                 </constraints>
                             </view>
@@ -222,13 +208,12 @@
                     </view>
                     <connections>
                         <outlet property="createButton" destination="k8O-DE-4O3" id="fnh-0c-sei"/>
-                        <outlet property="deadlineLabel" destination="qnc-3Z-4yz" id="nFv-xD-AZ2"/>
+                        <outlet property="deadlineText" destination="o6R-oS-ccn" id="9RF-Ni-cbm"/>
                         <outlet property="descriptionTextField" destination="yjc-Lr-EDZ" id="WjJ-OO-Aix"/>
                         <outlet property="exitButton" destination="X6c-7N-Kdd" id="glu-l9-AP7"/>
                         <outlet property="newTaskLabel" destination="oQV-zm-X07" id="xp3-td-x7k"/>
                         <outlet property="popupview" destination="fvf-uq-igb" id="lR1-KC-LQI"/>
-                        <outlet property="projectPicker" destination="It1-JR-EYS" id="DSJ-CO-bQI"/>
-                        <outlet property="projectPickerLabel" destination="o09-dq-e62" id="Agr-4L-vlN"/>
+                        <outlet property="projectSelectText" destination="G5L-aj-Gf1" id="6wH-qE-aNK"/>
                         <outlet property="reminderSelect" destination="6A5-ch-vgP" id="d8m-1o-dPQ"/>
                         <outlet property="view" destination="QZg-bQ-4oI" id="iRk-gX-ZI8"/>
                     </connections>

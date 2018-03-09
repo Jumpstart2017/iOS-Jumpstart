@@ -8,17 +8,19 @@
 
 import UIKit
 
-class NewTaskPopup: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class NewTaskPopup: UIViewController {
     @IBOutlet weak var popupview: UIView!
     @IBOutlet weak var descriptionTextField: UITextField!
     @IBOutlet weak var exitButton: UIButton!
     @IBOutlet weak var newTaskLabel: UILabel!
     @IBOutlet weak var createButton: UIButton!
-    @IBOutlet weak var deadlineLabel: UILabel!
     @IBOutlet weak var reminderSelect: UISegmentedControl!
-    @IBOutlet weak var deadlinePicker: UIDatePicker!
-    @IBOutlet weak var projectPicker: UIPickerView!
-    @IBOutlet weak var projectPickerLabel: UILabel!
+    @IBOutlet weak var projectSelectText: UITextField!
+    @IBOutlet weak var deadlineText: UITextField!
+    //@IBOutlet weak var deadlineLabel: UILabel!
+    //@IBOutlet weak var deadlinePicker: UIDatePicker!
+    //@IBOutlet weak var projectPicker: UIPickerView!
+    //@IBOutlet weak var projectPickerLabel: UILabel!
     
     var projectList = [String]();
     
@@ -32,10 +34,12 @@ class NewTaskPopup: UIViewController, UIPickerViewDelegate, UIPickerViewDataSour
         prepareNewTaskLabel()
         prepareCreateButton()
         prepareReminderSelect()
+        prepareProjectSelectText()
+        prepareDeadlineText()
         //prepareDeadlinePicker()
-        prepareDeadlinePickerLabel()
-        prepareProjectSelect()
-        prepareProjectPickerLabel()
+        //prepareDeadlinePickerLabel()
+        //prepareProjectSelect()
+        //prepareProjectPickerLabel()
         
     }
     
@@ -48,6 +52,7 @@ class NewTaskPopup: UIViewController, UIPickerViewDelegate, UIPickerViewDataSour
         // Dispose of any resources that can be recreated.
     }
     
+    /*
     // The number of columns of data
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -62,6 +67,7 @@ class NewTaskPopup: UIViewController, UIPickerViewDelegate, UIPickerViewDataSour
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return projectList[row]
     }
+    */
 }
 
 extension NewTaskPopup {
@@ -69,11 +75,13 @@ extension NewTaskPopup {
     fileprivate func preparePopup() {
         popupview.layer.shadowOpacity = 0.5 //show shadow
         popupview.layer.shadowOffset = CGSize(width: 6, height: 6) //left and bottom only
-        popupview.layer.shadowRadius = 0 //sharp corners
+        popupview.layer.shadowRadius = 10 //sharp corners
         popupview.layer.shadowColor = UIColor.lightGray.cgColor
         
+        popupview.layer.cornerRadius = 10
         popupview.layer.borderWidth = 1
         popupview.layer.borderColor = UIColor.black.cgColor
+        
     }
     
     fileprivate func prepareDescriptionTextField() {
@@ -105,13 +113,19 @@ extension NewTaskPopup {
         reminderSelect.insertSegment(withTitle: "Daily", at: 2, animated: true)
         
         //colors
+        (reminderSelect.subviews[2] as UIView).tintColor = .jRed
+        (reminderSelect.subviews[1] as UIView).tintColor = .jYellow
+        (reminderSelect.subviews[0] as UIView).tintColor = .jBlue
     }
     
+    /*
     fileprivate func prepareDeadlinePickerLabel() {
         deadlineLabel.text = "Deadline"
         deadlineLabel.textColor = UIColor.darkGray
     }
+    */
     
+    /*
     fileprivate func prepareProjectSelect() {
         projectPicker.dataSource = self
         projectPicker.delegate = self
@@ -126,13 +140,25 @@ extension NewTaskPopup {
             "Definitive Objective Analysis of 'Workaholics'"
         ]
     }
+    */
     
+
     fileprivate func prepareView() {
         view.backgroundColor = UIColor(white: 1, alpha: 0.5)
     }
     
+    /*
     fileprivate func prepareProjectPickerLabel() {
         projectPickerLabel.text = "Select Project"
         projectPickerLabel.textColor = UIColor.darkGray
+    }
+    */
+    
+    fileprivate func prepareDeadlineText() {
+        deadlineText.placeholder = "Deadline"
+    }
+    
+    fileprivate func prepareProjectSelectText() {
+        projectSelectText.placeholder = "Project"
     }
 }
