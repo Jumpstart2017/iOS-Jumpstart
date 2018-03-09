@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewTaskPopup: UIViewController {
+class NewTaskPopup: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     @IBOutlet weak var popupview: UIView!
     @IBOutlet weak var descriptionTextField: UITextField!
     @IBOutlet weak var exitButton: UIButton!
@@ -17,16 +17,17 @@ class NewTaskPopup: UIViewController {
     @IBOutlet weak var reminderSelect: UISegmentedControl!
     @IBOutlet weak var projectSelectText: UITextField!
     @IBOutlet weak var deadlineText: UITextField!
-    //@IBOutlet weak var deadlineLabel: UILabel!
-    //@IBOutlet weak var deadlinePicker: UIDatePicker!
-    //@IBOutlet weak var projectPicker: UIPickerView!
-    //@IBOutlet weak var projectPickerLabel: UILabel!
     
-    var projectList = [String]();
+    var projectList = [String]()
+    let deadlinePicker = UIDatePicker()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
+        deadlinePicker.datePickerMode = UIDatePickerMode.date
+        deadlinePicker.addTarget(self, action: #selector(NewTaskPopup.deadlinePickerValueChanged(sender:)), for: UIControlEvents.valueChanged)
+        
         prepareView()
         preparePopup()
         prepareDescriptionTextField()
@@ -36,11 +37,6 @@ class NewTaskPopup: UIViewController {
         prepareReminderSelect()
         prepareProjectSelectText()
         prepareDeadlineText()
-        //prepareDeadlinePicker()
-        //prepareDeadlinePickerLabel()
-        //prepareProjectSelect()
-        //prepareProjectPickerLabel()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -52,7 +48,7 @@ class NewTaskPopup: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    /*
+    
     // The number of columns of data
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -67,7 +63,21 @@ class NewTaskPopup: UIViewController {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return projectList[row]
     }
-    */
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        projectSelectText.text = projectList[row]
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+    
+    @objc func deadlinePickerValueChanged(sender: UIDatePicker) {
+        let dateformatter = DateFormatter()
+        dateformatter.dateFormat = "MMM dd, yyyy"
+        let dateStr = dateformatter.string(from: sender.date)
+        deadlineText.text = dateStr
+    }
 }
 
 extension NewTaskPopup {
@@ -118,18 +128,16 @@ extension NewTaskPopup {
         (reminderSelect.subviews[0] as UIView).tintColor = .jBlue
     }
     
-    /*
-    fileprivate func prepareDeadlinePickerLabel() {
-        deadlineLabel.text = "Deadline"
-        deadlineLabel.textColor = UIColor.darkGray
+    fileprivate func prepareView() {
+        view.backgroundColor = UIColor(white: 1, alpha: 0.5)
     }
-    */
     
-    /*
-    fileprivate func prepareProjectSelect() {
-        projectPicker.dataSource = self
-        projectPicker.delegate = self
-        
+    fileprivate func prepareDeadlineText() {
+        deadlineText.placeholder = "Deadline"
+        deadlineText.inputView = deadlinePicker
+    }
+    
+    fileprivate func prepareProjectSelectText() {
         // Load projects into projectList
         projectList = [
             "Big Book of Nothing",
@@ -139,26 +147,10 @@ extension NewTaskPopup {
             "Embedded Systems Presentation",
             "Definitive Objective Analysis of 'Workaholics'"
         ]
-    }
-    */
-    
-
-    fileprivate func prepareView() {
-        view.backgroundColor = UIColor(white: 1, alpha: 0.5)
-    }
-    
-    /*
-    fileprivate func prepareProjectPickerLabel() {
-        projectPickerLabel.text = "Select Project"
-        projectPickerLabel.textColor = UIColor.darkGray
-    }
-    */
-    
-    fileprivate func prepareDeadlineText() {
-        deadlineText.placeholder = "Deadline"
-    }
-    
-    fileprivate func prepareProjectSelectText() {
+        
         projectSelectText.placeholder = "Project"
+        let projectPicker = UIPickerView()
+        projectPicker.delegate = self
+        projectSelectText.inputView = projectPicker
     }
 }

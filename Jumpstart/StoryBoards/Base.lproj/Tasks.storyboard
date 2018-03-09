@@ -154,9 +154,9 @@
                                         </segments>
                                     </segmentedControl>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k8O-DE-4O3">
-                                        <rect key="frame" x="100" y="249" width="100" height="50"/>
+                                        <rect key="frame" x="100" y="249" width="100" height="40"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="jKg-12-Nmx"/>
+                                            <constraint firstAttribute="height" constant="40" id="jKg-12-Nmx"/>
                                             <constraint firstAttribute="width" constant="100" id="nuW-yv-C7J"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
