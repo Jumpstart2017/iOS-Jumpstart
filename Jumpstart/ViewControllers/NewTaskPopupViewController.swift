@@ -17,6 +17,7 @@ class NewTaskPopup: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
     @IBOutlet weak var reminderSelect: UISegmentedControl!
     @IBOutlet weak var projectSelectText: UITextField!
     @IBOutlet weak var deadlineText: UITextField!
+    @IBOutlet weak var reminderLabel: UILabel!
     
     var projectList = [String]()
     let deadlinePicker = UIDatePicker()
@@ -37,6 +38,7 @@ class NewTaskPopup: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
         prepareReminderSelect()
         prepareProjectSelectText()
         prepareDeadlineText()
+        prepareReminderLabel()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -152,5 +154,9 @@ extension NewTaskPopup {
         let projectPicker = UIPickerView()
         projectPicker.delegate = self
         projectSelectText.inputView = projectPicker
+    }
+    
+    fileprivate func prepareReminderLabel() {
+            reminderLabel.text = "Reminder"
     }
 }
