@@ -21,13 +21,18 @@ class NewSubProjectPopUpViewController: UIViewController {
     
     let datePicker = UIDatePicker()
     var dateSelected: Bool!
+    var newSubProject: SubProject?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tap)
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
         self.prepareButtons()
         self.prepareProjectNameTextField()
         self.prepareProjectDeadlineTextField()
+        
+        newSubProject = SubProject()
         
     }
     
@@ -45,6 +50,10 @@ class NewSubProjectPopUpViewController: UIViewController {
         newSubProjectName.placeholderActiveColor = .jBlue
         newSubProjectName.addTarget(self, action: #selector(editingChanged),for: .editingChanged)
 
+    }
+    
+    @objc func dismissKeyboard (){
+        view.endEditing(true)
     }
     
     func prepareProjectDeadlineTextField(){
@@ -86,9 +95,23 @@ class NewSubProjectPopUpViewController: UIViewController {
         cancelButton.setTitleColor(.red, for: .normal)
         
     }
+    func finalFormCheck() {
+        newSubProject?.title = newSubProjectName.text
+        newSubProject?.deadline = newSubProjectDeadline.text
+        //TODO: ADD Model Check
+    }
     
-
+    
     @IBAction func submitButtonPressed(_ sender: Any) {
+        
+        finalFormCheck()
+        let create = SubProjectViewModel()
+        create.subProject = self.newSubProject
+        create.createSubProject() { responseObject, error in
+            
+        }
+        
+        
         self.view.removeFromSuperview()
     }
     
