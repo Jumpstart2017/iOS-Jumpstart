@@ -23,7 +23,6 @@ class NewProjectPopUpViewController: UIViewController {
     
     let datePicker = UIDatePicker()
     
-    var date: Date!
     var dateSelected: Bool!
     var newProject: Project?
     
@@ -81,7 +80,6 @@ class NewProjectPopUpViewController: UIViewController {
         dateFormatter.timeStyle = .none
         
         newProjectDeadlineTextField.text = dateFormatter.string(from: datePicker.date)
-        self.date = datePicker.date
         dateSelected = true
         editingChanged(sender: newProjectDeadlineTextField)
         self.view.endEditing(true)
@@ -116,7 +114,7 @@ class NewProjectPopUpViewController: UIViewController {
     
     func finalFormCheck() {
         newProject?.title = newProjectNameTextField.text
-        newProject?.deadline = self.date
+        newProject?.deadline = newProjectDeadlineTextField.text
         newProject?.type = writingStagesSeg.selectedSegmentIndex
         //TODO: ADD Model Check
     }

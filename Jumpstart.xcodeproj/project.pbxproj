@@ -41,6 +41,7 @@
 		EE5DA569203CD06B0053415B /* SubProjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5DA568203CD06B0053415B /* SubProjectModel.swift */; };
 		EE5DA56B203CE7460053415B /* NewProjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5DA56A203CE7460053415B /* NewProjectViewModel.swift */; };
 		EE94EDBB1FCE16C00062E445 /* ProjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE94EDBA1FCE16C00062E445 /* ProjectTableViewCell.swift */; };
+		EEE310AC204F52650051880B /* NewSubProjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE310AB204F52650051880B /* NewSubProjectViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +108,7 @@
 		EE5DA568203CD06B0053415B /* SubProjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubProjectModel.swift; sourceTree = "<group>"; };
 		EE5DA56A203CE7460053415B /* NewProjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProjectViewModel.swift; sourceTree = "<group>"; };
 		EE94EDBA1FCE16C00062E445 /* ProjectTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectTableViewCell.swift; sourceTree = "<group>"; };
+		EEE310AB204F52650051880B /* NewSubProjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSubProjectViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,6 +233,7 @@
 			children = (
 				C062D50E201A8639009C90AA /* RegisterViewModel.swift */,
 				EE5DA56A203CE7460053415B /* NewProjectViewModel.swift */,
+				EEE310AB204F52650051880B /* NewSubProjectViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -627,6 +630,7 @@
 				C07272021FCE14800003F006 /* VideoCell.swift in Sources */,
 				C04F2C7C1FB50C0700A36A81 /* Colors.swift in Sources */,
 				C09B098A1FBBF2BD00DE17C3 /* LandingPageViewController.swift in Sources */,
+				EEE310AC204F52650051880B /* NewSubProjectViewModel.swift in Sources */,
 				C00EB7211FB501D300EF3335 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

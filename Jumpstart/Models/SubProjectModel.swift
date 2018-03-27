@@ -11,7 +11,7 @@ import ObjectMapper
 
 class SubProject: Mappable {
     var title: String?
-    var deadline: Date?
+    var deadline: String?
     var progress: Int?
     
     required init?(map: Map) {

@@ -15,14 +15,14 @@ func makeProjectModels() -> [Project] {
     
     let sp = SubProject()
     sp?.title = "Chapter 1"
-    sp?.deadline = Date()
+    sp?.deadline = "11/6/18"
     sp?.progress = 23
     mySubProject.append(sp!)
     
     for _ in 0 ... 5 {
         let obj = Project()
         obj?.title = "Paper"
-        obj?.deadline = Date()
+        obj?.deadline = "11/7/18"
         obj?.progress = 65
         obj?.type = 1
         obj?.wordCount = 120

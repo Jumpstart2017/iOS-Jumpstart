@@ -62,10 +62,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cell.progressTitle.textColor = UIColor.black
         
         //set date
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .short
-        dateFormatter.timeStyle = .none
-        cell.progressDeadline.text = dateFormatter.string(from :projectsModle[indexPath.row].deadline!)
+        cell.progressDeadline.text = projectsModle[indexPath.row].deadline
        
         //set progress circle
         cell.progressCircle.innerRingColor = UIColor.jGreen

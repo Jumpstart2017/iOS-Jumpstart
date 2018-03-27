@@ -11,7 +11,7 @@ import ObjectMapper
 
 class Project: Mappable {
     var title: String?
-    var deadline: Date?
+    var deadline: String?
     var progress: Int?
     var type: Int?
     var wordCount: Int?

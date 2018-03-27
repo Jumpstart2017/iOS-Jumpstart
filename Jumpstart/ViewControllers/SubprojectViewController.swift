@@ -74,7 +74,7 @@ class SubprojectViewController: UIViewController, UITableViewDelegate, UITableVi
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .short
         dateFormatter.timeStyle = .none
-        cell.progressDeadline.text = dateFormatter.string(from :subProjectArray![indexPath.row].deadline!)
+        cell.progressDeadline.text = subProjectArray![indexPath.row].deadline
         
         //set progress circle
         cell.progressCircle.innerRingColor = UIColor.jGreen
@@ -98,7 +98,7 @@ class SubprojectViewController: UIViewController, UITableViewDelegate, UITableVi
         dateFormatter.dateStyle = .short
         dateFormatter.timeStyle = .none
         
-        deadlineEdit.text = dateFormatter.string(from :(specificProject?.deadline)!)
+        deadlineEdit.text = specificProject?.deadline
       
         //Making Text Box have Date Picker Keyboard
         datePicker.datePickerMode = .date
