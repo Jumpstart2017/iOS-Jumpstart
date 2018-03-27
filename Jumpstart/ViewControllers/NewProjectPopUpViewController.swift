@@ -12,7 +12,7 @@ import Alamofire
 import MaterialComponents
 import Material
 
-class NewProjectPopUpViewController: UIViewController {
+class NewProjectPopUpViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var cancelNewProjectButton: UIButton!
     @IBOutlet weak var newProjectLabel: UILabel!
@@ -28,7 +28,10 @@ class NewProjectPopUpViewController: UIViewController {
     
     
     override func viewDidLoad() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tap)
         super.viewDidLoad()
+        newProjectNameTextField.delegate = self
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
         self.prepareButtons()
         self.setWritingStages()
@@ -45,6 +48,10 @@ class NewProjectPopUpViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @objc func dismissKeyboard (){
+        view.endEditing(true)
+    }
+    
     func prepareProjectNameTextField(){
         newProjectNameTextField.placeholder = "Project Name"
         newProjectNameTextField.isClearIconButtonEnabled = true
@@ -54,6 +61,8 @@ class NewProjectPopUpViewController: UIViewController {
         newProjectNameTextField.addTarget(self, action: #selector(editingChanged),for: .editingChanged)
         
     }
+    
+   
     
     func prepareProjectDeadlineTextField(){
         newProjectDeadlineTextField.placeholder = "Deadline"
@@ -123,11 +132,13 @@ class NewProjectPopUpViewController: UIViewController {
     @IBAction func submitButtonPressed(_ sender: Any) {
         
         finalFormCheck()
-        let create = NewProjectViewModel()
+        let create = ProjectViewModel()
         create.project = self.newProject
         create.createProject() { responseObject, error in
             
         }
+        
+        
         self.view.removeFromSuperview()
     }
     

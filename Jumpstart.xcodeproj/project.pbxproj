@@ -42,9 +42,9 @@
 		EE418A0A201A8809005D94C9 /* NewProjectPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE418A09201A8809005D94C9 /* NewProjectPopUpViewController.swift */; };
 		EE5AA735203F615100D41D40 /* NewSubProjectPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5AA734203F615100D41D40 /* NewSubProjectPopUpViewController.swift */; };
 		EE5DA569203CD06B0053415B /* SubProjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5DA568203CD06B0053415B /* SubProjectModel.swift */; };
-		EE5DA56B203CE7460053415B /* NewProjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5DA56A203CE7460053415B /* NewProjectViewModel.swift */; };
 		EE94EDBB1FCE16C00062E445 /* ProjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE94EDBA1FCE16C00062E445 /* ProjectTableViewCell.swift */; };
-		EEE310AC204F52650051880B /* NewSubProjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE310AB204F52650051880B /* NewSubProjectViewModel.swift */; };
+		EEA35239206B011D008B651D /* ProjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA35238206B011D008B651D /* ProjectViewModel.swift */; };
+		EEE310AC204F52650051880B /* SubProjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE310AB204F52650051880B /* SubProjectViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,9 +112,9 @@
 		EE418A09201A8809005D94C9 /* NewProjectPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProjectPopUpViewController.swift; sourceTree = "<group>"; };
 		EE5AA734203F615100D41D40 /* NewSubProjectPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSubProjectPopUpViewController.swift; sourceTree = "<group>"; };
 		EE5DA568203CD06B0053415B /* SubProjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubProjectModel.swift; sourceTree = "<group>"; };
-		EE5DA56A203CE7460053415B /* NewProjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProjectViewModel.swift; sourceTree = "<group>"; };
 		EE94EDBA1FCE16C00062E445 /* ProjectTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectTableViewCell.swift; sourceTree = "<group>"; };
-		EEE310AB204F52650051880B /* NewSubProjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSubProjectViewModel.swift; sourceTree = "<group>"; };
+		EEA35238206B011D008B651D /* ProjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectViewModel.swift; sourceTree = "<group>"; };
+		EEE310AB204F52650051880B /* SubProjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubProjectViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -241,8 +241,8 @@
 			children = (
 				C062D50E201A8639009C90AA /* RegisterViewModel.swift */,
 				C0CD66002048B45000D4E75D /* VideoViewModel.swift */,
-				EE5DA56A203CE7460053415B /* NewProjectViewModel.swift */,
-				EEE310AB204F52650051880B /* NewSubProjectViewModel.swift */,
+				EEE310AB204F52650051880B /* SubProjectViewModel.swift */,
+				EEA35238206B011D008B651D /* ProjectViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -639,12 +639,12 @@
 				EE146F9B2023BECA000CEDAC /* SubprojectViewController.swift in Sources */,
 				C09B098B1FBBF2BD00DE17C3 /* LoginViewController.swift in Sources */,
 				C0F1C3171FCE67A6000270CB /* ViewController.swift in Sources */,
+				EEA35239206B011D008B651D /* ProjectViewModel.swift in Sources */,
 				C07F60971FD1C9D9001A8AA3 /* NewUser.swift in Sources */,
-				EE5DA56B203CE7460053415B /* NewProjectViewModel.swift in Sources */,
 				C07272021FCE14800003F006 /* VideoCell.swift in Sources */,
 				C04F2C7C1FB50C0700A36A81 /* Colors.swift in Sources */,
 				C09B098A1FBBF2BD00DE17C3 /* LandingPageViewController.swift in Sources */,
-				EEE310AC204F52650051880B /* NewSubProjectViewModel.swift in Sources */,
+				EEE310AC204F52650051880B /* SubProjectViewModel.swift in Sources */,
 				C00EB7211FB501D300EF3335 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
