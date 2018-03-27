@@ -19,20 +19,24 @@ class NewProjectPopUpViewController: UIViewController {
     @IBOutlet weak var createNewProjectButton: MDCRaisedButton!
     @IBOutlet weak var newProjectNameTextField: TextField!
     @IBOutlet weak var newProjectDeadlineTextField: TextField!
-    @IBOutlet weak var reasearchButton: MDCFlatButton!
-    @IBOutlet weak var writingButton: MDCFlatButton!
-    @IBOutlet weak var revisionButton: MDCFlatButton!
+    @IBOutlet weak var writingStagesSeg: UISegmentedControl!
     
     let datePicker = UIDatePicker()
+    
+    var dateSelected: Bool!
+    var newProject: Project?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
         self.prepareButtons()
+        self.setWritingStages()
         self.prepareProjectNameTextField()
         self.prepareProjectDeadlineTextField()
         
-        //newProject = Project(map: Map)
+        newProject = Project()
+        
     }
 
     
@@ -47,6 +51,7 @@ class NewProjectPopUpViewController: UIViewController {
         newProjectNameTextField.dividerActiveColor = .jBlue
         newProjectNameTextField.dividerNormalColor = .jBlue
         newProjectNameTextField.placeholderActiveColor = .jBlue
+        newProjectNameTextField.addTarget(self, action: #selector(editingChanged),for: .editingChanged)
         
     }
     
@@ -56,6 +61,7 @@ class NewProjectPopUpViewController: UIViewController {
         newProjectDeadlineTextField.dividerActiveColor = .jBlue
         newProjectDeadlineTextField.dividerNormalColor = .jBlue
         newProjectDeadlineTextField.placeholderActiveColor = .jBlue
+        dateSelected = false
         
         //Making Text Box have Date Picker Keyboard
         datePicker.datePickerMode = .date
@@ -65,7 +71,6 @@ class NewProjectPopUpViewController: UIViewController {
         toolbar.setItems([doneButton], animated: false)
         newProjectDeadlineTextField.inputAccessoryView = toolbar
         newProjectDeadlineTextField.inputView = datePicker
-        
     }
     
     //Closes Date Picker
@@ -75,70 +80,67 @@ class NewProjectPopUpViewController: UIViewController {
         dateFormatter.timeStyle = .none
         
         newProjectDeadlineTextField.text = dateFormatter.string(from: datePicker.date)
+        dateSelected = true
+        editingChanged(sender: newProjectDeadlineTextField)
         self.view.endEditing(true)
+        
     }
     
     func prepareButtons() {
         createNewProjectButton.backgroundColor = .jGreen
         createNewProjectButton.setTitleColor(.white, for: .normal)
+        createNewProjectButton.isEnabled = false
         
         cancelNewProjectButton.setTitleColor(.red, for: .normal)
         
-        reasearchButton.setTitleColor(.jIndependent, for: .normal)
-        reasearchButton.setBorderColor(.jIndependent, for: .normal)
-        reasearchButton.setBorderWidth(1.0, for: .normal)
-        reasearchButton.setBackgroundColor(.jIndependent, for: .selected)
-        reasearchButton.setTitleColor(.white, for: .selected)
-        reasearchButton.tintColor = .clear
-        reasearchButton.addTarget(self, action: #selector(buttonClicked), for: UIControlEvents.touchUpInside)
-
-        
-        writingButton.setTitleColor(.jOrange, for: .normal)
-        writingButton.setBorderColor(.jOrange, for: .normal)
-        writingButton.setBorderWidth(1.0, for: .normal)
-        writingButton.setBackgroundColor(.jOrange, for: .selected)
-        writingButton.setTitleColor(.white, for: .selected)
-        writingButton.tintColor = .clear
-        writingButton.addTarget(self, action: #selector(buttonClicked), for: UIControlEvents.touchUpInside)
-
-
-        revisionButton.setTitleColor(.jPurple, for: .normal)
-        revisionButton.setBorderColor(.jPurple, for: .normal)
-        revisionButton.setBorderWidth(1.0, for: .normal)
-        revisionButton.setBackgroundColor(.jPurple, for: .selected)
-        revisionButton.setTitleColor(.white, for: .selected)
-        revisionButton.tintColor = .clear
-        revisionButton.addTarget(self, action: #selector(buttonClicked), for: UIControlEvents.touchUpInside)
     }
     
-    //For Selecting/Deselecting Buttons
-    @objc func buttonClicked(sender:MDCFlatButton){
-        sender.isSelected = !sender.isSelected
+    func setWritingStages() {
+        writingStagesSeg.subviews[0].tintColor = UIColor.jIndependent
+        writingStagesSeg.subviews[1].tintColor = UIColor.jOrange
+        writingStagesSeg.subviews[2].tintColor = UIColor.jPurple
         
-        if sender == reasearchButton {
-            writingButton.isSelected = false
-            revisionButton.isSelected = false
-        } else if sender == writingButton {
-            reasearchButton.isSelected = false
-            revisionButton.isSelected = false
-        } else {
-            writingButton.isSelected = false
-            reasearchButton.isSelected = false
+    }
+ 
+    @objc func editingChanged(sender: TextField) {
+        
+        if (newProjectNameTextField.isEmpty || dateSelected == false){
+            createNewProjectButton.isEnabled = false
         }
+        else{
+        createNewProjectButton.isEnabled = true
+        }
+    }
+    
+    func finalFormCheck() {
+        newProject?.title = newProjectNameTextField.text
+        newProject?.deadline = newProjectDeadlineTextField.text
+        newProject?.type = writingStagesSeg.selectedSegmentIndex
+        //TODO: ADD Model Check
+    }
+    
+    
+    @IBAction func submitButtonPressed(_ sender: Any) {
+        
+        finalFormCheck()
+        let create = NewProjectViewModel()
+        create.project = self.newProject
+        create.createProject() { responseObject, error in
+            
+        }
+        self.view.removeFromSuperview()
     }
     
     //Exit new project popup
     @IBAction func cancleNewProject(_ sender: Any) {
         self.view.removeFromSuperview()
     }
-    @IBAction func createButtonSelected(_ sender: Any) {
-        self.view.removeFromSuperview()
-    }
+
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    /*func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
-    }
+    }*/
     
     
 }

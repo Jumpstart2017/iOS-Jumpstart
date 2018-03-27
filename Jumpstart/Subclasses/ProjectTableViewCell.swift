@@ -57,9 +57,7 @@ class ProjectTableViewCell: UITableViewCell {
         
         progressCircle.outerRingWidth = 1
         progressCircle.outerRingColor = .lightGray
-        
-        progressCircle.setProgress(value: 30, animationDuration: 2)
-        
+                
     }
 
 }
