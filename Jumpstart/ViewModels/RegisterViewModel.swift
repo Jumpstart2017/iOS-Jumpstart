@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import ObjectMapper
 
 class RegisterViewModel: NSObject {
     
@@ -19,9 +20,10 @@ class RegisterViewModel: NSObject {
     }
     
     private func registerUserCall(completionHandler: @escaping ([String:Any]?, Error?) -> ()) {
-        let parameters : Parameters = ["scanType": "Complete"]
+        let JSONString  = Mapper().toJSONString(user, prettyPrint: true)
+        let parameters = convertToJSON(text: JSONString!)
         
-        Alamofire.request("http://192.168.1.4/Scanner/Scan", method: .post, parameters: parameters, headers: nil).responseJSON { response in
+        Alamofire.request("https://us-central1-jumpstart-f48ac.cloudfunctions.net/register", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
             switch response.result {
             case .success(let value):
                 print(value)
