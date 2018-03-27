@@ -14,9 +14,12 @@ import Material
 import UICircularProgressRing
 
 class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+   
+    @IBOutlet weak var addProject: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
-    var p1: Project?
+    var projectsModle = makeProjectModels()
+    var selectedIndex = Int()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -33,6 +36,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.navigationController?.navigationBar.backgroundColor = .jBlue
         let textAttributes = [NSAttributedStringKey.foregroundColor:UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
+        addProject.tintColor = .white
     }
 
     override func didReceiveMemoryWarning() {
@@ -47,27 +51,44 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return projectsModle.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ProjectTableViewCell
-        
-        cell.progressTitle.text = self.p1?.title ?? "Title"
+        //set title
+        cell.progressTitle.text = projectsModle[indexPath.row].title
         cell.progressTitle.textColor = UIColor.black
-        cell.progressDeadline.text = self.p1?.deadline ?? "Deadline"
+        
+        //set date
+        cell.progressDeadline.text = projectsModle[indexPath.row].deadline
+       
+        //set progress circle
         cell.progressCircle.innerRingColor = UIColor.jGreen
-        cell.progressCircle.value = 20.0
-        //cell.progressCircle.value = CGFloat(p1?.progress)
+        cell.progressCircle.value = CGFloat(projectsModle[indexPath.row].progress!)
         
         tableView.separatorStyle = .none
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.selectedIndex = indexPath.row
+        performSegue(withIdentifier: "Index", sender: self)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destination = segue.destination as! SubprojectViewController
-        destination.title = "Project Title" 
+        let backItem = UIBarButtonItem()
+        backItem.tintColor = .white
+        backItem.title = "Projects"
+        navigationItem.backBarButtonItem = backItem
+        if segue.identifier == "Index" {
+            let destination = segue.destination as! SubprojectViewController
+            destination.specificProject = projectsModle[selectedIndex]
+            destination.title = projectsModle[selectedIndex].title
+        }
+        
     }
     
     
