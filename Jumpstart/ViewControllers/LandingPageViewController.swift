@@ -18,22 +18,26 @@ class LandingPageViewController : UIViewController {
     @IBOutlet weak var getUnstuckLabel: UILabel!
     @IBOutlet weak var getEnergizedLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var cosmeticView: UIView!
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        self.view.backgroundColor = .jBlue
+        self.view.backgroundColor = .white
+        self.cosmeticView.backgroundColor = .jBlue
+        
         self.prepareButtons()
         self.prepareLabels()
     }
     
     func prepareButtons() {
-        signUpButton.backgroundColor = .white
-        signUpButton.setTitleColor(.jBlue, for: .normal)
+        signUpButton.backgroundColor = .jBlue
+        signUpButton.setTitleColor(.white, for: .normal)
             
-        tryNowButton.backgroundColor = .white
-        tryNowButton.setTitleColor(.jGreen, for: .normal)
+        tryNowButton.backgroundColor = .jGreen
+        tryNowButton.setTitleColor(.white, for: .normal)
   
     }
     
