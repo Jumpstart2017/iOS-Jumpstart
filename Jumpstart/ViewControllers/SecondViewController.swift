@@ -17,17 +17,22 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
    
     @IBOutlet weak var addProject: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
-    var projectsModle = makeProjectModels()
-    var selectedIndex = Int()
+    var projectsModel = makeProjectModels()
 
+    //var projectViewModel = ProjectViewModel()
+    //var projects = [Project]()
+    
+    var selectedIndex = Int()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+    
+       // self.loadProjects()
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.reloadData()
-        
-        
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -45,28 +50,40 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
 
     //MARK: TableView Delegate and Datasource methods
+    /*func loadProjects() {
+        projectViewModel.getProjects() { responseObject, error in
+            // print(responseObject ?? "")
+            for i in responseObject! {
+                let val = i.value as! [String : Any]
+                let proj = Project(JSON: val)
+                
+                self.projects.append(proj!)
+            }
+            self.tableView.reloadData()
+        }
+    }*/
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return projectsModle.count
+        return projectsModel.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ProjectTableViewCell
         //set title
-        cell.progressTitle.text = projectsModle[indexPath.row].title
+        cell.progressTitle.text = projectsModel[indexPath.row].title
         cell.progressTitle.textColor = UIColor.black
         
         //set date
-        cell.progressDeadline.text = projectsModle[indexPath.row].deadline
+        cell.progressDeadline.text = projectsModel[indexPath.row].deadline
        
         //set progress circle
         cell.progressCircle.innerRingColor = UIColor.jGreen
-        cell.progressCircle.value = CGFloat(projectsModle[indexPath.row].progress!)
+        cell.progressCircle.value = CGFloat(projectsModel[indexPath.row].progress!)
         
         tableView.separatorStyle = .none
         
@@ -85,8 +102,8 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         navigationItem.backBarButtonItem = backItem
         if segue.identifier == "Index" {
             let destination = segue.destination as! SubprojectViewController
-            destination.specificProject = projectsModle[selectedIndex]
-            destination.title = projectsModle[selectedIndex].title
+            destination.specificProject = projectsModel[selectedIndex]
+            destination.title = projectsModel[selectedIndex].title
         }
         
     }
