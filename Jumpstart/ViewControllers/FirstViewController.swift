@@ -12,11 +12,13 @@ import Alamofire
 import MaterialComponents
 import Material
 import LUExpandableTableView
+import FirebaseAuth
 
 class FirstViewController: UIViewController, LUExpandableTableViewDelegate, LUExpandableTableViewDataSource {
 
     @IBOutlet weak var tableView: LUExpandableTableView!
     
+    @IBOutlet weak var infoLabel: UILabel!
     
     var names = ["Research", "Writing", "Revision"]
     var videoModels = makeVideoModels()
@@ -25,6 +27,8 @@ class FirstViewController: UIViewController, LUExpandableTableViewDelegate, LUEx
     var rVideos = [VideoModel]()
     var wVideos = [VideoModel]()
     var reVideos = [VideoModel]()
+    
+    var handle: AuthStateDidChangeListenerHandle?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +44,9 @@ class FirstViewController: UIViewController, LUExpandableTableViewDelegate, LUEx
         self.view.backgroundColor = Color.grey.lighten5
         self.tabItem.titleColor = .jBlue
         self.tableView.separatorColor = .clear
-
+        
+        self.handleInfoLabel()
+    
     }
     
     override func didReceiveMemoryWarning() {
@@ -52,11 +58,46 @@ class FirstViewController: UIViewController, LUExpandableTableViewDelegate, LUEx
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.barTintColor = .jBlue
         self.navigationController?.navigationBar.backgroundColor = .jBlue
+        
+        handle = Auth.auth().addStateDidChangeListener { (auth, user) in
+            // [START_EXCLUDE]
+            print(user ?? "Nope")
+            self.tableView.reloadData()
+            self.handleInfoLabel()
+            
+            if user == nil {
+                let buttons = self.tabBarController?.tabBar.items
+                buttons![1].isEnabled = false
+            }
+
+            // [END_EXCLUDE]
+        }
+    }
+    
+    @IBAction func accountButtonPressed(_ sender: Any) {
+          if Auth.auth().currentUser == nil {
+            performSegue(withIdentifier: "Login", sender: self)
+          } else {
+            performSegue(withIdentifier: "Settings", sender: self)
+        }
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        // [START remove_auth_listener]
+        Auth.auth().removeStateDidChangeListener(handle!)
+        // [END remove_auth_listener]
+    }
+    
+    func handleInfoLabel() {
+        if Auth.auth().currentUser == nil {
+            self.infoLabel.isHidden = false
+        } else {
+            self.infoLabel.isHidden = true
+        }
     }
     
     func loadVideos() {
         videoViewModel.getVideos() { responseObject, error in
-           // print(responseObject ?? "")
             for i in responseObject! {
                 let val = i.value as! [String : Any]
                 let video = VideoModel(JSON: val)
@@ -68,8 +109,6 @@ class FirstViewController: UIViewController, LUExpandableTableViewDelegate, LUEx
                 } else {
                     self.reVideos.append(video!)
                 }
-                
-                print(video?.html ?? "")
             }
             self.tableView.reloadData()
         }
@@ -77,11 +116,17 @@ class FirstViewController: UIViewController, LUExpandableTableViewDelegate, LUEx
 
 }
 
+
+
 // MARK: - LUExpandableTableViewDataSource
 
 extension FirstViewController {
     func numberOfSections(in expandableTableView: LUExpandableTableView) -> Int {
-        return 3
+         if Auth.auth().currentUser == nil {
+            return 1
+         } else {
+            return 3
+        }
     }
     
     func expandableTableView(_ expandableTableView: LUExpandableTableView, numberOfRowsInSection section: Int) -> Int {
@@ -167,19 +212,19 @@ extension FirstViewController {
     // MARK: - Optional
     
     func expandableTableView(_ expandableTableView: LUExpandableTableView, didSelectRowAt indexPath: IndexPath) {
-        print("Did select cell at section \(indexPath.section) row \(indexPath.row)")
+      
     }
     
     func expandableTableView(_ expandableTableView: LUExpandableTableView, didSelectSectionHeader sectionHeader: LUExpandableTableViewSectionHeader, atSection section: Int) {
-        print("Did select cection header at section \(section)")
+ 
     }
     
     func expandableTableView(_ expandableTableView: LUExpandableTableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        print("Will display cell at section \(indexPath.section) row \(indexPath.row)")
+    
     }
     
     func expandableTableView(_ expandableTableView: LUExpandableTableView, willDisplaySectionHeader sectionHeader: LUExpandableTableViewSectionHeader, forSection section: Int) {
-        print("Will display section header for section \(section)")
+ 
     }
 }
 

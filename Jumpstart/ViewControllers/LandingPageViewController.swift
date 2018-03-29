@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import MaterialComponents
+import FirebaseAuth
 
 class LandingPageViewController : UIViewController {
     
@@ -20,7 +21,7 @@ class LandingPageViewController : UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var cosmeticView: UIView!
     
-    
+    var handle: AuthStateDidChangeListenerHandle?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +31,22 @@ class LandingPageViewController : UIViewController {
         
         self.prepareButtons()
         self.prepareLabels()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        handle = Auth.auth().addStateDidChangeListener { (auth, user) in
+            if user != nil {
+                self.performSegue(withIdentifier: "Home", sender: self)
+            }
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        // [START remove_auth_listener]
+        Auth.auth().removeStateDidChangeListener(handle!)
+        // [END remove_auth_listener]
     }
     
     func prepareButtons() {

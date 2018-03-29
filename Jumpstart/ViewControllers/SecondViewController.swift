@@ -19,20 +19,22 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var tableView: UITableView!
     var projectsModel = makeProjectModels()
 
-    //var projectViewModel = ProjectViewModel()
-    //var projects = [Project]()
-    
+
+    var projects: [Project]!
     var selectedIndex = Int()
+    var projectViewModel: ProjectViewModel!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     
-       // self.loadProjects()
+        projectViewModel = ProjectViewModel()
+        projects = [Project]()
+        self.loadProjects()
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        self.tableView.reloadData()
+
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -50,40 +52,45 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
 
     //MARK: TableView Delegate and Datasource methods
-    /*func loadProjects() {
+    func loadProjects() {
         projectViewModel.getProjects() { responseObject, error in
-            // print(responseObject ?? "")
-            for i in responseObject! {
-                let val = i.value as! [String : Any]
-                let proj = Project(JSON: val)
-                
-                self.projects.append(proj!)
+            if responseObject != nil {
+                for i in responseObject! {
+                    let val = i.value as! [String : Any]
+                    let proj = Project(JSON: val)
+                    print(proj ?? "")
+                    self.projects.append(proj!)
+                }
             }
             self.tableView.reloadData()
         }
-    }*/
+    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return projectsModel.count
+        if projects.count > 0 {
+            return projects.count
+        } else {
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ProjectTableViewCell
         //set title
-        cell.progressTitle.text = projectsModel[indexPath.row].title
+        cell.progressTitle.text = projects[indexPath.row].title
         cell.progressTitle.textColor = UIColor.black
         
         //set date
-        cell.progressDeadline.text = projectsModel[indexPath.row].deadline
+        cell.progressDeadline.text = projects[indexPath.row].deadline
        
         //set progress circle
         cell.progressCircle.innerRingColor = UIColor.jGreen
-        cell.progressCircle.value = CGFloat(projectsModel[indexPath.row].progress!)
+        cell.progressCircle.value = 10 //CGFloat(projects[indexPath.row].progress!)
         
         tableView.separatorStyle = .none
         
@@ -102,8 +109,8 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         navigationItem.backBarButtonItem = backItem
         if segue.identifier == "Index" {
             let destination = segue.destination as! SubprojectViewController
-            destination.specificProject = projectsModel[selectedIndex]
-            destination.title = projectsModel[selectedIndex].title
+            destination.specificProject = projects[selectedIndex]
+            destination.title = projects[selectedIndex].title
         }
         
     }

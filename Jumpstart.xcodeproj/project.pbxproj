@@ -21,6 +21,11 @@
 		C02FE0B62033A1A200DA5033 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02FE0B52033A1A200DA5033 /* JSON.swift */; };
 		C04F2C7C1FB50C0700A36A81 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04F2C7B1FB50C0700A36A81 /* Colors.swift */; };
 		C062D50F201A8639009C90AA /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C062D50E201A8639009C90AA /* RegisterViewModel.swift */; };
+		C06ABFDB206BDFE5005D9F1E /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06ABFDA206BDFE5005D9F1E /* LoginViewModel.swift */; };
+		C06ABFDD206BE9EA005D9F1E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C06ABFDC206BE9EA005D9F1E /* GoogleService-Info.plist */; };
+		C06ABFDF206BF972005D9F1E /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06ABFDE206BF972005D9F1E /* SettingsViewController.swift */; };
+		C06ABFE2206C0BF5005D9F1E /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06ABFE1206C0BF5005D9F1E /* Utilities.swift */; };
+		C06ABFE4206C1805005D9F1E /* ValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06ABFE3206C1805005D9F1E /* ValidationError.swift */; };
 		C07271FC1FCCE4010003F006 /* VideoCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07271FB1FCCE4010003F006 /* VideoCard.swift */; };
 		C07271FE1FCE10C70003F006 /* VideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07271FD1FCE10C70003F006 /* VideoModel.swift */; };
 		C07272021FCE14800003F006 /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07272011FCE14800003F006 /* VideoCell.swift */; };
@@ -90,6 +95,11 @@
 		C02FE0B52033A1A200DA5033 /* JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
 		C04F2C7B1FB50C0700A36A81 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		C062D50E201A8639009C90AA /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		C06ABFDA206BDFE5005D9F1E /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		C06ABFDC206BE9EA005D9F1E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C06ABFDE206BF972005D9F1E /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		C06ABFE1206C0BF5005D9F1E /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		C06ABFE3206C1805005D9F1E /* ValidationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationError.swift; sourceTree = "<group>"; };
 		C07271FB1FCCE4010003F006 /* VideoCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCard.swift; sourceTree = "<group>"; };
 		C07271FD1FCE10C70003F006 /* VideoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoModel.swift; sourceTree = "<group>"; };
 		C07272011FCE14800003F006 /* VideoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
@@ -196,6 +206,7 @@
 				C00EB7201FB501D300EF3335 /* AppDelegate.swift */,
 				C00876BF202D4B210007ECC8 /* ExpandableHeader.xib */,
 				C0776AE41FBE2D34004D6A85 /* Models */,
+				C06ABFE0206C0BDB005D9F1E /* Utilities */,
 				C062D50C201A860E009C90AA /* ViewModels */,
 				C09B097B1FBBAEE500DE17C3 /* ViewControllers */,
 				C09B097A1FBBAED000DE17C3 /* StoryBoards */,
@@ -203,6 +214,7 @@
 				C07271FA1FCCE3EC0003F006 /* Subclasses */,
 				C04F2C7D1FB50E3200A36A81 /* Extensions */,
 				C00EB72E1FB501D300EF3335 /* Info.plist */,
+				C06ABFDC206BE9EA005D9F1E /* GoogleService-Info.plist */,
 				C07272031FCE16070003F006 /* FakeData.swift */,
 				EE080BE320361D2D00E645E5 /* ProjectFakeData.swift */,
 			);
@@ -243,8 +255,18 @@
 				C0CD66002048B45000D4E75D /* VideoViewModel.swift */,
 				EEE310AB204F52650051880B /* SubProjectViewModel.swift */,
 				EEA35238206B011D008B651D /* ProjectViewModel.swift */,
+				C06ABFDA206BDFE5005D9F1E /* LoginViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		C06ABFE0206C0BDB005D9F1E /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				C06ABFE1206C0BF5005D9F1E /* Utilities.swift */,
+				C06ABFE3206C1805005D9F1E /* ValidationError.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		C07271FA1FCCE3EC0003F006 /* Subclasses */ = {
@@ -293,6 +315,7 @@
 				EE418A09201A8809005D94C9 /* NewProjectPopUpViewController.swift */,
 				EE146F9A2023BECA000CEDAC /* SubprojectViewController.swift */,
 				EE5AA734203F615100D41D40 /* NewSubProjectPopUpViewController.swift */,
+				C06ABFDE206BF972005D9F1E /* SettingsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -414,6 +437,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C09B09791FBBAEB800DE17C3 /* LoginSignUp.storyboard in Resources */,
+				C06ABFDD206BE9EA005D9F1E /* GoogleService-Info.plist in Resources */,
 				C00EB72D1FB501D300EF3335 /* LaunchScreen.storyboard in Resources */,
 				C0776AEA1FBE484C004D6A85 /* Projects.storyboard in Resources */,
 				C02C4B021FC4D8E10070B524 /* Tasks.storyboard in Resources */,
@@ -481,6 +505,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Jumpstart/Pods-Jumpstart-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/LUExpandableTableView/LUExpandableTableView.framework",
 				"${BUILT_PRODUCTS_DIR}/MDFInternationalization/MDFInternationalization.framework",
@@ -493,11 +518,13 @@
 				"${BUILT_PRODUCTS_DIR}/MotionTransitioning/MotionTransitioning.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/UICircularProgressRing/UICircularProgressRing.framework",
+				"${BUILT_PRODUCTS_DIR}/Validator/Validator.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LUExpandableTableView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFInternationalization.framework",
@@ -510,6 +537,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MotionTransitioning.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UICircularProgressRing.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Validator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -628,10 +656,13 @@
 				C0CD66012048B45000D4E75D /* VideoViewModel.swift in Sources */,
 				C00876BE202D47270007ECC8 /* ExpandableHeader.swift in Sources */,
 				EE5DA569203CD06B0053415B /* SubProjectModel.swift in Sources */,
+				C06ABFDB206BDFE5005D9F1E /* LoginViewModel.swift in Sources */,
 				C062D50F201A8639009C90AA /* RegisterViewModel.swift in Sources */,
 				EE5AA735203F615100D41D40 /* NewSubProjectPopUpViewController.swift in Sources */,
+				C06ABFE4206C1805005D9F1E /* ValidationError.swift in Sources */,
 				EE94EDBB1FCE16C00062E445 /* ProjectTableViewCell.swift in Sources */,
 				EE2400E11FD0987200B52DD4 /* Project.swift in Sources */,
+				C06ABFE2206C0BF5005D9F1E /* Utilities.swift in Sources */,
 				C09B098C1FBBF2BD00DE17C3 /* FirstViewController.swift in Sources */,
 				C0DEBE7D1FBD329700741DBA /* RegisterViewController.swift in Sources */,
 				C07272041FCE16070003F006 /* FakeData.swift in Sources */,
@@ -642,6 +673,7 @@
 				EEA35239206B011D008B651D /* ProjectViewModel.swift in Sources */,
 				C07F60971FD1C9D9001A8AA3 /* NewUser.swift in Sources */,
 				C07272021FCE14800003F006 /* VideoCell.swift in Sources */,
+				C06ABFDF206BF972005D9F1E /* SettingsViewController.swift in Sources */,
 				C04F2C7C1FB50C0700A36A81 /* Colors.swift in Sources */,
 				C09B098A1FBBF2BD00DE17C3 /* LandingPageViewController.swift in Sources */,
 				EEE310AC204F52650051880B /* SubProjectViewModel.swift in Sources */,

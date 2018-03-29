@@ -38,5 +38,9 @@ class VideoCell: UITableViewCell {
         videoCardView!.layer.shouldRasterize = true
         videoCardView!.layer.rasterizationScale = scale ? UIScreen.main.scale : 0.0001
     }
+    
+   override func prepareForReuse() {
+        self.videoCardView = nil
+    }
 
 }

@@ -9,6 +9,7 @@
 import UIKit
 import MaterialComponents
 import Material
+import FirebaseAuth
 
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
@@ -84,5 +85,23 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
+    }
+
+    @IBAction func loginButtonPressed(_ sender: Any) {
+        let indicator = createActivityIndicator(viewController: self)
+        self.view.addSubview(indicator)
+        Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
+            if user != nil {
+                self.performSegue(withIdentifier: "Loggedin", sender: self)
+                indicator.stopAnimating()
+                indicator.isHidden = true
+            }
+            
+            if error != nil {
+                indicator.stopAnimating()
+                indicator.isHidden = true
+                print(error ?? "")
+            }
+        }
     }
 }

@@ -7,6 +7,7 @@
 //
 import UIKit
 import Material
+import FirebaseAuth
 
 class ViewController: UIViewController {
     fileprivate var card: Card!
