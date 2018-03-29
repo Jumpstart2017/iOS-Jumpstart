@@ -15,6 +15,7 @@ func convertToJSON(text: String) -> [String: Any]? {
         do {
             return try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
         } catch {
+            print("In JSON")
             print(error.localizedDescription)
         }
     }

@@ -13,6 +13,7 @@ class SubProject: Mappable {
     var title: String?
     var deadline: String?
     var progress: Int?
+    var wordCount: Int?
     
     required init?(map: Map) {
         
@@ -26,6 +27,7 @@ class SubProject: Mappable {
         title <- map["title"]
         deadline <- map["deadline"]
         progress <- map["progress"]
+        wordCount <- map["wordCount"]
     }
     
 }

@@ -25,7 +25,6 @@ func makeProjectModels() -> [Project] {
         obj?.deadline = "11/7/18"
         obj?.progress = 65
         obj?.type = 1
-        obj?.wordCount = 120
         obj?.subProjects = mySubProject
         myObjects.append(obj!)
        

@@ -15,7 +15,6 @@ class Project: Mappable {
     var deadline: String?
     var progress: Int?
     var type: Int?
-    var wordCount: Int?
     var subProjects: [SubProject]?
     
     
@@ -33,7 +32,6 @@ class Project: Mappable {
         deadline <- map["deadline"]
         progress <- map["progress"]
         type <- map["type"]
-        wordCount <- map["wordCount"]
         subProjects <- map["subProjects"]
     }
     

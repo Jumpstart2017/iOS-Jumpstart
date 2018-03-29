@@ -148,9 +148,9 @@ class NewProjectPopUpViewController: UIViewController, UITextFieldDelegate {
         create.project = self.newProject
         create.createProject() { responseObject, error in
             print(responseObject ?? "nope")
+            self.projectsViewController.loadProjects()
         }
         
-        self.projectsViewController.tableView.reloadData()
         self.view.removeFromSuperview()
     }
     

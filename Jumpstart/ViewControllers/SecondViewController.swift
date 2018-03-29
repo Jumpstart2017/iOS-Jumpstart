@@ -12,6 +12,7 @@ import Alamofire
 import MaterialComponents
 import Material
 import UICircularProgressRing
+import FirebaseAuth
 
 class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
    
@@ -23,18 +24,20 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var user: UserModel?
     var selectedIndex = Int()
     var projectViewModel: ProjectViewModel!
-    
+    var handle: AuthStateDidChangeListenerHandle?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-    
+        self.user = UserModel()
+        self.user?.uid =  Auth.auth().currentUser?.uid
+        print(self.user?.uid)
+
         projectViewModel = ProjectViewModel()
         projects = [Project]()
+        
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        self.getUser()
-
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -44,6 +47,21 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let textAttributes = [NSAttributedStringKey.foregroundColor:UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
         addProject.tintColor = .white
+        
+        handle = Auth.auth().addStateDidChangeListener { (auth, user) in
+            // [START_EXCLUDE]
+            
+            // [END_EXCLUDE]
+        }
+        
+        self.loadProjects()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        // [START remove_auth_listener]
+        Auth.auth().removeStateDidChangeListener(handle!)
+        // [END remove_auth_listener]
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,19 +69,6 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // Dispose of any resources that can be recreated.
     }
     
-    func getUser() {
-        let userViewModel = UserViewModel()
-        userViewModel.getUser() { responseObject, error in
-            print("Get User Called")
-                if responseObject != nil {
-                    let val = responseObject
-                    print("Value: ", val ?? "nope")
-                    self.user = UserModel(JSON: val!)
-                    self.loadProjects()
-                }
-            }
-    }
-
     //MARK: TableView Delegate and Datasource methods
     func loadProjects() {
         projectViewModel.user = self.user
@@ -71,13 +76,13 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
             print("called")
             if responseObject != nil {
                 for i in responseObject! {
-                    let val = i.value as! [String : Any]
-                    let proj = Project(JSON: val)
-                    print(proj ?? "")
-                    self.projects.append(proj!)
+                    print(i)
+//                    let proj = Project(map: i)
+//                    print(proj ?? "")
+//                    self.projects.append(proj!)
                 }
             }
-            self.tableView.reloadData()
+            //self.tableView.reloadData()
             
             if error != nil {
                 print(error ?? "nopey")
@@ -109,7 +114,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
        
         //set progress circle
         cell.progressCircle.innerRingColor = UIColor.jGreen
-        cell.progressCircle.value = 10 //CGFloat(projects[indexPath.row].progress!)
+        cell.progressCircle.value = CGFloat(projects[indexPath.row].progress!)
         
         tableView.separatorStyle = .none
         

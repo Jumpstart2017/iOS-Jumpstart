@@ -257,7 +257,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIScrollVie
             self.newUser = NewUser(JSON: val!)
             print("New User: ", self.newUser ?? "nope")
             self.signIn()
-        }
+            }
         }
         
     }
