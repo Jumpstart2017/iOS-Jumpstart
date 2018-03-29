@@ -570,8 +570,9 @@
         <scene sceneID="JMa-0b-fE5">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dE7-VJ-wtt" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Projects" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Projects" image="ic_edit_white" id="cPa-gy-q4n"/>
                     <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jmX-V9-PIm">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -587,6 +588,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="second" width="30" height="30"/>
+        <image name="ic_edit_white" width="24" height="24"/>
     </resources>
 </document>

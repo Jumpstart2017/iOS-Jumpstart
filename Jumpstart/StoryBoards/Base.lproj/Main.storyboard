@@ -535,6 +535,7 @@
         <image name="video_icon" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="u7Y-xg-7CH"/>
         <segue reference="caL-u2-IyP"/>
         <segue reference="OqT-jY-gMC"/>
     </inferredMetricsTieBreakers>
