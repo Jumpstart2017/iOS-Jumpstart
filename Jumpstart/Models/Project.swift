@@ -10,6 +10,7 @@ import Foundation
 import ObjectMapper
 
 class Project: Mappable {
+    var uid: String?
     var title: String?
     var deadline: String?
     var progress: Int?
@@ -27,6 +28,7 @@ class Project: Mappable {
     }
     
     func mapping(map: Map) {
+        uid <- map["uid"]
         title <- map["title"]
         deadline <- map["deadline"]
         progress <- map["progress"]

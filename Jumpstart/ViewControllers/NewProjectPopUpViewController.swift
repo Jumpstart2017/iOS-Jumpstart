@@ -11,6 +11,7 @@ import ObjectMapper
 import Alamofire
 import MaterialComponents
 import Material
+import FirebaseAuth
 
 class NewProjectPopUpViewController: UIViewController, UITextFieldDelegate {
 
@@ -25,8 +26,10 @@ class NewProjectPopUpViewController: UIViewController, UITextFieldDelegate {
     
     var dateSelected: Bool!
     var newProject: Project?
+    var user: UserModel?
+    var projectsViewController: SecondViewController!
     
-    
+ 
     override func viewDidLoad() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tap)
@@ -40,6 +43,15 @@ class NewProjectPopUpViewController: UIViewController, UITextFieldDelegate {
         
         newProject = Project()
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+ 
     }
 
     
@@ -122,23 +134,23 @@ class NewProjectPopUpViewController: UIViewController, UITextFieldDelegate {
     }
     
     func finalFormCheck() {
-        newProject?.title = newProjectNameTextField.text
-        newProject?.deadline = newProjectDeadlineTextField.text
+        newProject?.title = newProjectNameTextField.text!
+        newProject?.deadline = newProjectDeadlineTextField.text!
         newProject?.type = writingStagesSeg.selectedSegmentIndex
+        newProject?.uid = user?.uid!
         //TODO: ADD Model Check
     }
     
     
     @IBAction func submitButtonPressed(_ sender: Any) {
-        
         finalFormCheck()
         let create = ProjectViewModel()
         create.project = self.newProject
         create.createProject() { responseObject, error in
-            
+            print(responseObject ?? "nope")
         }
         
-        
+        self.projectsViewController.tableView.reloadData()
         self.view.removeFromSuperview()
     }
     

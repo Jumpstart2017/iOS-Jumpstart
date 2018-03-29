@@ -26,6 +26,8 @@
 		C06ABFDF206BF972005D9F1E /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06ABFDE206BF972005D9F1E /* SettingsViewController.swift */; };
 		C06ABFE2206C0BF5005D9F1E /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06ABFE1206C0BF5005D9F1E /* Utilities.swift */; };
 		C06ABFE4206C1805005D9F1E /* ValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06ABFE3206C1805005D9F1E /* ValidationError.swift */; };
+		C06ABFE8206C7F4E005D9F1E /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06ABFE7206C7F4E005D9F1E /* UserModel.swift */; };
+		C06ABFEA206C82EB005D9F1E /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06ABFE9206C82EB005D9F1E /* UserViewModel.swift */; };
 		C07271FC1FCCE4010003F006 /* VideoCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07271FB1FCCE4010003F006 /* VideoCard.swift */; };
 		C07271FE1FCE10C70003F006 /* VideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07271FD1FCE10C70003F006 /* VideoModel.swift */; };
 		C07272021FCE14800003F006 /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07272011FCE14800003F006 /* VideoCell.swift */; };
@@ -100,6 +102,8 @@
 		C06ABFDE206BF972005D9F1E /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		C06ABFE1206C0BF5005D9F1E /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		C06ABFE3206C1805005D9F1E /* ValidationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationError.swift; sourceTree = "<group>"; };
+		C06ABFE7206C7F4E005D9F1E /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		C06ABFE9206C82EB005D9F1E /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		C07271FB1FCCE4010003F006 /* VideoCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCard.swift; sourceTree = "<group>"; };
 		C07271FD1FCE10C70003F006 /* VideoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoModel.swift; sourceTree = "<group>"; };
 		C07272011FCE14800003F006 /* VideoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
@@ -256,6 +260,7 @@
 				EEE310AB204F52650051880B /* SubProjectViewModel.swift */,
 				EEA35238206B011D008B651D /* ProjectViewModel.swift */,
 				C06ABFDA206BDFE5005D9F1E /* LoginViewModel.swift */,
+				C06ABFE9206C82EB005D9F1E /* UserViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -287,6 +292,7 @@
 				EE2400E01FD0987200B52DD4 /* Project.swift */,
 				C07F60961FD1C9D9001A8AA3 /* NewUser.swift */,
 				EE5DA568203CD06B0053415B /* SubProjectModel.swift */,
+				C06ABFE7206C7F4E005D9F1E /* UserModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -668,10 +674,12 @@
 				C07272041FCE16070003F006 /* FakeData.swift in Sources */,
 				C02FE0B62033A1A200DA5033 /* JSON.swift in Sources */,
 				EE146F9B2023BECA000CEDAC /* SubprojectViewController.swift in Sources */,
+				C06ABFE8206C7F4E005D9F1E /* UserModel.swift in Sources */,
 				C09B098B1FBBF2BD00DE17C3 /* LoginViewController.swift in Sources */,
 				C0F1C3171FCE67A6000270CB /* ViewController.swift in Sources */,
 				EEA35239206B011D008B651D /* ProjectViewModel.swift in Sources */,
 				C07F60971FD1C9D9001A8AA3 /* NewUser.swift in Sources */,
+				C06ABFEA206C82EB005D9F1E /* UserViewModel.swift in Sources */,
 				C07272021FCE14800003F006 /* VideoCell.swift in Sources */,
 				C06ABFDF206BF972005D9F1E /* SettingsViewController.swift in Sources */,
 				C04F2C7C1FB50C0700A36A81 /* Colors.swift in Sources */,

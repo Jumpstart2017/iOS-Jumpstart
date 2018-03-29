@@ -17,10 +17,10 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
    
     @IBOutlet weak var addProject: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
-    var projectsModel = makeProjectModels()
 
 
     var projects: [Project]!
+    var user: UserModel?
     var selectedIndex = Int()
     var projectViewModel: ProjectViewModel!
     
@@ -31,9 +31,9 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
         projectViewModel = ProjectViewModel()
         projects = [Project]()
-        self.loadProjects()
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        self.getUser()
 
     }
 
@@ -50,10 +50,25 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func getUser() {
+        let userViewModel = UserViewModel()
+        userViewModel.getUser() { responseObject, error in
+            print("Get User Called")
+                if responseObject != nil {
+                    let val = responseObject
+                    print("Value: ", val ?? "nope")
+                    self.user = UserModel(JSON: val!)
+                    self.loadProjects()
+                }
+            }
+    }
 
     //MARK: TableView Delegate and Datasource methods
     func loadProjects() {
+        projectViewModel.user = self.user
         projectViewModel.getProjects() { responseObject, error in
+            print("called")
             if responseObject != nil {
                 for i in responseObject! {
                     let val = i.value as! [String : Any]
@@ -63,6 +78,10 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 }
             }
             self.tableView.reloadData()
+            
+            if error != nil {
+                print(error ?? "nopey")
+            }
         }
     }
     
@@ -118,6 +137,8 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     @IBAction func showNewProjectPopUp(_ sender: Any) {
         let popUpVC = UIStoryboard(name: "Projects", bundle: nil).instantiateViewController(withIdentifier: "newProjectPopUpID") as! NewProjectPopUpViewController
+        popUpVC.projectsViewController = self
+        popUpVC.user = self.user
         self.addChildViewController(popUpVC)
         popUpVC.view.frame = self.view.frame
         self.view.addSubview(popUpVC.view)
