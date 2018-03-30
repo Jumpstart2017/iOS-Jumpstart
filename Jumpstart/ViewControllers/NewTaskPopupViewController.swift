@@ -17,8 +17,7 @@ class NewTaskPopup: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
     @IBOutlet weak var reminderSelect: UISegmentedControl!
     @IBOutlet weak var projectSelectText: UITextField!
     @IBOutlet weak var deadlineText: UITextField!
-    @IBOutlet weak var reminderLabel: UILabel!
-    
+   
     var projectList = [String]()
     let deadlinePicker = UIDatePicker()
     
@@ -38,7 +37,6 @@ class NewTaskPopup: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
         prepareReminderSelect()
         prepareProjectSelectText()
         prepareDeadlineText()
-        prepareReminderLabel()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -87,12 +85,11 @@ extension NewTaskPopup {
     fileprivate func preparePopup() {
         popupview.layer.shadowOpacity = 0.5 //show shadow
         popupview.layer.shadowOffset = CGSize(width: 6, height: 6) //left and bottom only
-        popupview.layer.shadowRadius = 10 //sharp corners
+        popupview.layer.shadowRadius = 0.0 //sharp corners
         popupview.layer.shadowColor = UIColor.lightGray.cgColor
         
-        popupview.layer.cornerRadius = 10
         popupview.layer.borderWidth = 1
-        popupview.layer.borderColor = UIColor.black.cgColor
+        popupview.layer.borderColor = UIColor.lightGray.cgColor
         
     }
     
@@ -156,7 +153,40 @@ extension NewTaskPopup {
         projectSelectText.inputView = projectPicker
     }
     
-    fileprivate func prepareReminderLabel() {
-            reminderLabel.text = "Reminder"
+    // MARK: Actions
+    @IBAction func createTask(_ sender: Any) {
+        let hasDescription = deadlineText.text != ""
+        let hasProject = projectSelectText.text != ""
+        let hasDeadline = descriptionTextField.text != ""
+        if(!hasDeadline) {
+            deadlineText.borderStyle = UITextBorderStyle.roundedRect
+            deadlineText.layer.borderWidth = 1
+            deadlineText.layer.borderColor = UIColor.red.cgColor
+        }
+        
+        if(!hasDescription) {
+            descriptionTextField.borderStyle = UITextBorderStyle.roundedRect
+            descriptionTextField.layer.borderWidth = 1
+            descriptionTextField.layer.borderColor = UIColor.red.cgColor
+        }
+
+        if(!hasProject) {
+            projectSelectText.borderStyle = UITextBorderStyle.roundedRect
+            projectSelectText.layer.borderWidth = 1
+            projectSelectText.layer.borderColor = UIColor.red.cgColor
+        }
+        
+        if(hasProject && hasDescription && hasDeadline) {
+            let parameters = [
+                "completed": false,
+                "deadline": deadlineText.text,
+                "description": descriptionTextField.text,
+                "progress": 0,
+                "reminder": reminderSelect.selectedSegmentIndex,
+                "project": projectSelectText.text
+            ] as [String: Any]
+        
+            print(parameters)
+        }
     }
 }
