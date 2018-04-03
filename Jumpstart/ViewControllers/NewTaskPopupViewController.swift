@@ -17,10 +17,9 @@ class NewTaskPopup: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
     @IBOutlet weak var reminderSelect: UISegmentedControl!
     @IBOutlet weak var projectSelectText: UITextField!
     @IBOutlet weak var deadlineText: UITextField!
-   
+    
     var projectList = [String]()
     let deadlinePicker = UIDatePicker()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,6 +77,10 @@ class NewTaskPopup: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
         let dateStr = dateformatter.string(from: sender.date)
         deadlineText.text = dateStr
     }
+    
+    @IBAction func exitPopup(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
 }
 
 extension NewTaskPopup {
@@ -95,6 +98,9 @@ extension NewTaskPopup {
     
     fileprivate func prepareDescriptionTextField() {
         descriptionTextField.placeholder = "Description"
+        descriptionTextField.borderStyle = UITextBorderStyle.roundedRect
+        descriptionTextField.layer.borderWidth = 0
+        descriptionTextField.layer.borderColor = UIColor.red.cgColor
     }
     
     fileprivate func prepareExitButton() {
@@ -134,6 +140,9 @@ extension NewTaskPopup {
     fileprivate func prepareDeadlineText() {
         deadlineText.placeholder = "Deadline"
         deadlineText.inputView = deadlinePicker
+        deadlineText.borderStyle = UITextBorderStyle.roundedRect
+        deadlineText.layer.borderWidth = 0
+        deadlineText.layer.borderColor = UIColor.red.cgColor
     }
     
     fileprivate func prepareProjectSelectText() {
@@ -151,29 +160,37 @@ extension NewTaskPopup {
         let projectPicker = UIPickerView()
         projectPicker.delegate = self
         projectSelectText.inputView = projectPicker
+        
+        projectSelectText.borderStyle = UITextBorderStyle.roundedRect
+        projectSelectText.layer.borderWidth = 0
+        projectSelectText.layer.borderColor = UIColor.red.cgColor
     }
     
     // MARK: Actions
     @IBAction func createTask(_ sender: Any) {
-        let hasDescription = deadlineText.text != ""
+        let hasDeadline = deadlineText.text != ""
         let hasProject = projectSelectText.text != ""
-        let hasDeadline = descriptionTextField.text != ""
+        let hasDescription = descriptionTextField.text != ""
+        
         if(!hasDeadline) {
-            deadlineText.borderStyle = UITextBorderStyle.roundedRect
             deadlineText.layer.borderWidth = 1
-            deadlineText.layer.borderColor = UIColor.red.cgColor
+        }
+        else {
+            deadlineText.layer.borderWidth = 0
         }
         
         if(!hasDescription) {
-            descriptionTextField.borderStyle = UITextBorderStyle.roundedRect
             descriptionTextField.layer.borderWidth = 1
-            descriptionTextField.layer.borderColor = UIColor.red.cgColor
         }
-
+        else {
+            descriptionTextField.layer.borderWidth = 0
+        }
+        
         if(!hasProject) {
-            projectSelectText.borderStyle = UITextBorderStyle.roundedRect
             projectSelectText.layer.borderWidth = 1
-            projectSelectText.layer.borderColor = UIColor.red.cgColor
+        }
+        else {
+            projectSelectText.layer.borderWidth = 0
         }
         
         if(hasProject && hasDescription && hasDeadline) {

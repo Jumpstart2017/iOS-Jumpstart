@@ -132,6 +132,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X6c-7N-Kdd" userLabel="exitButton">
                                         <rect key="frame" x="8" y="8" width="46" height="30"/>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="exitPopup:" destination="oga-k4-acu" eventType="touchUpInside" id="IPn-lm-rFU"/>
+                                        </connections>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yjc-Lr-EDZ" userLabel="descriptionTextField">
                                         <rect key="frame" x="25" y="52" width="250" height="30"/>
