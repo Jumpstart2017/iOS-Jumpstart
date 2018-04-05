@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hKK-aq-HGz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hKK-aq-HGz">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -60,7 +60,6 @@
                     <connections>
                         <outlet property="infoLabel" destination="qfW-ch-LAX" id="G0G-op-5OA"/>
                         <outlet property="tableView" destination="PAi-yE-4i0" id="dM8-dy-wOh"/>
-                        <segue destination="bfX-3u-2Rw" kind="show" id="1Dq-V4-nwI"/>
                         <segue destination="DEs-kf-vza" kind="show" identifier="Settings" id="a2T-S6-EcC"/>
                         <segue destination="bfX-3u-2Rw" kind="presentation" identifier="Login" id="caL-u2-IyP"/>
                     </connections>
@@ -125,14 +124,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lJ4-HQ-XtM">
-                                <rect key="frame" x="171" y="605" width="32" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Task"/>
-                                <connections>
-                                    <segue destination="DSP-ic-EMR" kind="show" id="gpE-kV-4ij"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TMJ-EP-1eM">
                                 <rect key="frame" x="67" y="311.5" width="240" height="40"/>
                                 <subviews>
@@ -216,6 +207,7 @@
                     <connections>
                         <segue destination="gTp-Qk-p32" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="Ngj-Yr-7WI" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
+                        <segue destination="Ttz-Gt-mm6" kind="relationship" relationship="viewControllers" id="BzL-SA-XJu"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -241,14 +233,6 @@
             </objects>
             <point key="canvasLocation" x="796" y="0.0"/>
         </scene>
-        <!--LoginSignUp-->
-        <scene sceneID="aFG-no-q20">
-            <objects>
-                <viewControllerPlaceholder storyboardName="LoginSignUp" id="XpQ-LZ-NhK" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4jg-CU-6mB" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="855" y="1290"/>
-        </scene>
         <!--Projects-->
         <scene sceneID="fG5-H5-7Zf">
             <objects>
@@ -257,15 +241,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZyS-0r-TPv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1" y="497"/>
-        </scene>
-        <!--Tasks-->
-        <scene sceneID="p7x-KU-hAl">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Tasks" id="DSP-ic-EMR" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mq9-9M-pYu" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1850" y="711"/>
+            <point key="canvasLocation" x="180" y="523"/>
         </scene>
         <!--Login-->
         <scene sceneID="eRE-KR-AIh">
@@ -307,9 +283,7 @@
                                         </constraints>
                                         <state key="normal" title="Register"/>
                                         <connections>
-                                            <segue destination="wYI-FC-Cl3" kind="show" id="iGC-GK-ybv">
-                                                <nil key="action"/>
-                                            </segue>
+                                            <segue destination="wYI-FC-Cl3" kind="show" id="iGC-GK-ybv"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tJY-45-ZjM" customClass="MDCRaisedButton">
@@ -529,14 +503,23 @@
             </objects>
             <point key="canvasLocation" x="-999" y="-676"/>
         </scene>
+        <!--GlobalTasks-->
+        <scene sceneID="PRx-yr-0EI">
+            <objects>
+                <viewControllerPlaceholder storyboardName="GlobalTasks" id="Ttz-Gt-mm6" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="Icj-ba-YbE"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HhC-im-O52" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-100" y="523"/>
+        </scene>
     </scenes>
     <resources>
         <image name="landing_logo" width="130" height="130"/>
         <image name="video_icon" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="u7Y-xg-7CH"/>
-        <segue reference="caL-u2-IyP"/>
-        <segue reference="OqT-jY-gMC"/>
+        <segue reference="EWA-Wz-2Fw"/>
+        <segue reference="1At-Ad-9E2"/>
     </inferredMetricsTieBreakers>
 </document>

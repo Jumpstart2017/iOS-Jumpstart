@@ -68,6 +68,7 @@ class FirstViewController: UIViewController, LUExpandableTableViewDelegate, LUEx
             if user == nil {
                 let buttons = self.tabBarController?.tabBar.items
                 buttons![1].isEnabled = false
+                buttons![2].isEnabled = false
             }
 
             // [END_EXCLUDE]

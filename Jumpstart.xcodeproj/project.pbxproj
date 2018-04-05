@@ -15,6 +15,7 @@
 		A06319ACB3F8B13AAB8AA5A0 /* Pods_JumpstartTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F3CDEF17FED4E9A967139F2 /* Pods_JumpstartTests.framework */; };
 		C00876BE202D47270007ECC8 /* ExpandableHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00876BD202D47270007ECC8 /* ExpandableHeader.swift */; };
 		C00876C0202D4B210007ECC8 /* ExpandableHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = C00876BF202D4B210007ECC8 /* ExpandableHeader.xib */; };
+		C008FF112076CDEA000AFDB7 /* GlobalTasks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C008FF102076CDB8000AFDB7 /* GlobalTasks.storyboard */; };
 		C00EB7211FB501D300EF3335 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00EB7201FB501D300EF3335 /* AppDelegate.swift */; };
 		C00EB7281FB501D300EF3335 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C00EB7261FB501D300EF3335 /* Main.storyboard */; };
 		C00EB72A1FB501D300EF3335 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C00EB7291FB501D300EF3335 /* Assets.xcassets */; };
@@ -89,6 +90,7 @@
 		BF11D0CA6914AB1BD1A92872 /* Pods-JumpstartUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JumpstartUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-JumpstartUITests/Pods-JumpstartUITests.release.xcconfig"; sourceTree = "<group>"; };
 		C00876BD202D47270007ECC8 /* ExpandableHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableHeader.swift; sourceTree = "<group>"; };
 		C00876BF202D4B210007ECC8 /* ExpandableHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpandableHeader.xib; sourceTree = "<group>"; };
+		C008FF102076CDB8000AFDB7 /* GlobalTasks.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = GlobalTasks.storyboard; path = /Users/Gabriel/Desktop/Jumpstart/Jumpstart/StoryBoards/GlobalTasks.storyboard; sourceTree = "<absolute>"; };
 		C00EB71D1FB501D300EF3335 /* Jumpstart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jumpstart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C00EB7201FB501D300EF3335 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C00EB7271FB501D300EF3335 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -285,6 +287,7 @@
 		C07271FA1FCCE3EC0003F006 /* Subclasses */ = {
 			isa = PBXGroup;
 			children = (
+				645C9A52202D00B300F4A44B /* TasksTableViewCell.swift */,
 				EE94EDBA1FCE16C00062E445 /* ProjectTableViewCell.swift */,
 				C07272011FCE14800003F006 /* VideoCell.swift */,
 				C07271FB1FCCE4010003F006 /* VideoCard.swift */,
@@ -310,6 +313,7 @@
 			isa = PBXGroup;
 			children = (
 				C02C4B001FC4D8E10070B524 /* Tasks.storyboard */,
+				C008FF102076CDB8000AFDB7 /* GlobalTasks.storyboard */,
 				C0776AE91FBE484C004D6A85 /* Projects.storyboard */,
 				C00EB72B1FB501D300EF3335 /* LaunchScreen.storyboard */,
 				C00EB7261FB501D300EF3335 /* Main.storyboard */,
@@ -321,7 +325,6 @@
 		C09B097B1FBBAEE500DE17C3 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				645C9A52202D00B300F4A44B /* TasksTableViewCell.swift */,
 				645C9A51202D00B300F4A44B /* TaskTableViewController.swift */,
 				C09B09891FBBF2BD00DE17C3 /* FirstViewController.swift */,
 				C09B098D1FBBF2CA00DE17C3 /* SecondViewController.swift */,
@@ -334,7 +337,6 @@
 				EE146F9A2023BECA000CEDAC /* SubprojectViewController.swift */,
 				EE5AA734203F615100D41D40 /* NewSubProjectPopUpViewController.swift */,
 				C06ABFDE206BF972005D9F1E /* SettingsViewController.swift */,
-
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -351,7 +353,6 @@
 				C00EB71A1FB501D300EF3335 /* Frameworks */,
 				C00EB71B1FB501D300EF3335 /* Resources */,
 				4C7986D3C200215AC7635C2F /* [CP] Embed Pods Frameworks */,
-				688B4FA215BEACC6E43BA005 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -370,8 +371,6 @@
 				C00EB72F1FB501D300EF3335 /* Sources */,
 				C00EB7301FB501D300EF3335 /* Frameworks */,
 				C00EB7311FB501D300EF3335 /* Resources */,
-				F4FC430D643B118CB820289D /* [CP] Embed Pods Frameworks */,
-				FF56EBB88EFA8E3E7F49F576 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -391,8 +390,6 @@
 				C00EB73A1FB501D300EF3335 /* Sources */,
 				C00EB73B1FB501D300EF3335 /* Frameworks */,
 				C00EB73C1FB501D300EF3335 /* Resources */,
-				06F871B7FF101627DCE8E7E1 /* [CP] Embed Pods Frameworks */,
-				9B4388407831C4C8079C3E41 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -411,7 +408,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0910;
-				LastUpgradeCheck = 0910;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = Jumpstart;
 				TargetAttributes = {
 					C00EB71C1FB501D300EF3335 = {
@@ -456,6 +453,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C09B09791FBBAEB800DE17C3 /* LoginSignUp.storyboard in Resources */,
+				C008FF112076CDEA000AFDB7 /* GlobalTasks.storyboard in Resources */,
 				C06ABFDD206BE9EA005D9F1E /* GoogleService-Info.plist in Resources */,
 				C00EB72D1FB501D300EF3335 /* LaunchScreen.storyboard in Resources */,
 				C0776AEA1FBE484C004D6A85 /* Projects.storyboard in Resources */,
@@ -483,21 +481,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		06F871B7FF101627DCE8E7E1 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JumpstartUITests/Pods-JumpstartUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		30151A80DF65EE997538B14C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -564,21 +547,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Jumpstart/Pods-Jumpstart-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		688B4FA215BEACC6E43BA005 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Jumpstart/Pods-Jumpstart-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		944CA897DC0A86F67137D0A0 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -595,21 +563,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9B4388407831C4C8079C3E41 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JumpstartUITests/Pods-JumpstartUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DD4B65F5D166321AC42C246E /* [CP] Check Pods Manifest.lock */ = {
@@ -630,36 +583,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F4FC430D643B118CB820289D /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JumpstartTests/Pods-JumpstartTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FF56EBB88EFA8E3E7F49F576 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JumpstartTests/Pods-JumpstartTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -667,7 +590,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-
 				6443BD7D204C9F98000A3173 /* NewTaskPopupViewController.swift in Sources */,
 				EE080BE420361D2D00E645E5 /* ProjectFakeData.swift in Sources */,
 				C09B098E1FBBF2CA00DE17C3 /* SecondViewController.swift in Sources */,
@@ -780,6 +702,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -787,6 +710,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -837,6 +761,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -844,6 +769,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;

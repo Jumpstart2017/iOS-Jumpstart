@@ -18,3 +18,4 @@ extension UIColor {
     open static let jPurple = UIColor(red: 55/255, green: 34/255, blue: 72/255, alpha: 1)
     
 }
+
