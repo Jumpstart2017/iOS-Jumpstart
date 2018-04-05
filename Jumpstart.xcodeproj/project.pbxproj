@@ -90,7 +90,7 @@
 		BF11D0CA6914AB1BD1A92872 /* Pods-JumpstartUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JumpstartUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-JumpstartUITests/Pods-JumpstartUITests.release.xcconfig"; sourceTree = "<group>"; };
 		C00876BD202D47270007ECC8 /* ExpandableHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableHeader.swift; sourceTree = "<group>"; };
 		C00876BF202D4B210007ECC8 /* ExpandableHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpandableHeader.xib; sourceTree = "<group>"; };
-		C008FF102076CDB8000AFDB7 /* GlobalTasks.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = GlobalTasks.storyboard; path = /Users/Gabriel/Desktop/Jumpstart/Jumpstart/StoryBoards/GlobalTasks.storyboard; sourceTree = "<absolute>"; };
+		C008FF102076CDB8000AFDB7 /* GlobalTasks.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GlobalTasks.storyboard; sourceTree = "<group>"; };
 		C00EB71D1FB501D300EF3335 /* Jumpstart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jumpstart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C00EB7201FB501D300EF3335 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C00EB7271FB501D300EF3335 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
