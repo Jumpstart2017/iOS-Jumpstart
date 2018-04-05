@@ -12,22 +12,32 @@ import Alamofire
 import MaterialComponents
 import Material
 import UICircularProgressRing
+import FirebaseAuth
 
 class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+   
+    @IBOutlet weak var addProject: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
-    var p1: Project?
+
+
+    var projects: [Project]!
+    var user: UserModel?
+    var selectedIndex = Int()
+    var projectViewModel: ProjectViewModel!
+    var handle: AuthStateDidChangeListenerHandle?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        p1?.title = "Paper 1"
-        p1?.deadline = "11/24/2017"
-        p1?.progress = 70
         // Do any additional setup after loading the view, typically from a nib.
+        self.user = UserModel()
+        self.user?.uid =  Auth.auth().currentUser?.uid
+        print(self.user?.uid)
+
+        projectViewModel = ProjectViewModel()
+        projects = [Project]()
+        
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        self.tableView.reloadData()
-        
-        
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -36,38 +46,110 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.navigationController?.navigationBar.backgroundColor = .jBlue
         let textAttributes = [NSAttributedStringKey.foregroundColor:UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
+        addProject.tintColor = .white
+        
+        handle = Auth.auth().addStateDidChangeListener { (auth, user) in
+            // [START_EXCLUDE]
+            
+            // [END_EXCLUDE]
+        }
+        
+        self.loadProjects()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        // [START remove_auth_listener]
+        Auth.auth().removeStateDidChangeListener(handle!)
+        // [END remove_auth_listener]
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     //MARK: TableView Delegate and Datasource methods
+    func loadProjects() {
+        projectViewModel.user = self.user
+        projectViewModel.getProjects() { responseObject, error in
+            print("called")
+            if responseObject != nil {
+                for i in responseObject! {
+                    print(i)
+//                    let proj = Project(map: i)
+//                    print(proj ?? "")
+//                    self.projects.append(proj!)
+                }
+            }
+            //self.tableView.reloadData()
+            
+            if error != nil {
+                print(error ?? "nopey")
+            }
+        }
+    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        if projects.count > 0 {
+            return projects.count
+        } else {
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ProjectTableViewCell
-        
-        cell.progressTitle.text = self.p1?.title ?? "Title"
+        //set title
+        cell.progressTitle.text = projects[indexPath.row].title
         cell.progressTitle.textColor = UIColor.black
-        cell.progressDeadline.text = self.p1?.deadline ?? "Deadline"
+        
+        //set date
+        cell.progressDeadline.text = projects[indexPath.row].deadline
+       
+        //set progress circle
         cell.progressCircle.innerRingColor = UIColor.jGreen
-        cell.progressCircle.value = 20.0
-        //cell.progressCircle.value = CGFloat(p1?.progress)
+        cell.progressCircle.value = CGFloat(projects[indexPath.row].progress!)
         
         tableView.separatorStyle = .none
         
         return cell
     }
-
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.selectedIndex = indexPath.row
+        performSegue(withIdentifier: "Index", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let backItem = UIBarButtonItem()
+        backItem.tintColor = .white
+        backItem.title = "Projects"
+        navigationItem.backBarButtonItem = backItem
+        if segue.identifier == "Index" {
+            let destination = segue.destination as! SubprojectViewController
+            destination.specificProject = projects[selectedIndex]
+            destination.title = projects[selectedIndex].title
+        }
+        
+    }
+    
+    
+    @IBAction func showNewProjectPopUp(_ sender: Any) {
+        let popUpVC = UIStoryboard(name: "Projects", bundle: nil).instantiateViewController(withIdentifier: "newProjectPopUpID") as! NewProjectPopUpViewController
+        popUpVC.projectsViewController = self
+        popUpVC.user = self.user
+        self.addChildViewController(popUpVC)
+        popUpVC.view.frame = self.view.frame
+        self.view.addSubview(popUpVC.view)
+        popUpVC.didMove(toParentViewController: self)
+        
+    }
+    
 }
 

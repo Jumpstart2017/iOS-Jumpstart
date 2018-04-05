@@ -6,30 +6,32 @@
 //  Copyright © 2017 Jumpstart. All rights reserved.
 //
 
-
+import Foundation
 import ObjectMapper
 
-class VideoModel: Mappable {
+struct VideoModel: Mappable {
     var vid: String?
     var title: String?
     var description: String?
     var url: String?
     var html: String?
+    var type: String?
     
-    required init?(map: Map) {
+    init?(map: Map) {
         
     }
     
-    required init?() {
+    init?(){
         
     }
     
-    func mapping(map: Map) {
+   mutating func mapping(map: Map) {
         vid <- map["vid"]
         title <- map["title"]
         description <- map["description"]
         url <- map["url"]
         html <- map["html"]
+        type <- map["type"]
     }
     
 }

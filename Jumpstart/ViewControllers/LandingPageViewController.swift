@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import MaterialComponents
+import FirebaseAuth
 
 class LandingPageViewController : UIViewController {
     
@@ -18,22 +19,42 @@ class LandingPageViewController : UIViewController {
     @IBOutlet weak var getUnstuckLabel: UILabel!
     @IBOutlet weak var getEnergizedLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var cosmeticView: UIView!
     
+    var handle: AuthStateDidChangeListenerHandle?
     
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        self.view.backgroundColor = .jBlue
+        self.view.backgroundColor = .white
+        self.cosmeticView.backgroundColor = .jBlue
+        
         self.prepareButtons()
         self.prepareLabels()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        handle = Auth.auth().addStateDidChangeListener { (auth, user) in
+            if user != nil {
+                self.performSegue(withIdentifier: "Home", sender: self)
+            }
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        // [START remove_auth_listener]
+        Auth.auth().removeStateDidChangeListener(handle!)
+        // [END remove_auth_listener]
+    }
+    
     func prepareButtons() {
-        signUpButton.backgroundColor = .white
-        signUpButton.setTitleColor(.jBlue, for: .normal)
+        signUpButton.backgroundColor = .jBlue
+        signUpButton.setTitleColor(.white, for: .normal)
             
-        tryNowButton.backgroundColor = .white
-        tryNowButton.setTitleColor(.jGreen, for: .normal)
+        tryNowButton.backgroundColor = .jGreen
+        tryNowButton.setTitleColor(.white, for: .normal)
   
     }
     

@@ -13,6 +13,8 @@
 		645C9A54202D00B300F4A44B /* TasksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645C9A52202D00B300F4A44B /* TasksTableViewCell.swift */; };
 		88E0E5D8BB06215A1B871B78 /* Pods_JumpstartUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE1FF19A1E3A6049C590D5E9 /* Pods_JumpstartUITests.framework */; };
 		A06319ACB3F8B13AAB8AA5A0 /* Pods_JumpstartTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F3CDEF17FED4E9A967139F2 /* Pods_JumpstartTests.framework */; };
+		C00876BE202D47270007ECC8 /* ExpandableHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00876BD202D47270007ECC8 /* ExpandableHeader.swift */; };
+		C00876C0202D4B210007ECC8 /* ExpandableHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = C00876BF202D4B210007ECC8 /* ExpandableHeader.xib */; };
 		C00EB7211FB501D300EF3335 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00EB7201FB501D300EF3335 /* AppDelegate.swift */; };
 		C00EB7281FB501D300EF3335 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C00EB7261FB501D300EF3335 /* Main.storyboard */; };
 		C00EB72A1FB501D300EF3335 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C00EB7291FB501D300EF3335 /* Assets.xcassets */; };
@@ -20,7 +22,16 @@
 		C00EB7381FB501D300EF3335 /* JumpstartTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00EB7371FB501D300EF3335 /* JumpstartTests.swift */; };
 		C00EB7431FB501D300EF3335 /* JumpstartUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00EB7421FB501D300EF3335 /* JumpstartUITests.swift */; };
 		C02C4B021FC4D8E10070B524 /* Tasks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C02C4B001FC4D8E10070B524 /* Tasks.storyboard */; };
+		C02FE0B62033A1A200DA5033 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02FE0B52033A1A200DA5033 /* JSON.swift */; };
 		C04F2C7C1FB50C0700A36A81 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04F2C7B1FB50C0700A36A81 /* Colors.swift */; };
+		C062D50F201A8639009C90AA /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C062D50E201A8639009C90AA /* RegisterViewModel.swift */; };
+		C06ABFDB206BDFE5005D9F1E /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06ABFDA206BDFE5005D9F1E /* LoginViewModel.swift */; };
+		C06ABFDD206BE9EA005D9F1E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C06ABFDC206BE9EA005D9F1E /* GoogleService-Info.plist */; };
+		C06ABFDF206BF972005D9F1E /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06ABFDE206BF972005D9F1E /* SettingsViewController.swift */; };
+		C06ABFE2206C0BF5005D9F1E /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06ABFE1206C0BF5005D9F1E /* Utilities.swift */; };
+		C06ABFE4206C1805005D9F1E /* ValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06ABFE3206C1805005D9F1E /* ValidationError.swift */; };
+		C06ABFE8206C7F4E005D9F1E /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06ABFE7206C7F4E005D9F1E /* UserModel.swift */; };
+		C06ABFEA206C82EB005D9F1E /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06ABFE9206C82EB005D9F1E /* UserViewModel.swift */; };
 		C07271FC1FCCE4010003F006 /* VideoCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07271FB1FCCE4010003F006 /* VideoCard.swift */; };
 		C07271FE1FCE10C70003F006 /* VideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07271FD1FCE10C70003F006 /* VideoModel.swift */; };
 		C07272021FCE14800003F006 /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07272011FCE14800003F006 /* VideoCell.swift */; };
@@ -32,11 +43,19 @@
 		C09B098B1FBBF2BD00DE17C3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09B09881FBBF2BC00DE17C3 /* LoginViewController.swift */; };
 		C09B098C1FBBF2BD00DE17C3 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09B09891FBBF2BD00DE17C3 /* FirstViewController.swift */; };
 		C09B098E1FBBF2CA00DE17C3 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09B098D1FBBF2CA00DE17C3 /* SecondViewController.swift */; };
+		C0CD66012048B45000D4E75D /* VideoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CD66002048B45000D4E75D /* VideoViewModel.swift */; };
 		C0DEBE7D1FBD329700741DBA /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DEBE7C1FBD329600741DBA /* RegisterViewController.swift */; };
 		C0F1C3171FCE67A6000270CB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F1C3161FCE67A6000270CB /* ViewController.swift */; };
 		EA17F2B47012E45ECCC04328 /* Pods_Jumpstart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6AB9EA550EC6189D3C0BB35 /* Pods_Jumpstart.framework */; };
+		EE080BE420361D2D00E645E5 /* ProjectFakeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE080BE320361D2D00E645E5 /* ProjectFakeData.swift */; };
+		EE146F9B2023BECA000CEDAC /* SubprojectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE146F9A2023BECA000CEDAC /* SubprojectViewController.swift */; };
 		EE2400E11FD0987200B52DD4 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2400E01FD0987200B52DD4 /* Project.swift */; };
+		EE418A0A201A8809005D94C9 /* NewProjectPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE418A09201A8809005D94C9 /* NewProjectPopUpViewController.swift */; };
+		EE5AA735203F615100D41D40 /* NewSubProjectPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5AA734203F615100D41D40 /* NewSubProjectPopUpViewController.swift */; };
+		EE5DA569203CD06B0053415B /* SubProjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5DA568203CD06B0053415B /* SubProjectModel.swift */; };
 		EE94EDBB1FCE16C00062E445 /* ProjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE94EDBA1FCE16C00062E445 /* ProjectTableViewCell.swift */; };
+		EEA35239206B011D008B651D /* ProjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA35238206B011D008B651D /* ProjectViewModel.swift */; };
+		EEE310AC204F52650051880B /* SubProjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE310AB204F52650051880B /* SubProjectViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +87,8 @@
 		897B796EE4F5957DCC049EE7 /* Pods-JumpstartTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JumpstartTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-JumpstartTests/Pods-JumpstartTests.release.xcconfig"; sourceTree = "<group>"; };
 		BE1FF19A1E3A6049C590D5E9 /* Pods_JumpstartUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JumpstartUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF11D0CA6914AB1BD1A92872 /* Pods-JumpstartUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JumpstartUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-JumpstartUITests/Pods-JumpstartUITests.release.xcconfig"; sourceTree = "<group>"; };
+		C00876BD202D47270007ECC8 /* ExpandableHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableHeader.swift; sourceTree = "<group>"; };
+		C00876BF202D4B210007ECC8 /* ExpandableHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpandableHeader.xib; sourceTree = "<group>"; };
 		C00EB71D1FB501D300EF3335 /* Jumpstart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jumpstart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C00EB7201FB501D300EF3335 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C00EB7271FB501D300EF3335 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -81,7 +102,16 @@
 		C00EB7421FB501D300EF3335 /* JumpstartUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JumpstartUITests.swift; sourceTree = "<group>"; };
 		C00EB7441FB501D300EF3335 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C02C4B011FC4D8E10070B524 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Tasks.storyboard; sourceTree = "<group>"; };
+		C02FE0B52033A1A200DA5033 /* JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
 		C04F2C7B1FB50C0700A36A81 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		C062D50E201A8639009C90AA /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		C06ABFDA206BDFE5005D9F1E /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		C06ABFDC206BE9EA005D9F1E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C06ABFDE206BF972005D9F1E /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		C06ABFE1206C0BF5005D9F1E /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		C06ABFE3206C1805005D9F1E /* ValidationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationError.swift; sourceTree = "<group>"; };
+		C06ABFE7206C7F4E005D9F1E /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		C06ABFE9206C82EB005D9F1E /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		C07271FB1FCCE4010003F006 /* VideoCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCard.swift; sourceTree = "<group>"; };
 		C07271FD1FCE10C70003F006 /* VideoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoModel.swift; sourceTree = "<group>"; };
 		C07272011FCE14800003F006 /* VideoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
@@ -93,12 +123,20 @@
 		C09B09881FBBF2BC00DE17C3 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C09B09891FBBF2BD00DE17C3 /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		C09B098D1FBBF2CA00DE17C3 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		C0CD66002048B45000D4E75D /* VideoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewModel.swift; sourceTree = "<group>"; };
 		C0DEBE7C1FBD329600741DBA /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		C0F1C3161FCE67A6000270CB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E4AB77B4CEE89B4FDADA6D0B /* Pods-Jumpstart.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jumpstart.release.xcconfig"; path = "Pods/Target Support Files/Pods-Jumpstart/Pods-Jumpstart.release.xcconfig"; sourceTree = "<group>"; };
 		E6AB9EA550EC6189D3C0BB35 /* Pods_Jumpstart.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Jumpstart.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE080BE320361D2D00E645E5 /* ProjectFakeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectFakeData.swift; sourceTree = "<group>"; };
+		EE146F9A2023BECA000CEDAC /* SubprojectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubprojectViewController.swift; sourceTree = "<group>"; };
 		EE2400E01FD0987200B52DD4 /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
+		EE418A09201A8809005D94C9 /* NewProjectPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProjectPopUpViewController.swift; sourceTree = "<group>"; };
+		EE5AA734203F615100D41D40 /* NewSubProjectPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSubProjectPopUpViewController.swift; sourceTree = "<group>"; };
+		EE5DA568203CD06B0053415B /* SubProjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubProjectModel.swift; sourceTree = "<group>"; };
 		EE94EDBA1FCE16C00062E445 /* ProjectTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectTableViewCell.swift; sourceTree = "<group>"; };
+		EEA35238206B011D008B651D /* ProjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectViewModel.swift; sourceTree = "<group>"; };
+		EEE310AB204F52650051880B /* SubProjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubProjectViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,14 +216,19 @@
 			isa = PBXGroup;
 			children = (
 				C00EB7201FB501D300EF3335 /* AppDelegate.swift */,
+				C00876BF202D4B210007ECC8 /* ExpandableHeader.xib */,
 				C0776AE41FBE2D34004D6A85 /* Models */,
+				C06ABFE0206C0BDB005D9F1E /* Utilities */,
+				C062D50C201A860E009C90AA /* ViewModels */,
 				C09B097B1FBBAEE500DE17C3 /* ViewControllers */,
 				C09B097A1FBBAED000DE17C3 /* StoryBoards */,
 				C00EB7291FB501D300EF3335 /* Assets.xcassets */,
 				C07271FA1FCCE3EC0003F006 /* Subclasses */,
 				C04F2C7D1FB50E3200A36A81 /* Extensions */,
 				C00EB72E1FB501D300EF3335 /* Info.plist */,
+				C06ABFDC206BE9EA005D9F1E /* GoogleService-Info.plist */,
 				C07272031FCE16070003F006 /* FakeData.swift */,
+				EE080BE320361D2D00E645E5 /* ProjectFakeData.swift */,
 			);
 			path = Jumpstart;
 			sourceTree = "<group>";
@@ -212,8 +255,31 @@
 			isa = PBXGroup;
 			children = (
 				C04F2C7B1FB50C0700A36A81 /* Colors.swift */,
+				C02FE0B52033A1A200DA5033 /* JSON.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C062D50C201A860E009C90AA /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				C062D50E201A8639009C90AA /* RegisterViewModel.swift */,
+				C0CD66002048B45000D4E75D /* VideoViewModel.swift */,
+				EEE310AB204F52650051880B /* SubProjectViewModel.swift */,
+				EEA35238206B011D008B651D /* ProjectViewModel.swift */,
+				C06ABFDA206BDFE5005D9F1E /* LoginViewModel.swift */,
+				C06ABFE9206C82EB005D9F1E /* UserViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		C06ABFE0206C0BDB005D9F1E /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				C06ABFE1206C0BF5005D9F1E /* Utilities.swift */,
+				C06ABFE3206C1805005D9F1E /* ValidationError.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		C07271FA1FCCE3EC0003F006 /* Subclasses */ = {
@@ -222,6 +288,7 @@
 				EE94EDBA1FCE16C00062E445 /* ProjectTableViewCell.swift */,
 				C07272011FCE14800003F006 /* VideoCell.swift */,
 				C07271FB1FCCE4010003F006 /* VideoCard.swift */,
+				C00876BD202D47270007ECC8 /* ExpandableHeader.swift */,
 			);
 			path = Subclasses;
 			sourceTree = "<group>";
@@ -233,6 +300,8 @@
 				C07271FD1FCE10C70003F006 /* VideoModel.swift */,
 				EE2400E01FD0987200B52DD4 /* Project.swift */,
 				C07F60961FD1C9D9001A8AA3 /* NewUser.swift */,
+				EE5DA568203CD06B0053415B /* SubProjectModel.swift */,
+				C06ABFE7206C7F4E005D9F1E /* UserModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -261,6 +330,11 @@
 				C09B09881FBBF2BC00DE17C3 /* LoginViewController.swift */,
 				C0F1C3161FCE67A6000270CB /* ViewController.swift */,
 				642D0C2420339DCE00387A4F /* NewTaskPopupViewController.swift */,
+				EE418A09201A8809005D94C9 /* NewProjectPopUpViewController.swift */,
+				EE146F9A2023BECA000CEDAC /* SubprojectViewController.swift */,
+				EE5AA734203F615100D41D40 /* NewSubProjectPopUpViewController.swift */,
+				C06ABFDE206BF972005D9F1E /* SettingsViewController.swift */,
+
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -382,10 +456,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				C09B09791FBBAEB800DE17C3 /* LoginSignUp.storyboard in Resources */,
+				C06ABFDD206BE9EA005D9F1E /* GoogleService-Info.plist in Resources */,
 				C00EB72D1FB501D300EF3335 /* LaunchScreen.storyboard in Resources */,
 				C0776AEA1FBE484C004D6A85 /* Projects.storyboard in Resources */,
 				C02C4B021FC4D8E10070B524 /* Tasks.storyboard in Resources */,
 				C00EB72A1FB501D300EF3335 /* Assets.xcassets in Resources */,
+				C00876C0202D4B210007ECC8 /* ExpandableHeader.xib in Resources */,
 				C00EB7281FB501D300EF3335 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -437,7 +513,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		4C7986D3C200215AC7635C2F /* [CP] Embed Pods Frameworks */ = {
@@ -448,7 +524,9 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Jumpstart/Pods-Jumpstart-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/LUExpandableTableView/LUExpandableTableView.framework",
 				"${BUILT_PRODUCTS_DIR}/MDFInternationalization/MDFInternationalization.framework",
 				"${BUILT_PRODUCTS_DIR}/MDFTextAccessibility/MDFTextAccessibility.framework",
 				"${BUILT_PRODUCTS_DIR}/Material/Material.framework",
@@ -459,12 +537,15 @@
 				"${BUILT_PRODUCTS_DIR}/MotionTransitioning/MotionTransitioning.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/UICircularProgressRing/UICircularProgressRing.framework",
+				"${BUILT_PRODUCTS_DIR}/Validator/Validator.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LUExpandableTableView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFInternationalization.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFTextAccessibility.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Material.framework",
@@ -475,6 +556,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MotionTransitioning.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UICircularProgressRing.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Validator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -512,7 +594,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9B4388407831C4C8079C3E41 /* [CP] Copy Pods Resources */ = {
@@ -545,7 +627,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F4FC430D643B118CB820289D /* [CP] Embed Pods Frameworks */ = {
@@ -585,24 +667,42 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+
 				6443BD7D204C9F98000A3173 /* NewTaskPopupViewController.swift in Sources */,
+				EE080BE420361D2D00E645E5 /* ProjectFakeData.swift in Sources */,
 				C09B098E1FBBF2CA00DE17C3 /* SecondViewController.swift in Sources */,
 				C07271FC1FCCE4010003F006 /* VideoCard.swift in Sources */,
+				EE418A0A201A8809005D94C9 /* NewProjectPopUpViewController.swift in Sources */,
 				C07271FE1FCE10C70003F006 /* VideoModel.swift in Sources */,
+				C0CD66012048B45000D4E75D /* VideoViewModel.swift in Sources */,
+				C00876BE202D47270007ECC8 /* ExpandableHeader.swift in Sources */,
+				EE5DA569203CD06B0053415B /* SubProjectModel.swift in Sources */,
+				C06ABFDB206BDFE5005D9F1E /* LoginViewModel.swift in Sources */,
+				C062D50F201A8639009C90AA /* RegisterViewModel.swift in Sources */,
+				EE5AA735203F615100D41D40 /* NewSubProjectPopUpViewController.swift in Sources */,
+				C06ABFE4206C1805005D9F1E /* ValidationError.swift in Sources */,
 				EE94EDBB1FCE16C00062E445 /* ProjectTableViewCell.swift in Sources */,
 				EE2400E11FD0987200B52DD4 /* Project.swift in Sources */,
+				C06ABFE2206C0BF5005D9F1E /* Utilities.swift in Sources */,
 				C09B098C1FBBF2BD00DE17C3 /* FirstViewController.swift in Sources */,
 				C0DEBE7D1FBD329700741DBA /* RegisterViewController.swift in Sources */,
 				C07272041FCE16070003F006 /* FakeData.swift in Sources */,
 				645C9A50202D00AC00F4A44B /* Task.swift in Sources */,
-				C09B098B1FBBF2BD00DE17C3 /* LoginViewController.swift in Sources */,
-				C0F1C3171FCE67A6000270CB /* ViewController.swift in Sources */,
 				645C9A53202D00B300F4A44B /* TaskTableViewController.swift in Sources */,
 				645C9A54202D00B300F4A44B /* TasksTableViewCell.swift in Sources */,
+				C02FE0B62033A1A200DA5033 /* JSON.swift in Sources */,
+				EE146F9B2023BECA000CEDAC /* SubprojectViewController.swift in Sources */,
+				C06ABFE8206C7F4E005D9F1E /* UserModel.swift in Sources */,
+				C09B098B1FBBF2BD00DE17C3 /* LoginViewController.swift in Sources */,
+				C0F1C3171FCE67A6000270CB /* ViewController.swift in Sources */,
+				EEA35239206B011D008B651D /* ProjectViewModel.swift in Sources */,
 				C07F60971FD1C9D9001A8AA3 /* NewUser.swift in Sources */,
+				C06ABFEA206C82EB005D9F1E /* UserViewModel.swift in Sources */,
 				C07272021FCE14800003F006 /* VideoCell.swift in Sources */,
+				C06ABFDF206BF972005D9F1E /* SettingsViewController.swift in Sources */,
 				C04F2C7C1FB50C0700A36A81 /* Colors.swift in Sources */,
 				C09B098A1FBBF2BD00DE17C3 /* LandingPageViewController.swift in Sources */,
+				EEE310AC204F52650051880B /* SubProjectViewModel.swift in Sources */,
 				C00EB7211FB501D300EF3335 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

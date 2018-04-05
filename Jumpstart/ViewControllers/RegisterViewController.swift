@@ -9,6 +9,8 @@
 import UIKit
 import MaterialComponents
 import Material
+import Validator
+import FirebaseAuth
 
 class RegisterViewController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate{
     
@@ -21,9 +23,18 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIScrollVie
     @IBOutlet weak var submitButton: MDCRaisedButton!
     
     var newUser: NewUser?
+    var indicator:UIActivityIndicatorView!
+    
+    var states = ["fname": false, "lname": false, "email": false, "password": false, "cpassword": false]
+    
+    var emailValidator: ValidationRulePattern?
+    var passwordValidator: ValidationRuleLength?
+    var comparisonRule: ValidationRuleEquality<String>?
+    var nameRule: ValidationRuleLength?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.prepareValidators()
         self.prepareFirstNameTextField()
         self.prepareLastNameTextField()
         self.prepareEmailTextField()
@@ -32,7 +43,11 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIScrollVie
         self.prepareSubmitButton()
         self.prepareScrollView()
         
-       // newUser = NewUser(map: <#Map#>)
+        indicator = createActivityIndicator(viewController: self)
+        indicator.isHidden = true
+        indicator.stopAnimating()
+        self.view.addSubview(indicator)
+        newUser = NewUser()
     }
     
     func prepareFirstNameTextField() {
@@ -42,6 +57,12 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIScrollVie
         firstNameTextField.dividerNormalColor = .jBlue
         firstNameTextField.placeholderActiveColor = .jBlue
         
+        var set = ValidationRuleSet<String>()
+        set.add(rule: nameRule!)
+        
+        firstNameTextField.validationRules = set
+        firstNameTextField.validateOnInputChange(enabled: true)
+        firstNameTextField.validationHandler = { result in self.updateValidationState(result: result, textField: self.firstNameTextField, type: "fname") }
         
         let leftView = UIImageView()
         leftView.image = Icon.pen
@@ -57,6 +78,12 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIScrollVie
         lastNameTextField.dividerNormalColor = .jBlue
         lastNameTextField.placeholderActiveColor = .jBlue
         
+        var set = ValidationRuleSet<String>()
+        set.add(rule: nameRule!)
+        
+        lastNameTextField.validationRules = set
+        lastNameTextField.validateOnInputChange(enabled: true)
+        lastNameTextField.validationHandler = { result in self.updateValidationState(result: result, textField: self.lastNameTextField, type: "lname") }
         
         let leftView = UIImageView()
         leftView.image = Icon.pen
@@ -72,6 +99,13 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIScrollVie
         emailTextField.dividerNormalColor = .jBlue
         emailTextField.placeholderActiveColor = .jBlue
         
+        var set = ValidationRuleSet<String>()
+        set.add(rule: emailValidator!)
+        
+        emailTextField.validationRules = set
+        emailTextField.validateOnInputChange(enabled: true)
+        emailTextField.validationHandler = { result in self.updateValidationState(result: result, textField: self.emailTextField, type: "email") }
+       
         
         let leftView = UIImageView()
         leftView.image = Icon.email
@@ -87,6 +121,12 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIScrollVie
         passwordTextField.dividerNormalColor = .jBlue
         passwordTextField.placeholderActiveColor = .jBlue
         
+        var set = ValidationRuleSet<String>()
+        set.add(rule: passwordValidator!)
+        
+        passwordTextField.validationRules = set
+        passwordTextField.validateOnInputChange(enabled: true)
+        passwordTextField.validationHandler = { result in self.updateValidationState(result: result, textField: self.passwordTextField, type:"password") }
         
         let leftView = UIImageView()
         leftView.image = Icon.icon("lock")
@@ -102,6 +142,13 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIScrollVie
         confirmPasswordTextField.dividerNormalColor = .jBlue
         confirmPasswordTextField.placeholderActiveColor = .jBlue
         
+        var set = ValidationRuleSet<String>()
+        set.add(rule: passwordValidator!)
+        set.add(rule: comparisonRule!)
+        
+        confirmPasswordTextField.validationRules = set
+        confirmPasswordTextField.validateOnInputChange(enabled: true)
+        confirmPasswordTextField.validationHandler = { result in self.updateValidationState(result: result, textField: self.confirmPasswordTextField, type:"cpassword") }
         
         let leftView = UIImageView()
         leftView.image = Icon.icon("lock")
@@ -113,6 +160,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIScrollVie
     func prepareSubmitButton() {
         submitButton.backgroundColor = .jGreen
         submitButton.setTitleColor(.white, for: .normal)
+        submitButton.isEnabled = false
     }
     
     func prepareScrollView() {
@@ -121,13 +169,97 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIScrollVie
         scrollView.contentSize = CGSize(width: self.view.frame.size.width, height: 1100.0)
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.view.endEditing(true)
-        return false
+    func prepareValidators() {
+       emailValidator =  ValidationRulePattern(pattern: EmailValidationPattern.standard, error: ValidationError(message: "Invalid email"))
+       passwordValidator = ValidationRuleLength(min: 6, error: ValidationError(message: "Invalid password"))
+       comparisonRule = ValidationRuleEquality<String>(target: passwordTextField.text!, error: ValidationError(message: "Passwords Don't Match"))
+        nameRule = ValidationRuleLength(min: 1, max: 50,  error: ValidationError(message: "Invalid Name"))
     }
     
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        self.prepareValidators()
+        self.prepareConfirmPasswordTextField()
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        firstNameTextField.resignFirstResponder()
+        lastNameTextField.resignFirstResponder()
+        emailTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
+        confirmPasswordTextField.resignFirstResponder()
+        
+        return true
+    }
+    
+    func finalCheck() {
+        for  state in states {
+            if state.value == false {
+                self.submitButton.isEnabled = false
+                break;
+            } else {
+                self.submitButton.isEnabled = true
+            }
+        }
+    }
+    
+    func createUserModel() {
+        if submitButton.isEnabled == true {
+            newUser?.firstName = firstNameTextField.text!
+            newUser?.lastName = lastNameTextField.text!
+            newUser?.email = emailTextField.text!
+            newUser?.password = passwordTextField.text!
+        }
+    }
+    
+    func updateValidationState(result: ValidationResult, textField: TextField, type: String) {
+        switch result {
+        case .valid:
+            textField.dividerActiveColor = .jBlue
+            textField.dividerNormalColor = .jBlue
+            textField.placeholderActiveColor = .jBlue
+            self.states[type] = true
+        case .invalid( _):
+            textField.dividerActiveColor = .jRed
+            textField.dividerNormalColor = .jRed
+            textField.placeholderActiveColor = .jRed
+             self.states[type] = false
+        }
+        self.finalCheck()
+        self.createUserModel()
+    }
+
+    func signIn() {
+        self.indicator.isHidden = false
+        self.indicator.startAnimating()
+        Auth.auth().signIn(withEmail: self.newUser!.email!, password: self.newUser!.password!) { (user, error) in
+            if user != nil {
+                self.performSegue(withIdentifier: "Register", sender: self)
+                self.indicator.stopAnimating()
+                self.indicator.isHidden = true
+            }
+            
+            if error != nil {
+                self.indicator.stopAnimating()
+                self.indicator.isHidden = true
+                print(error ?? "")
+            }
+        }
+    }
     
     @IBAction func submitButtonPressed(_ sender: Any) {
+        let register = RegisterViewModel()
+        register.user = self.newUser
+        register.registerUser() { responseObject, error in
+            
+        if responseObject != nil {
+            let val = responseObject
+            print("Value: ", val ?? "nope")
+            self.newUser = NewUser(JSON: val!)
+            print("New User: ", self.newUser ?? "nope")
+            self.signIn()
+            }
+        }
+        
     }
     
 }

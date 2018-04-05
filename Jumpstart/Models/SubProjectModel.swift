@@ -1,22 +1,19 @@
 //
-//  Project.swift
+//  SubProjectModel.swift
 //  Jumpstart
 //
-//  Created by Etta Godwin on 11/28/17.
-//  Copyright © 2017 Jumpstart. All rights reserved.
+//  Created by Etta Godwin on 2/20/18.
+//  Copyright © 2018 Jumpstart. All rights reserved.
 //
 
 import Foundation
 import ObjectMapper
 
-class Project: Mappable {
-    var uid: String?
+class SubProject: Mappable {
     var title: String?
     var deadline: String?
     var progress: Int?
-    var type: Int?
-    var subProjects: [SubProject]?
-    
+    var wordCount: Int?
     
     required init?(map: Map) {
         
@@ -27,12 +24,10 @@ class Project: Mappable {
     }
     
     func mapping(map: Map) {
-        uid <- map["uid"]
         title <- map["title"]
         deadline <- map["deadline"]
         progress <- map["progress"]
-        type <- map["type"]
-        subProjects <- map["subProjects"]
+        wordCount <- map["wordCount"]
     }
     
 }
