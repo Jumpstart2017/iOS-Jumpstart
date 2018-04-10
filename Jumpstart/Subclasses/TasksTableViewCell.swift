@@ -21,7 +21,6 @@ class TasksTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
         styleCellContents()
     }
 
@@ -29,17 +28,6 @@ class TasksTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    //MARK: Actions
-    @IBAction func updateProgress(_ sender: UISlider) {
-        //if progress slider complete, need to hide task
-        //update the value of the task
-        if(progressSlider.value == 1) {
-        }
-    }
-    
-    @IBAction func deleteTask(_ sender: Any) {
-        //if the sender is the progress slider
-    }
 
     
     //MARK: Styling
@@ -54,7 +42,7 @@ class TasksTableViewCell: UITableViewCell {
         
         //card
         taskCard.layer.shadowOpacity = 0.5 //show shadow
-        taskCard.layer.shadowOffset = CGSize(width: 6, height: 6) //left and bottom only
+        taskCard.layer.shadowOffset = CGSize(width: 5, height: 5) //left and bottom only
         taskCard.layer.shadowRadius = 0 //sharp corners
         taskCard.layer.shadowColor = UIColor.lightGray.cgColor
     }

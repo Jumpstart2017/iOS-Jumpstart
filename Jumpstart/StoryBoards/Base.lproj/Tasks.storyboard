@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,7 +13,7 @@
         <!--Goals-->
         <scene sceneID="Tyh-zo-byG">
             <objects>
-                <tableViewController id="P28-T8-WmV" customClass="TaskTableViewController" customModule="Jumpstart" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="P28-T8-WmV" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="130" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Wpe-VO-zJK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -45,9 +45,6 @@
                                                 </label>
                                                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="P1z-sG-I9w" userLabel="Progress">
                                                     <rect key="frame" x="16" y="83" width="331" height="31"/>
-                                                    <connections>
-                                                        <action selector="updateProgress:" destination="Km0-ol-cA9" eventType="valueChanged" id="0z0-9B-PLs"/>
-                                                    </connections>
                                                 </slider>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j7k-Xg-9Gq" userLabel="Deadline">
                                                     <rect key="frame" x="18" y="34" width="289" height="21"/>
@@ -61,10 +58,6 @@
                                                     <state key="normal" title="X">
                                                         <color key="titleColor" red="1" green="0.0" blue="0.011644906383057929" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     </state>
-                                                    <connections>
-                                                        <action selector="deleteTask:" destination="P28-T8-WmV" eventType="touchUpInside" id="7E5-Ii-4PB"/>
-                                                        <action selector="deleteTask:" destination="Km0-ol-cA9" eventType="touchUpInside" id="ikI-uh-DiJ"/>
-                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -84,14 +77,6 @@
                                         <constraint firstAttribute="trailing" secondItem="rEh-LH-oTT" secondAttribute="trailing" constant="6" id="ybk-ih-sRt"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="deadlineLabel" destination="j7k-Xg-9Gq" id="Ulq-Dy-1Ln"/>
-                                    <outlet property="descriptionLabel" destination="ilz-Cm-luF" id="s8C-1w-7NB"/>
-                                    <outlet property="progressSlider" destination="P1z-sG-I9w" id="ZQb-Kz-KCE"/>
-                                    <outlet property="reminderLabel" destination="4mC-7F-t1w" id="8Q1-jw-vTJ"/>
-                                    <outlet property="removeButton" destination="BJo-ve-gbP" id="LBY-oY-F4M"/>
-                                    <outlet property="taskCard" destination="rEh-LH-oTT" id="1LU-9r-VMz"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -101,11 +86,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Goals" id="aJB-Ap-TLf" userLabel="Goals">
                         <barButtonItem key="backBarButtonItem" title="Back" id="BEt-Br-iay"/>
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="5Aq-rR-pTH" userLabel="New Task">
-                            <connections>
-                                <action selector="newTask:" destination="P28-T8-WmV" id="I6K-qj-nnm"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="5Aq-rR-pTH" userLabel="New Task"/>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JZM-k5-etC" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -226,7 +207,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D5M-Hj-Fta" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1096.8" y="-279.31034482758622"/>
+            <point key="canvasLocation" x="1055" y="-279"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fYO-2q-ccG">
