@@ -31,7 +31,6 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // Do any additional setup after loading the view, typically from a nib.
         self.user = UserModel()
         self.user?.uid =  Auth.auth().currentUser?.uid
-        print(self.user?.uid)
 
         projectViewModel = ProjectViewModel()
         projects = [Project]()
@@ -50,7 +49,8 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         handle = Auth.auth().addStateDidChangeListener { (auth, user) in
             // [START_EXCLUDE]
-            
+            self.user?.uid =  Auth.auth().currentUser?.uid
+            self.loadProjects()
             // [END_EXCLUDE]
         }
         
@@ -73,16 +73,27 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func loadProjects() {
         projectViewModel.user = self.user
         projectViewModel.getProjects() { responseObject, error in
-            print("called")
+            //print(responseObject)
             if responseObject != nil {
                 for i in responseObject! {
-                    print(i)
-//                    let proj = Project(map: i)
-//                    print(proj ?? "")
-//                    self.projects.append(proj!)
+                    let proj = Project()
+                    let temp = i.value as! [String: Any]
+                    for x in temp {
+                        proj?.pid = x.key
+                        let p:AnyObject = x.value as AnyObject
+                        proj?.deadline = p["deadline"] as? String
+                        proj?.progress = p["progress"] as? Int
+                        proj?.title = p["title"] as? String
+                        proj?.type = p["type"] as? Int
+                    }
+                    
+                    
+                    self.projects.append(proj!)
                 }
+                
+                self.tableView.reloadData()
             }
-            //self.tableView.reloadData()
+            
             
             if error != nil {
                 print(error ?? "nopey")

@@ -11,6 +11,7 @@ import ObjectMapper
 
 class Project: Mappable {
     var uid: String?
+    var pid: String?
     var title: String?
     var deadline: String?
     var progress: Int?
@@ -33,6 +34,7 @@ class Project: Mappable {
         progress <- map["progress"]
         type <- map["type"]
         subProjects <- map["subProjects"]
+        pid <- map["pid"]
     }
     
 }
