@@ -37,6 +37,8 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        
+        self.loadProjects()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -50,11 +52,8 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         handle = Auth.auth().addStateDidChangeListener { (auth, user) in
             // [START_EXCLUDE]
             self.user?.uid =  Auth.auth().currentUser?.uid
-            self.loadProjects()
             // [END_EXCLUDE]
         }
-        
-        self.loadProjects()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -73,22 +72,22 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func loadProjects() {
         projectViewModel.user = self.user
         projectViewModel.getProjects() { responseObject, error in
-            //print(responseObject)
+            print(responseObject)
             if responseObject != nil {
+                self.projects.removeAll()
                 for i in responseObject! {
-                    let proj = Project()
+                    
                     let temp = i.value as! [String: Any]
                     for x in temp {
+                        let proj = Project()
                         proj?.pid = x.key
                         let p:AnyObject = x.value as AnyObject
                         proj?.deadline = p["deadline"] as? String
                         proj?.progress = p["progress"] as? Int
                         proj?.title = p["title"] as? String
                         proj?.type = p["type"] as? Int
+                        self.projects.append(proj!)
                     }
-                    
-                    
-                    self.projects.append(proj!)
                 }
                 
                 self.tableView.reloadData()
