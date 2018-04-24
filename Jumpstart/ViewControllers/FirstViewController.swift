@@ -99,6 +99,7 @@ class FirstViewController: UIViewController, LUExpandableTableViewDelegate, LUEx
     
     func loadVideos() {
         videoViewModel.getVideos() { responseObject, error in
+            if responseObject != nil {
             for i in responseObject! {
                 let val = i.value as! [String : Any]
                 let video = VideoModel(JSON: val)
@@ -112,6 +113,7 @@ class FirstViewController: UIViewController, LUExpandableTableViewDelegate, LUEx
                 }
             }
             self.tableView.reloadData()
+        }
         }
     }
 
