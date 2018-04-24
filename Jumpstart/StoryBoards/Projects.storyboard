@@ -111,7 +111,7 @@
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Projects" id="Mcj-oC-4a5">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="pVP-3m-hVu">
+                        <barButtonItem key="rightBarButtonItem" image="add_icon" id="pVP-3m-hVu">
                             <connections>
                                 <action selector="showNewProjectPopUp:" destination="8rJ-Kc-sve" id="wJF-wl-vGG"/>
                             </connections>
@@ -132,14 +132,14 @@
         <scene sceneID="4R8-Tr-Mna">
             <objects>
                 <viewController storyboardIdentifier="Subproject" id="4JG-wo-Tie" customClass="SubprojectViewController" customModule="Jumpstart" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="WUQ-lo-cEc">
+                    <view key="view" contentMode="scaleToFill" id="WUQ-lo-cEc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g5c-92-dRh">
-                                <rect key="frame" x="0.0" y="60" width="600" height="135"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g5c-92-dRh">
+                                <rect key="frame" x="0.0" y="60" width="375" height="135"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Deadline: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S1D-vx-XNF">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deadline: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S1D-vx-XNF">
                                         <rect key="frame" x="10" y="30" width="80" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="80" id="Y4o-fp-kZ6"/>
@@ -149,8 +149,8 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="center" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E7f-Vw-TcP" customClass="UICircularProgressRingView" customModule="UICircularProgressRing">
-                                        <rect key="frame" x="495" y="30" width="75" height="75"/>
+                                    <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="E7f-Vw-TcP" customClass="UICircularProgressRingView" customModule="UICircularProgressRing">
+                                        <rect key="frame" x="270" y="30" width="75" height="75"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="75" id="KZw-yQ-2cB"/>
@@ -177,7 +177,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Z4h-8R-wUN">
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Z4h-8R-wUN">
                                         <rect key="frame" x="10" y="90" width="210" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="210" id="bst-aJ-nhP"/>
@@ -189,7 +189,7 @@
                                             <segment title="Revision"/>
                                         </segments>
                                     </segmentedControl>
-                                    <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="U1B-UB-jZR">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="U1B-UB-jZR">
                                         <rect key="frame" x="98" y="30" width="131" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="131" id="HEo-Gg-dEP"/>
@@ -215,8 +215,8 @@
                                     <constraint firstAttribute="bottom" secondItem="E7f-Vw-TcP" secondAttribute="bottom" constant="30" id="wpM-lV-DD0"/>
                                 </constraints>
                             </view>
-                            <navigationBar contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZST-Xy-40F">
-                                <rect key="frame" x="0.0" y="195" width="600" height="44"/>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZST-Xy-40F">
+                                <rect key="frame" x="0.0" y="195" width="375" height="44"/>
                                 <items>
                                     <navigationItem title="Subprojects" id="5ey-22-1Y1">
                                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="XDj-1y-TKq">
@@ -227,19 +227,19 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="M6K-pL-n88">
-                                <rect key="frame" x="0.0" y="239" width="600" height="379"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="M6K-pL-n88">
+                                <rect key="frame" x="0.0" y="239" width="375" height="379"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="90" id="Sk2-Jx-P0T" customClass="ProjectTableViewCell" customModule="Jumpstart" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="600" height="90"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Sk2-Jx-P0T" id="Td7-my-b1H">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="89.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PBq-RX-asW">
-                                                    <rect key="frame" x="8" y="8" width="334" height="73.5"/>
+                                                    <rect key="frame" x="8" y="8" width="584" height="73.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dCZ-0N-yQR">
                                                             <rect key="frame" x="15" y="38" width="42" height="21"/>
@@ -248,7 +248,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="EbZ-AO-xH3" customClass="UICircularProgressRingView" customModule="UICircularProgressRing">
-                                                            <rect key="frame" x="256" y="3" width="68" height="68"/>
+                                                            <rect key="frame" x="506" y="3" width="68" height="68"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="68" id="Ebk-G5-ZVO"/>
@@ -437,7 +437,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9BC-Ub-SaY">
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9BC-Ub-SaY">
                                 <rect key="frame" x="12" y="54" width="350" height="135"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Deadline: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ynZ-Og-eNa">
@@ -516,7 +516,7 @@
                                     <constraint firstItem="ynZ-Og-eNa" firstAttribute="leading" secondItem="9BC-Ub-SaY" secondAttribute="leading" constant="10" id="jdD-97-fyb"/>
                                 </constraints>
                             </view>
-                            <navigationBar contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pya-fn-FRk">
+                            <navigationBar contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pya-fn-FRk">
                                 <rect key="frame" x="12" y="189" width="350" height="44"/>
                                 <items>
                                     <navigationItem title="Subprojects" id="T6s-ZI-c0l">
@@ -528,7 +528,7 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2fv-mH-qSM">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2fv-mH-qSM">
                                 <rect key="frame" x="12" y="233" width="350" height="379"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -853,7 +853,7 @@
         <scene sceneID="JMa-0b-fE5">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dE7-VJ-wtt" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Projects" image="ic_reorder.png" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Projects" image="projects_icon" id="cPa-gy-q4n"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jmX-V9-PIm">
@@ -871,6 +871,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ic_reorder.png" width="24" height="24"/>
+        <image name="add_icon" width="32" height="32"/>
+        <image name="projects_icon" width="32" height="32"/>
     </resources>
 </document>
