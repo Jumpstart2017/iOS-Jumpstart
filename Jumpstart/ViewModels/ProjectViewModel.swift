@@ -23,7 +23,8 @@ class ProjectViewModel: NSObject {
         let JSONString  = Mapper().toJSONString(user, prettyPrint: true)
         let parameters = convertToJSON(text: JSONString!)
         
-   
+        print(parameters)
+        
         Alamofire.request("https://us-central1-jumpstart-f48ac.cloudfunctions.net/getprojects", method: .post, parameters: parameters).responseJSON { response in
                 switch response.result {
                 case .success(let value):
