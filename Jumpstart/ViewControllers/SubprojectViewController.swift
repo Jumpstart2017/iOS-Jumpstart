@@ -12,7 +12,7 @@ import Alamofire
 import MaterialComponents
 import Material
 import UICircularProgressRing
-
+import FirebaseAuth
 
 class SubprojectViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -26,20 +26,31 @@ class SubprojectViewController: UIViewController, UITableViewDelegate, UITableVi
     
     let dateFormatter = DateFormatter()
     let datePicker = UIDatePicker()
-    var specificProject = Project()
     
+    var specificProject = Project()
+    var subProjects: [SubProject]!
+    var user: UserModel?
+    var selectedIndex = Int()
+    var subProjectViewModel: SubProjectViewModel!
+    var handle: AuthStateDidChangeListenerHandle?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Do any additional setup after loading the view.
+        self.user = UserModel()
+        self.user?.uid =  Auth.auth().currentUser?.uid
+
+        subProjectViewModel = SubProjectViewModel()
+        subProjects = [SubProject]()
+        
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        self.tableView.reloadData()
-        // Do any additional setup after loading the view.
         
-        setWritingStages()
-        setProjectDeadline()
-        setProjectProgress()
+        self.loadSubProjects()
+        
         setSubprojectNavBar()
+        
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -48,9 +59,70 @@ class SubprojectViewController: UIViewController, UITableViewDelegate, UITableVi
         self.navigationController?.navigationBar.backgroundColor = .jBlue
         let textAttributes = [NSAttributedStringKey.foregroundColor:UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
+        
+        handle = Auth.auth().addStateDidChangeListener { (auth, user) in
+            // [START_EXCLUDE]
+            self.user?.uid =  Auth.auth().currentUser?.uid
+            // [END_EXCLUDE]
+        }
+        
     }
     
-  
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        // [START remove_auth_listener]
+        Auth.auth().removeStateDidChangeListener(handle!)
+        // [END remove_auth_listener]
+    }
+    
+    func loadSubProjects(){
+        subProjectViewModel.project = self.specificProject
+        subProjectViewModel.getSubProjects(){ responseObject, error in
+            print(responseObject)
+            if responseObject != nil {
+                self.subProjects.removeAll()
+                for i in responseObject! {
+                    let temp = i.value as! [String: Any]
+                    for x in temp {
+                        if (x.key == "title"){
+                            self.specificProject?.title = x.value as? String
+                        }
+                        else if (x.key == "deadline"){
+                            self.specificProject?.deadline = x.value as? String
+                        }
+                        else if (x.key == "progress"){
+                            self.specificProject?.progress = Int(x.value as! Int)
+                        }
+                        else if (x.key == "type"){
+                            self.specificProject?.type = Int((x.value as! NSString).floatValue)
+                        }
+                        else if (x.key == "subprojects"){
+                            let temp2 = x.value as! [String: Any]
+                            for j in temp2 {
+                                let sproj = SubProject()
+                                let sp:AnyObject = j.value as AnyObject
+                                sproj?.pid = sp["subProjectId"] as? String
+                                sproj?.title = sp["title"] as? String
+                                sproj?.deadline = sp["deadline"] as? String
+                                sproj?.progress = sp["progress"] as? Int
+                                self.subProjects.append(sproj!)
+                            }
+                        }
+                    }
+                }
+                
+                self.tableView.reloadData()
+                self.setWritingStages()
+                self.setProjectDeadline()
+                self.setProjectProgress()
+            }
+            
+            if error != nil {
+                print(error ?? "nopey")
+            }
+        }
+    }
+        
     //MARK: TableView Delegate and Datasource methods
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -58,31 +130,32 @@ class SubprojectViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let subProjectArray = specificProject?.subProjects
-        return (subProjectArray?.count)!
+            if subProjects.count > 0 {
+                return subProjects.count
+            } else {
+                return 0
+            }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let subProjectArray = specificProject?.subProjects
+    
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ProjectTableViewCell
         //set title
-        cell.progressTitle.text = subProjectArray![indexPath.row].title
+        cell.progressTitle.text = subProjects![indexPath.row].title
         cell.progressTitle.textColor = UIColor.black
         
         //set date
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .short
-        dateFormatter.timeStyle = .none
-        cell.progressDeadline.text = subProjectArray![indexPath.row].deadline
+        cell.progressDeadline.text = subProjects![indexPath.row].deadline
         
         //set progress circle
-        cell.progressCircle.innerRingColor = UIColor.jGreen
-        cell.progressCircle.value = CGFloat(subProjectArray![indexPath.row].progress!)
+       // cell.progressCircle.innerRingColor = UIColor.jGreen
+        //cell.progressCircle.value = CGFloat(subProjects![indexPath.row].progress!)
+        
         tableView.separatorStyle = .none
         
         return cell
     }
+    
     
     func setWritingStages() {
         writingStages.subviews[0].tintColor = UIColor.jIndependent
@@ -134,6 +207,8 @@ class SubprojectViewController: UIViewController, UITableViewDelegate, UITableVi
     
     @IBAction func openSubProjectPopup(_ sender: Any) {
         let popUpVC = UIStoryboard(name: "Projects", bundle: nil).instantiateViewController(withIdentifier: "newSubProjectPopUpID") as! NewSubProjectPopUpViewController
+        //popUpVC.SubprojectViewController = self
+       // popUpVC.user = self.user
         self.addChildViewController(popUpVC)
         popUpVC.view.frame = self.view.frame
         self.view.addSubview(popUpVC.view)

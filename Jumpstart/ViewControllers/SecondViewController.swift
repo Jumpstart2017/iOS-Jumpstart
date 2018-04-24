@@ -72,7 +72,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func loadProjects() {
         projectViewModel.user = self.user
         projectViewModel.getProjects() { responseObject, error in
-            print(responseObject)
+           print(responseObject)
             if responseObject != nil {
                 self.projects.removeAll()
                 for i in responseObject! {
@@ -143,10 +143,9 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         navigationItem.backBarButtonItem = backItem
         if segue.identifier == "Index" {
             let destination = segue.destination as! SubprojectViewController
-            destination.specificProject = projects[selectedIndex]
+            destination.specificProject?.pid = projects[selectedIndex].pid
             destination.title = projects[selectedIndex].title
-        }
-        
+        }        
     }
     
     
