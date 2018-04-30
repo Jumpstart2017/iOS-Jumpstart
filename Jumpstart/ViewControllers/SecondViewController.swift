@@ -72,7 +72,6 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func loadProjects() {
         projectViewModel.user = self.user
         projectViewModel.getProjects() { responseObject, error in
-           print(responseObject)
             if responseObject != nil {
                 self.projects.removeAll()
                 for i in responseObject! {
