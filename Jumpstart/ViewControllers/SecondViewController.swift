@@ -143,6 +143,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if segue.identifier == "Index" {
             let destination = segue.destination as! SubprojectViewController
             destination.specificProject?.pid = projects[selectedIndex].pid
+            destination.pid = projects[selectedIndex].pid
             destination.title = projects[selectedIndex].title
         }        
     }

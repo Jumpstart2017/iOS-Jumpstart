@@ -16,7 +16,7 @@ class Project: Mappable {
     var deadline: String?
     var progress: Int?
     var type: Int?
-    var subProjects: [SubProject]?
+    var subprojects: [SubProject]?
     
     
     required init?(map: Map) {
@@ -33,7 +33,7 @@ class Project: Mappable {
         deadline <- map["deadline"]
         progress <- map["progress"]
         type <- map["type"]
-        subProjects <- map["subProjects"]
+        subprojects <- map["subProjects"]
         pid <- map["pid"]
     }
     

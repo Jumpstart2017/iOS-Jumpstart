@@ -26,8 +26,10 @@ class SubprojectViewController: UIViewController, UITableViewDelegate, UITableVi
     
     let dateFormatter = DateFormatter()
     let datePicker = UIDatePicker()
+
     
     var specificProject = Project()
+    var pid: String!
     var subProjects: [SubProject]!
     var user: UserModel?
     var selectedIndex = Int()
@@ -50,7 +52,6 @@ class SubprojectViewController: UIViewController, UITableViewDelegate, UITableVi
         self.loadSubProjects()
         
         setSubprojectNavBar()
-        
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -78,43 +79,30 @@ class SubprojectViewController: UIViewController, UITableViewDelegate, UITableVi
     func loadSubProjects(){
         subProjectViewModel.project = self.specificProject
         subProjectViewModel.getSubProjects(){ responseObject, error in
-            print(responseObject)
             if responseObject != nil {
-                self.subProjects.removeAll()
-                for i in responseObject! {
-                    let temp = i.value as! [String: Any]
-                    for x in temp {
-                        if (x.key == "title"){
-                            self.specificProject?.title = x.value as? String
-                        }
-                        else if (x.key == "deadline"){
-                            self.specificProject?.deadline = x.value as? String
-                        }
-                        else if (x.key == "progress"){
-                            self.specificProject?.progress = Int(x.value as! Int)
-                        }
-                        else if (x.key == "type"){
-                            self.specificProject?.type = Int((x.value as! NSString).floatValue)
-                        }
-                        else if (x.key == "subprojects"){
-                            let temp2 = x.value as! [String: Any]
-                            for j in temp2 {
-                                let sproj = SubProject()
-                                let sp:AnyObject = j.value as AnyObject
-                                sproj?.pid = sp["subProjectId"] as? String
-                                sproj?.title = sp["title"] as? String
-                                sproj?.deadline = sp["deadline"] as? String
-                                sproj?.progress = sp["progress"] as? Int
-                                self.subProjects.append(sproj!)
-                            }
-                        }
-                    }
-                }
+                let sub = responseObject
+                let p = Project(JSON: sub!)
+                p?.subprojects = [SubProject]()
+                p?.subprojects?.removeAll()
                 
-                self.tableView.reloadData()
-                self.setWritingStages()
-                self.setProjectDeadline()
-                self.setProjectProgress()
+                if responseObject!["subprojects"] != nil {
+                    let array = (responseObject!["subprojects"] as! NSArray).mutableCopy() as! NSMutableArray
+                    for i in array {
+                        let x = i as! [String: Any]
+                        let subProj = SubProject(JSON: x)
+                        p?.subprojects?.append(subProj!)
+                    }
+                    self.specificProject?.subprojects = [SubProject]()
+                    self.specificProject?.subprojects = p?.subprojects
+                }
+      
+               self.specificProject = p
+                
+               self.tableView.reloadData()
+               self.setWritingStages()
+               self.setProjectDeadline()
+               self.setProjectProgress()
+            
             }
             
             if error != nil {
@@ -130,22 +118,23 @@ class SubprojectViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            if subProjects.count > 0 {
-                return subProjects.count
-            } else {
-                return 0
-            }
+        if self.specificProject?.subprojects != nil {
+            return (self.specificProject?.subprojects?.count)!
+        } else {
+            return 0
+        }
+     
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ProjectTableViewCell
         //set title
-        cell.progressTitle.text = subProjects![indexPath.row].title
+        cell.progressTitle.text = self.specificProject?.subprojects![indexPath.row].title
         cell.progressTitle.textColor = UIColor.black
         
         //set date
-        cell.progressDeadline.text = subProjects![indexPath.row].deadline
+        cell.progressDeadline.text = self.specificProject?.subprojects![indexPath.row].deadline
         
         //set progress circle
        // cell.progressCircle.innerRingColor = UIColor.jGreen
@@ -212,8 +201,25 @@ class SubprojectViewController: UIViewController, UITableViewDelegate, UITableVi
         self.addChildViewController(popUpVC)
         popUpVC.view.frame = self.view.frame
         self.view.addSubview(popUpVC.view)
+        popUpVC.pid = self.pid
         popUpVC.didMove(toParentViewController: self)
         
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.selectedIndex = indexPath.row
+        performSegue(withIdentifier: "tasks", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let backItem = UIBarButtonItem()
+        backItem.tintColor = .white
+        backItem.title = "SubProjects"
+        navigationItem.backBarButtonItem = backItem
+        if segue.identifier == "tasks" {
+            let destination = segue.destination as! TasksViewController
+            destination.subProject = self.specificProject?.subprojects![selectedIndex]
+        }
     }
     
     override func didReceiveMemoryWarning() {

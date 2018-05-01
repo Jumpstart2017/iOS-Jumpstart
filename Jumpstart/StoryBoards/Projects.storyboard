@@ -219,7 +219,7 @@
                                 <rect key="frame" x="0.0" y="195" width="375" height="44"/>
                                 <items>
                                     <navigationItem title="Subprojects" id="5ey-22-1Y1">
-                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="XDj-1y-TKq">
+                                        <barButtonItem key="rightBarButtonItem" image="add_icon" id="XDj-1y-TKq">
                                             <connections>
                                                 <action selector="openSubProjectPopup:" destination="4JG-wo-Tie" id="hf9-0R-TxK"/>
                                             </connections>
@@ -239,7 +239,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PBq-RX-asW">
-                                                    <rect key="frame" x="8" y="8" width="584" height="73.5"/>
+                                                    <rect key="frame" x="8" y="8" width="359" height="73.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dCZ-0N-yQR">
                                                             <rect key="frame" x="15" y="38" width="42" height="21"/>
@@ -248,7 +248,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="EbZ-AO-xH3" customClass="UICircularProgressRingView" customModule="UICircularProgressRing">
-                                                            <rect key="frame" x="506" y="3" width="68" height="68"/>
+                                                            <rect key="frame" x="281" y="3" width="68" height="68"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="68" id="Ebk-G5-ZVO"/>
@@ -334,6 +334,7 @@
                         <outlet property="tableView" destination="M6K-pL-n88" id="0T6-i4-ODm"/>
                         <outlet property="totalProgressCircle" destination="E7f-Vw-TcP" id="abH-a5-Fdd"/>
                         <outlet property="writingStages" destination="Z4h-8R-wUN" id="vFc-ib-KTZ"/>
+                        <segue destination="UzL-eq-x0Q" kind="show" identifier="tasks" id="eLr-Sh-J27"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JCJ-op-8fF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -429,10 +430,10 @@
             </objects>
             <point key="canvasLocation" x="3741.5999999999999" y="133.5832083958021"/>
         </scene>
-        <!--View Controller-->
+        <!--Tasks View Controller-->
         <scene sceneID="iId-aW-awC">
             <objects>
-                <viewController id="UzL-eq-x0Q" sceneMemberID="viewController">
+                <viewController id="UzL-eq-x0Q" customClass="TasksViewController" customModule="Jumpstart" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="S60-OF-kBd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
