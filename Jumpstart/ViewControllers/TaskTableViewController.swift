@@ -82,16 +82,11 @@ class TaskTableViewController: UITableViewController {
     
         return cell
     }
+    
 
-    @IBAction func newTask(_ sender: Any) {
-        print("New task clicked")
-        
-        // Open new task popup
-        let storyboard = UIStoryboard(name: "Tasks", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "NewTaskPopupView")
-        vc.modalPresentationStyle = .overFullScreen
-        vc.modalTransitionStyle = .crossDissolve
-        self.present(vc, animated: true, completion: nil)
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if(taskList[indexPath.row].progress == 100) { return 0 }
+        return 117.5
     }
     
     /*
@@ -170,4 +165,45 @@ class TaskTableViewController: UITableViewController {
         
         taskList += [Task1, Task2, Task3] 
     }
+    
+    //MARK: Actions
+    @IBAction func updateProgress(_ sender: UISlider) {
+        // Get the cell position to delete
+        let position: CGPoint = (sender as AnyObject).convert(CGPoint(), to: tableView)
+        let indexPath: IndexPath = self.tableView.indexPathForRow(at: position)!
+        
+        // Update value for progress for task in data source
+        taskList[indexPath.row].progress = Int(sender.value * 100)
+        
+        // If task is completed, then need to hide from view (not delete)
+        if(sender.value == 1) {
+            var cell = self.tableView.cellForRow(at: indexPath)
+            cell?.isHidden = true
+            self.tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.fade)
+        }
+    }
+    
+    @IBAction func deleteTask(_ sender: Any) {
+        // Get the cell position to delete
+        let position: CGPoint = (sender as AnyObject).convert(CGPoint(), to: tableView)
+        let indexPath: IndexPath = self.tableView.indexPathForRow(at: position)!
+        
+        // Remove from data source
+        taskList.remove(at: indexPath.row)
+        
+        // Remove from view
+        [self.tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.fade)]
+    }
+    
+    /*
+    // Create a new task, update view, update database
+    @IBAction func newTask(_ sender: Any) {
+        // Open new task popup
+        let storyboard = UIStoryboard(name: "Tasks", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "NewTaskPopupView")
+        vc.modalPresentationStyle = .overFullScreen
+        vc.modalTransitionStyle = .crossDissolve
+        self.present(vc, animated: true, completion: nil)
+    }
+    */
 }
