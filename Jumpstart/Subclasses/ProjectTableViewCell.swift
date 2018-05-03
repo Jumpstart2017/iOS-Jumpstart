@@ -59,5 +59,13 @@ class ProjectTableViewCell: UITableViewCell {
         progressCircle.outerRingColor = .lightGray
                 
     }
+    
+    override func prepareForReuse() {
+//        self.progressCard = nil
+//        self.progressTitle = nil
+//        self.progressDeadline = nil
+//        self.progressCircle = nil
+        
+    }
 
 }

@@ -22,6 +22,7 @@ class NewSubProjectPopUpViewController: UIViewController {
     let datePicker = UIDatePicker()
     var dateSelected: Bool!
     var newSubProject: SubProject?
+    var pid: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -98,6 +99,7 @@ class NewSubProjectPopUpViewController: UIViewController {
     func finalFormCheck() {
         newSubProject?.title = newSubProjectName.text
         newSubProject?.deadline = newSubProjectDeadline.text
+        newSubProject?.pid = self.pid
         //TODO: ADD Model Check
     }
     
