@@ -42,6 +42,7 @@ class NewProjectPopUpViewController: UIViewController, UITextFieldDelegate {
         self.prepareProjectDeadlineTextField()
         
         newProject = Project()
+        newProject?.uid = Auth.auth().currentUser?.uid
         
     }
     
@@ -137,7 +138,7 @@ class NewProjectPopUpViewController: UIViewController, UITextFieldDelegate {
         newProject?.title = newProjectNameTextField.text!
         newProject?.deadline = newProjectDeadlineTextField.text!
         newProject?.type = writingStagesSeg.selectedSegmentIndex
-        newProject?.uid = user?.uid!
+       // newProject?.uid = user?.uid!
         //TODO: ADD Model Check
     }
     
@@ -146,6 +147,7 @@ class NewProjectPopUpViewController: UIViewController, UITextFieldDelegate {
         finalFormCheck()
         let create = ProjectViewModel()
         create.project = self.newProject
+        print(create.project.uid)
         create.createProject() { responseObject, error in
             print(responseObject ?? "nope")
             self.projectsViewController.loadProjects()
