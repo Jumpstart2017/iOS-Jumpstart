@@ -48,7 +48,7 @@ class ExpandableHeader:  LUExpandableTableViewSectionHeader{
         
         label?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapOnLabel)))
         label?.isUserInteractionEnabled = true
-        label?.font = UIFont(name: "Lao Sangam MN", size: 18)
+        label?.font = UIFont(name: "Roboto", size: 16)
         
         expandCollapseButton.tintColor = .white
     }

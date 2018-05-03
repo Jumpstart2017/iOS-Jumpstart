@@ -17,12 +17,6 @@ class SettingsViewController: UIViewController, UITextFieldDelegate, UIScrollVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.prepareLogoutButton()
-    }
-    
-    func prepareLogoutButton() {
-        self.logoutButton.backgroundColor = .jRed
-        self.logoutButton.setTitleColor(.white, for: .normal)
     }
 
     @IBAction func loginButtonPressed(_ sender: Any) {

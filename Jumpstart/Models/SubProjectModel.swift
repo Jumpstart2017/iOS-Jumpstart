@@ -10,9 +10,6 @@ import Foundation
 import ObjectMapper
 
 class SubProject: Mappable {
-    
-    var pid: String?
-    var spid: String?
     var title: String?
     var deadline: String?
     var progress: Int?
@@ -31,8 +28,6 @@ class SubProject: Mappable {
         deadline <- map["deadline"]
         progress <- map["progress"]
         wordCount <- map["wordCount"]
-        pid <- map["pid"]
-        spid <- map["spid"]
     }
     
 }

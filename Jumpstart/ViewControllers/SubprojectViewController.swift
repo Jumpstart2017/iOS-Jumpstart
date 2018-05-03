@@ -12,7 +12,7 @@ import Alamofire
 import MaterialComponents
 import Material
 import UICircularProgressRing
-import FirebaseAuth
+
 
 class SubprojectViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -26,31 +26,19 @@ class SubprojectViewController: UIViewController, UITableViewDelegate, UITableVi
     
     let dateFormatter = DateFormatter()
     let datePicker = UIDatePicker()
-
-    
     var specificProject = Project()
-    var pid: String!
-    var subProjects: [SubProject]!
-    var user: UserModel?
-    var selectedIndex = Int()
-    var subProjectViewModel: SubProjectViewModel!
-    var handle: AuthStateDidChangeListenerHandle?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
-        self.user = UserModel()
-        self.user?.uid =  Auth.auth().currentUser?.uid
-
-        subProjectViewModel = SubProjectViewModel()
-        subProjects = [SubProject]()
-        
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        self.tableView.reloadData()
+        // Do any additional setup after loading the view.
         
-        self.loadSubProjects()
-        
+        setWritingStages()
+        setProjectDeadline()
+        setProjectProgress()
         setSubprojectNavBar()
     }
 
@@ -60,57 +48,9 @@ class SubprojectViewController: UIViewController, UITableViewDelegate, UITableVi
         self.navigationController?.navigationBar.backgroundColor = .jBlue
         let textAttributes = [NSAttributedStringKey.foregroundColor:UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
-        
-        handle = Auth.auth().addStateDidChangeListener { (auth, user) in
-            // [START_EXCLUDE]
-            self.user?.uid =  Auth.auth().currentUser?.uid
-            // [END_EXCLUDE]
-        }
-        
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        // [START remove_auth_listener]
-        Auth.auth().removeStateDidChangeListener(handle!)
-        // [END remove_auth_listener]
-    }
-    
-    func loadSubProjects(){
-        subProjectViewModel.project = self.specificProject
-        subProjectViewModel.getSubProjects(){ responseObject, error in
-            if responseObject != nil {
-                let sub = responseObject
-                let p = Project(JSON: sub!)
-                p?.subprojects = [SubProject]()
-                p?.subprojects?.removeAll()
-                
-                if responseObject!["subprojects"] != nil {
-                    let array = (responseObject!["subprojects"] as! NSArray).mutableCopy() as! NSMutableArray
-                    for i in array {
-                        let x = i as! [String: Any]
-                        let subProj = SubProject(JSON: x)
-                        p?.subprojects?.append(subProj!)
-                    }
-                    self.specificProject?.subprojects = [SubProject]()
-                    self.specificProject?.subprojects = p?.subprojects
-                }
-      
-               self.specificProject = p
-                
-               self.tableView.reloadData()
-               self.setWritingStages()
-               self.setProjectDeadline()
-               self.setProjectProgress()
-            
-            }
-            
-            if error != nil {
-                print(error ?? "nopey")
-            }
-        }
-    }
-        
+  
     //MARK: TableView Delegate and Datasource methods
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -118,33 +58,31 @@ class SubprojectViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if self.specificProject?.subprojects != nil {
-            return (self.specificProject?.subprojects?.count)!
-        } else {
-            return 0
-        }
-     
+        let subProjectArray = specificProject?.subProjects
+        return (subProjectArray?.count)!
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    
+        
+        let subProjectArray = specificProject?.subProjects
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ProjectTableViewCell
         //set title
-        cell.progressTitle.text = self.specificProject?.subprojects![indexPath.row].title
+        cell.progressTitle.text = subProjectArray![indexPath.row].title
         cell.progressTitle.textColor = UIColor.black
         
         //set date
-        cell.progressDeadline.text = self.specificProject?.subprojects![indexPath.row].deadline
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .none
+        cell.progressDeadline.text = subProjectArray![indexPath.row].deadline
         
         //set progress circle
-       // cell.progressCircle.innerRingColor = UIColor.jGreen
-        //cell.progressCircle.value = CGFloat(subProjects![indexPath.row].progress!)
-        
+        cell.progressCircle.innerRingColor = UIColor.jGreen
+        cell.progressCircle.value = CGFloat(subProjectArray![indexPath.row].progress!)
         tableView.separatorStyle = .none
         
         return cell
     }
-    
     
     func setWritingStages() {
         writingStages.subviews[0].tintColor = UIColor.jIndependent
@@ -196,30 +134,11 @@ class SubprojectViewController: UIViewController, UITableViewDelegate, UITableVi
     
     @IBAction func openSubProjectPopup(_ sender: Any) {
         let popUpVC = UIStoryboard(name: "Projects", bundle: nil).instantiateViewController(withIdentifier: "newSubProjectPopUpID") as! NewSubProjectPopUpViewController
-        //popUpVC.SubprojectViewController = self
-       // popUpVC.user = self.user
         self.addChildViewController(popUpVC)
         popUpVC.view.frame = self.view.frame
         self.view.addSubview(popUpVC.view)
-        popUpVC.pid = self.pid
         popUpVC.didMove(toParentViewController: self)
         
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.selectedIndex = indexPath.row
-        performSegue(withIdentifier: "tasks", sender: self)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let backItem = UIBarButtonItem()
-        backItem.tintColor = .white
-        backItem.title = "SubProjects"
-        navigationItem.backBarButtonItem = backItem
-        if segue.identifier == "tasks" {
-            let destination = segue.destination as! TasksViewController
-            destination.subProject = self.specificProject?.subprojects![selectedIndex]
-        }
     }
     
     override func didReceiveMemoryWarning() {

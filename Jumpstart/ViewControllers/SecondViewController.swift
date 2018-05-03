@@ -31,14 +31,13 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // Do any additional setup after loading the view, typically from a nib.
         self.user = UserModel()
         self.user?.uid =  Auth.auth().currentUser?.uid
+        print(self.user?.uid)
 
         projectViewModel = ProjectViewModel()
         projects = [Project]()
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        
-        self.loadProjects()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -51,9 +50,11 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         handle = Auth.auth().addStateDidChangeListener { (auth, user) in
             // [START_EXCLUDE]
-            self.user?.uid =  Auth.auth().currentUser?.uid
+            
             // [END_EXCLUDE]
         }
+        
+        self.loadProjects()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -72,26 +73,16 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func loadProjects() {
         projectViewModel.user = self.user
         projectViewModel.getProjects() { responseObject, error in
+            print("called")
             if responseObject != nil {
-                self.projects.removeAll()
                 for i in responseObject! {
-                    
-                    let temp = i.value as! [String: Any]
-                    for x in temp {
-                        let proj = Project()
-                        proj?.pid = x.key
-                        let p:AnyObject = x.value as AnyObject
-                        proj?.deadline = p["deadline"] as? String
-                        proj?.progress = p["progress"] as? Int
-                        proj?.title = p["title"] as? String
-                        proj?.type = p["type"] as? Int
-                        self.projects.append(proj!)
-                    }
+                    print(i)
+//                    let proj = Project(map: i)
+//                    print(proj ?? "")
+//                    self.projects.append(proj!)
                 }
-                
-                self.tableView.reloadData()
             }
-            
+            //self.tableView.reloadData()
             
             if error != nil {
                 print(error ?? "nopey")
@@ -142,10 +133,10 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         navigationItem.backBarButtonItem = backItem
         if segue.identifier == "Index" {
             let destination = segue.destination as! SubprojectViewController
-            destination.specificProject?.pid = projects[selectedIndex].pid
-            destination.pid = projects[selectedIndex].pid
+            destination.specificProject = projects[selectedIndex]
             destination.title = projects[selectedIndex].title
-        }        
+        }
+        
     }
     
     

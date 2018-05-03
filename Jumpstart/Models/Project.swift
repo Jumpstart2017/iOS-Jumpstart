@@ -11,12 +11,11 @@ import ObjectMapper
 
 class Project: Mappable {
     var uid: String?
-    var pid: String?
     var title: String?
     var deadline: String?
     var progress: Int?
     var type: Int?
-    var subprojects: [SubProject]?
+    var subProjects: [SubProject]?
     
     
     required init?(map: Map) {
@@ -33,8 +32,7 @@ class Project: Mappable {
         deadline <- map["deadline"]
         progress <- map["progress"]
         type <- map["type"]
-        subprojects <- map["subProjects"]
-        pid <- map["pid"]
+        subProjects <- map["subProjects"]
     }
     
 }
