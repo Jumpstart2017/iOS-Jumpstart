@@ -100,12 +100,6 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Goals" id="TbX-ey-eXH" userLabel="Goals">
                         <barButtonItem key="backBarButtonItem" title="Back" id="DUT-y7-vwF"/>
-                        <barButtonItem key="rightBarButtonItem" image="add_icon" style="plain" id="wl9-Fj-aYa" userLabel="New Task">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <action selector="newTask:" destination="aeP-7S-8bj" id="2vj-PA-veC"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bPw-a3-B2w" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -134,7 +128,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="add_icon" width="32" height="32"/>
         <image name="tasks_icon" width="32" height="32"/>
     </resources>
 </document>

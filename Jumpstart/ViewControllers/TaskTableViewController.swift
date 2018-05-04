@@ -7,28 +7,29 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class TaskTableViewController: UITableViewController {
-
-    //MARK: Properties
     
-    // Edit loadSampleTasks() to change contents of the task list
     var taskList = [Task]()
+    var user: UserModel?
+    var taskViewModel: TaskViewModel!
+    var handel: AuthStateDidChangeListenerHandle?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.user = UserModel()
+        self.user?.uid = Auth.auth().currentUser?.uid
+        
+        self.taskViewModel = TaskViewModel()
 
-        loadSampleTasks() //test data
+        loadTasks()
         
         // View styling
         self.tableView.separatorColor = .clear //hide separator between cells
-        
-      
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,10 +41,8 @@ class TaskTableViewController: UITableViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
-    // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -53,7 +52,6 @@ class TaskTableViewController: UITableViewController {
         return taskList.count
     }
 
-    // This function loads the table view with the tasks from taskList
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         //update template identifier
@@ -89,81 +87,36 @@ class TaskTableViewController: UITableViewController {
         return 117.5
     }
     
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-    //MARK: Private Methods
-    
-    //create three tasks and append them to list
-    private func loadSampleTasks() {
-        //modify this later to pull from database
-        let Task1 = Task(
-            deadline: "11/24/17", 
-            description: "Paper",
-            progress: 75, 
-            reminder: 0,
-            project: "PHD"
-        )
-        
-        let Task2 = Task(
-            deadline: "12/13/18", 
-            description: "Dissertaion", 
-            progress: 24, 
-            reminder: 1,
-            project: "Your mom's house"
-        )
-        
-        let Task3 = Task(
-            deadline: "3/30/18", 
-            description: "Introduction to book",
-            progress: 10, 
-            reminder: 2,
-            project: "Move on"
-        )
-        
-        taskList += [Task1, Task2, Task3] 
+    private func loadTasks() {
+        taskViewModel.user = self.user
+        taskViewModel.getAllTasks() { responseObject, error in
+            if responseObject != nil {
+                self.taskList.removeAll()
+                for i in responseObject! {
+                    let temp = i.value as! [String: Any]
+                    for x in temp {
+                        let task = Task()
+                        task?.tid = x.key
+                        let p:AnyObject = x.value as AnyObject
+                        task?.deadline = p["deadline"] as? String
+                        task?.progress = p["progress"] as? Int
+                        task?.description = p["description"] as? String
+                        task?.reminder = p["reminder"] as? Int
+                        
+                        print(task)
+                        
+                        self.taskList.append(task!)
+                    }
+                }
+                
+                self.tableView.reloadData()
+            }
+            
+            
+            if error != nil {
+                print(error)
+            }
+        }
     }
     
     //MARK: Actions
@@ -177,7 +130,7 @@ class TaskTableViewController: UITableViewController {
         
         // If task is completed, then need to hide from view (not delete)
         if(sender.value == 1) {
-            var cell = self.tableView.cellForRow(at: indexPath)
+            let cell = self.tableView.cellForRow(at: indexPath)
             cell?.isHidden = true
             self.tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.fade)
         }
@@ -191,19 +144,26 @@ class TaskTableViewController: UITableViewController {
         // Remove from data source
         taskList.remove(at: indexPath.row)
         
+        // Remove from database
+
+//        var id = taskList[indexPath.row].tid
+//        taskViewModel.task.tid = id
+//        taskViewModel.deleteTask()
+        
+
         // Remove from view
-        [self.tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.fade)]
+        self.tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.fade)
     }
     
     /*
-    // Create a new task, update view, update database
-    @IBAction func newTask(_ sender: Any) {
-        // Open new task popup
-        let storyboard = UIStoryboard(name: "Tasks", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "NewTaskPopupView")
-        vc.modalPresentationStyle = .overFullScreen
-        vc.modalTransitionStyle = .crossDissolve
-        self.present(vc, animated: true, completion: nil)
-    }
-    */
+     // Create a new task, update view, update database
+     @IBAction func newTask(_ sender: Any) {
+     // Open new task popup
+     let storyboard = UIStoryboard(name: "Tasks", bundle: nil)
+     let vc = storyboard.instantiateViewController(withIdentifier: "NewTaskPopupView")
+     vc.modalPresentationStyle = .overFullScreen
+     vc.modalTransitionStyle = .crossDissolve
+     self.present(vc, animated: true, completion: nil)
+     }
+     */
 }
