@@ -536,7 +536,7 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2fv-mH-qSM">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2fv-mH-qSM">
                                 <rect key="frame" x="8" y="233" width="351" height="385"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -548,9 +548,9 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KxQ-M1-Zcn">
-                                                    <rect key="frame" x="8" y="8" width="335" height="122.5"/>
+                                                    <rect key="frame" x="8" y="8" width="335" height="123"/>
                                                     <subviews>
-                                                        <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="4aM-ji-ukQ" userLabel="Progress">
+                                                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="4aM-ji-ukQ" userLabel="Progress">
                                                             <rect key="frame" x="2" y="86" width="331" height="31"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="327" id="0Dc-Uc-2uX"/>
@@ -590,9 +590,11 @@
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="height" constant="123" id="BB5-18-f8x"/>
                                                         <constraint firstAttribute="width" constant="335" id="BC9-Ae-xqk"/>
                                                         <constraint firstAttribute="trailing" secondItem="a9i-g9-mO7" secondAttribute="trailing" constant="5" id="D6Z-x5-Nj0"/>
                                                         <constraint firstItem="pe9-yc-BAs" firstAttribute="top" secondItem="mUe-hG-qmD" secondAttribute="bottom" constant="5" id="USm-ey-yf5"/>
+                                                        <constraint firstItem="4aM-ji-ukQ" firstAttribute="top" secondItem="pe9-yc-BAs" secondAttribute="bottom" constant="34" id="foe-UC-hHg"/>
                                                         <constraint firstItem="pe9-yc-BAs" firstAttribute="leading" secondItem="KxQ-M1-Zcn" secondAttribute="leading" constant="8" id="gnj-Vw-TD2"/>
                                                         <constraint firstItem="mUe-hG-qmD" firstAttribute="leading" secondItem="KxQ-M1-Zcn" secondAttribute="leading" constant="8" id="jXq-Zh-Tsk"/>
                                                         <constraint firstItem="a9i-g9-mO7" firstAttribute="top" secondItem="KxQ-M1-Zcn" secondAttribute="top" constant="5" id="qff-Qw-Eyc"/>
@@ -611,10 +613,9 @@
                                         <connections>
                                             <outlet property="deadlineLabel" destination="pe9-yc-BAs" id="9TD-vl-tGR"/>
                                             <outlet property="descriptionLabel" destination="mUe-hG-qmD" id="X6y-ew-4T4"/>
-                                            <outlet property="progressCard" destination="KxQ-M1-Zcn" id="V8i-EE-lHm"/>
                                             <outlet property="progressSlider" destination="4aM-ji-ukQ" id="cVH-Th-0xL"/>
                                             <outlet property="removeButton" destination="a9i-g9-mO7" id="Uwq-GN-fr4"/>
-                                            <outlet property="taskCard" destination="KxQ-M1-Zcn" id="Nqg-bm-8JI"/>
+                                            <outlet property="taskCard" destination="KxQ-M1-Zcn" id="bYh-G3-Q9x"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -624,6 +625,7 @@
                         <constraints>
                             <constraint firstItem="Pya-fn-FRk" firstAttribute="top" secondItem="AE4-BE-zdb" secondAttribute="top" constant="125" id="3EJ-bH-S4l"/>
                             <constraint firstItem="Pya-fn-FRk" firstAttribute="leading" secondItem="AE4-BE-zdb" secondAttribute="leading" id="GSK-RG-vUv"/>
+                            <constraint firstItem="2fv-mH-qSM" firstAttribute="trailing" secondItem="S60-OF-kBd" secondAttribute="trailingMargin" id="Iao-Sz-NqM"/>
                             <constraint firstItem="9BC-Ub-SaY" firstAttribute="top" secondItem="S60-OF-kBd" secondAttribute="topMargin" id="Lvh-7i-3HA"/>
                             <constraint firstItem="2fv-mH-qSM" firstAttribute="bottom" secondItem="AE4-BE-zdb" secondAttribute="bottom" id="M9U-08-uov"/>
                             <constraint firstItem="9BC-Ub-SaY" firstAttribute="leading" secondItem="AE4-BE-zdb" secondAttribute="leading" constant="12" id="MYt-Af-Fke"/>
@@ -632,6 +634,7 @@
                             <constraint firstItem="AE4-BE-zdb" firstAttribute="trailing" secondItem="Pya-fn-FRk" secondAttribute="trailing" constant="12" id="hor-sy-S6G"/>
                             <constraint firstItem="2fv-mH-qSM" firstAttribute="top" secondItem="Pya-fn-FRk" secondAttribute="bottom" id="jGT-Q9-hF8"/>
                             <constraint firstItem="AE4-BE-zdb" firstAttribute="trailing" secondItem="Pya-fn-FRk" secondAttribute="trailing" id="kT8-Dz-ZQG"/>
+                            <constraint firstItem="2fv-mH-qSM" firstAttribute="leading" secondItem="AE4-BE-zdb" secondAttribute="leading" constant="8" id="wyy-c3-Pgh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="AE4-BE-zdb"/>
                     </view>

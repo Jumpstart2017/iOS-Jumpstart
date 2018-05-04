@@ -23,7 +23,6 @@ class TaskViewModel: NSObject {
     private func getTasksCall(completionHandler: @escaping ([String:Any]?, Error?) -> ()) {
         let JSONString  = Mapper().toJSONString(subProject, prettyPrint: true)
         let parameters = convertToJSON(text: JSONString!)
-        print (parameters)
         Alamofire.request("https://us-central1-jumpstart-f48ac.cloudfunctions.net/getsubprojectbyid2", method: .post, parameters: parameters).responseJSON { response in
             switch response.result {
             case .success(let value):
@@ -43,6 +42,7 @@ class TaskViewModel: NSObject {
     private func createTaskCall(completionHandler: @escaping ([String:Any]?, Error?) -> ()) {
         let JSONString  = Mapper().toJSONString(task, prettyPrint: true)
         let parameters = convertToJSON(text: JSONString!)
+        print (parameters)
       Alamofire.request("https://us-central1-jumpstart-f48ac.cloudfunctions.net/createTask", method: .post, parameters: parameters, headers: nil).responseJSON { response in
             switch response.result {
             case .success(let value):

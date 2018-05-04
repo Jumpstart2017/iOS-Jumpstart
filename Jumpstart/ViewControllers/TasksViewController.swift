@@ -28,7 +28,6 @@ class TasksViewController : UIViewController, UITableViewDelegate, UITableViewDa
     let datePicker = UIDatePicker()
     
     var subProject = SubProject();
-    var tasks = [Task]()
     var user: UserModel?
     var selectedIndex = Int()
     var taskViewModel: TaskViewModel!
@@ -89,14 +88,17 @@ class TasksViewController : UIViewController, UITableViewDelegate, UITableViewDa
                         let x = i as! [String: Any]
                         let tsk = Task(JSON: x)
                         sp?.tasks?.append(tsk!)
-                        self.tasks.append(tsk!)
                     }
                     self.subProject?.tasks = [Task]()
                     self.subProject?.tasks = sp?.tasks
                 }
                 
                 self.subProject = sp
-                
+                /*let mytask = Task()
+                mytask?.deadline = "11/12/18"
+                mytask?.title =  "Thesis"
+                mytask?.progress = 0
+                self.subProject?.tasks?.append(mytask!)*/
                 self.tableView.reloadData()
                 self.setSubProjectDeadline()
                 self.setSubProjectProgress()
@@ -115,7 +117,7 @@ class TasksViewController : UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if self.subProject?.tasks != nil {
+       if self.subProject?.tasks != nil {
             return (self.subProject?.tasks?.count)!
         } else {
             return 0
@@ -124,7 +126,7 @@ class TasksViewController : UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "TaskTableViewCell", for: indexPath) as? TasksTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? TasksTableViewCell else {
                 fatalError("Dequeued cell not instance of TaskTableViewCell")
         }
         
@@ -136,7 +138,8 @@ class TasksViewController : UIViewController, UITableViewDelegate, UITableViewDa
         cell.deadlineLabel.text = self.subProject?.tasks![indexPath.row].deadline
 
         //set progress slider
-        cell.progressSlider.value = Float((self.subProject?.tasks![indexPath.row].progress!)!) / 100.0
+        /*cell.progressSlider.value = Float((self.subProject?.tasks![indexPath.row].progress!)!) / 100.0*/
+        cell.progressSlider.value = 0
 
         
         tableView.separatorStyle = .none

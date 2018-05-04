@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6438A4A8209BFE3D0051966E /* TaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6438A4A7209BFE3D0051966E /* TaskViewModel.swift */; };
 		6443BD7D204C9F98000A3173 /* NewTaskPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642D0C2420339DCE00387A4F /* NewTaskPopupViewController.swift */; };
 		645C9A50202D00AC00F4A44B /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645C9A4F202D00AC00F4A44B /* Task.swift */; };
 		645C9A53202D00B300F4A44B /* TaskTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645C9A51202D00B300F4A44B /* TaskTableViewController.swift */; };
@@ -23,7 +22,6 @@
 		C00EB72D1FB501D300EF3335 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C00EB72B1FB501D300EF3335 /* LaunchScreen.storyboard */; };
 		C00EB7381FB501D300EF3335 /* JumpstartTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00EB7371FB501D300EF3335 /* JumpstartTests.swift */; };
 		C00EB7431FB501D300EF3335 /* JumpstartUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00EB7421FB501D300EF3335 /* JumpstartUITests.swift */; };
-		C02C4B021FC4D8E10070B524 /* Tasks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C02C4B001FC4D8E10070B524 /* Tasks.storyboard */; };
 		C02FE0B62033A1A200DA5033 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02FE0B52033A1A200DA5033 /* JSON.swift */; };
 		C0368AE12098170B00A9723F /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0368AE02098170B00A9723F /* TasksViewController.swift */; };
 		C04F2C7C1FB50C0700A36A81 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04F2C7B1FB50C0700A36A81 /* Colors.swift */; };
@@ -108,7 +106,6 @@
 		C00EB73E1FB501D300EF3335 /* JumpstartUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JumpstartUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C00EB7421FB501D300EF3335 /* JumpstartUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JumpstartUITests.swift; sourceTree = "<group>"; };
 		C00EB7441FB501D300EF3335 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C02C4B011FC4D8E10070B524 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Tasks.storyboard; sourceTree = "<group>"; };
 		C02FE0B52033A1A200DA5033 /* JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
 		C0368AE02098170B00A9723F /* TasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
 		C04F2C7B1FB50C0700A36A81 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -322,7 +319,6 @@
 		C09B097A1FBBAED000DE17C3 /* StoryBoards */ = {
 			isa = PBXGroup;
 			children = (
-				C02C4B001FC4D8E10070B524 /* Tasks.storyboard */,
 				C008FF102076CDB8000AFDB7 /* GlobalTasks.storyboard */,
 				C0776AE91FBE484C004D6A85 /* Projects.storyboard */,
 				C00EB72B1FB501D300EF3335 /* LaunchScreen.storyboard */,
@@ -469,7 +465,6 @@
 				C06ABFDD206BE9EA005D9F1E /* GoogleService-Info.plist in Resources */,
 				C00EB72D1FB501D300EF3335 /* LaunchScreen.storyboard in Resources */,
 				C0776AEA1FBE484C004D6A85 /* Projects.storyboard in Resources */,
-				C02C4B021FC4D8E10070B524 /* Tasks.storyboard in Resources */,
 				C00EB72A1FB501D300EF3335 /* Assets.xcassets in Resources */,
 				C00876C0202D4B210007ECC8 /* ExpandableHeader.xib in Resources */,
 				C00EB7281FB501D300EF3335 /* Main.storyboard in Resources */,
@@ -690,14 +685,6 @@
 				C00EB72C1FB501D300EF3335 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		C02C4B001FC4D8E10070B524 /* Tasks.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C02C4B011FC4D8E10070B524 /* Base */,
-			);
-			name = Tasks.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
