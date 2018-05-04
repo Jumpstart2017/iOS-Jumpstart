@@ -96,10 +96,6 @@ class TaskTableViewController: UITableViewController {
     }
     */
     
-    //create three tasks and append them to list
-    private func loadTasks() {
-
-    
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if(taskList[indexPath.row].progress == 100) { return 0 }
@@ -115,11 +111,11 @@ class TaskTableViewController: UITableViewController {
                     let temp = i.value as! [String: Any]
                     for x in temp {
                         let task = Task()
-                        task?.tid = x.key
+                        //task?.tid = x.key
                         let p:AnyObject = x.value as AnyObject
                         task?.deadline = p["deadline"] as? String
                         task?.progress = p["progress"] as? Int
-                        task?.description = p["description"] as? String
+                        task?.title = p["description"] as? String
                         task?.reminder = p["reminder"] as? Int
                         
                         print(task)

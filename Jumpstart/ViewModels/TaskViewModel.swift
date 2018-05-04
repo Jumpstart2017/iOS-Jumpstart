@@ -53,5 +53,11 @@ class TaskViewModel: NSObject {
             }
         }
     }
+    
+    func getAllTasks(completionHandler: @escaping ([String:Any]?, Error?) -> ()) {}
+    
+    private func getAllTasksCall(completionHandler: @escaping ([String:Any]?, Error?) -> ()) {
+        
+    }
 }
 
