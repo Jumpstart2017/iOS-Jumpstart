@@ -18,17 +18,10 @@ class TaskTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        loadSampleTasks() //test data
+        loadTasks()
         
         // View styling
         self.tableView.separatorColor = .clear //hide separator between cells
-        
-      
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -67,22 +60,25 @@ class TaskTableViewController: UITableViewController {
         //get task for row index
         let task = taskList[indexPath.row]
         
+        /*
         //based on the integer value for 'reminder' get string value
         let reminderString = [
             "Daily",
             "Weekly",
             "Monthly"
         ]
+        */
         
         //set label and slider values
-        cell.descriptionLabel.text = task.description
-        cell.reminderLabel.text = reminderString[task.reminder!] + " Reminder"
+        cell.descriptionLabel.text = task.title
+//        cell.reminderLabel.text = reminderString[task.reminder!] + " Reminder"
         cell.deadlineLabel.text = "Deadline: " + task.deadline!
         cell.progressSlider.value = Float(task.progress!) / 100.0
     
         return cell
     }
 
+    /*
     @IBAction func newTask(_ sender: Any) {
         print("New task clicked")
         
@@ -93,81 +89,10 @@ class TaskTableViewController: UITableViewController {
         vc.modalTransitionStyle = .crossDissolve
         self.present(vc, animated: true, completion: nil)
     }
-    
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
     */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-    //MARK: Private Methods
     
     //create three tasks and append them to list
-    private func loadSampleTasks() {
-        //modify this later to pull from database
-        let Task1 = Task(
-            deadline: "11/24/17", 
-            description: "Paper",
-            progress: 75, 
-            reminder: 0,
-            project: "PHD"
-        )
-        
-        let Task2 = Task(
-            deadline: "12/13/18", 
-            description: "Dissertaion", 
-            progress: 24, 
-            reminder: 1,
-            project: "Your mom's house"
-        )
-        
-        let Task3 = Task(
-            deadline: "3/30/18", 
-            description: "Introduction to book",
-            progress: 10, 
-            reminder: 2,
-            project: "Move on"
-        )
-        
-        taskList += [Task1, Task2, Task3] 
+    private func loadTasks() {
+
     }
 }

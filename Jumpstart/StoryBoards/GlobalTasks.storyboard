@@ -35,13 +35,6 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G7d-At-RQT" userLabel="Reminder">
-                                                    <rect key="frame" x="18" y="60" width="289" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Icp-zB-AQK" userLabel="Progress">
                                                     <rect key="frame" x="16" y="83" width="331" height="31"/>
                                                     <connections>
@@ -87,7 +80,6 @@
                                     <outlet property="deadlineLabel" destination="cdi-rs-rvu" id="Bpg-72-MXj"/>
                                     <outlet property="descriptionLabel" destination="WVC-Xg-4HK" id="tbg-C6-Mff"/>
                                     <outlet property="progressSlider" destination="Icp-zB-AQK" id="gsg-oi-bOU"/>
-                                    <outlet property="reminderLabel" destination="G7d-At-RQT" id="PVo-8K-yxT"/>
                                     <outlet property="removeButton" destination="Z5G-N8-Od2" id="Hq3-9a-8a1"/>
                                     <outlet property="taskCard" destination="q4i-8I-x9D" id="0Ch-hn-arn"/>
                                 </connections>
@@ -100,12 +92,6 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Goals" id="TbX-ey-eXH" userLabel="Goals">
                         <barButtonItem key="backBarButtonItem" title="Back" id="DUT-y7-vwF"/>
-                        <barButtonItem key="rightBarButtonItem" image="add_icon" style="plain" id="wl9-Fj-aYa" userLabel="New Task">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <action selector="newTask:" destination="aeP-7S-8bj" id="2vj-PA-veC"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bPw-a3-B2w" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -134,7 +120,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="add_icon" width="32" height="32"/>
         <image name="tasks_icon" width="32" height="32"/>
     </resources>
 </document>

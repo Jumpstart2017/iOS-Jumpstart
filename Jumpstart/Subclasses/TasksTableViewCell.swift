@@ -8,6 +8,7 @@
 
 import UIKit
 import Material
+import ObjectMapper
 
 class TasksTableViewCell: UITableViewCell {
     
@@ -15,7 +16,7 @@ class TasksTableViewCell: UITableViewCell {
     @IBOutlet weak var taskCard: UIView!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var deadlineLabel: UILabel!
-    @IBOutlet weak var reminderLabel: UILabel!
+//    @IBOutlet weak var reminderLabel: UILabel!
     @IBOutlet weak var progressSlider: UISlider!
     @IBOutlet weak var removeButton: UIButton!
     
@@ -43,7 +44,7 @@ class TasksTableViewCell: UITableViewCell {
 
     
     //MARK: Styling
-    private func styleCellContents() {
+    private func styleCellContents(scale: Bool = true) {
         
         //deadlineLabel
         deadlineLabel.textColor = .jRed
@@ -53,9 +54,14 @@ class TasksTableViewCell: UITableViewCell {
         progressSlider.isContinuous = false //update on release
         
         //card
-        taskCard.layer.shadowOpacity = 0.5 //show shadow
-        taskCard.layer.shadowOffset = CGSize(width: 6, height: 6) //left and bottom only
-        taskCard.layer.shadowRadius = 0 //sharp corners
+        taskCard.layer.masksToBounds = false
         taskCard.layer.shadowColor = UIColor.lightGray.cgColor
+        taskCard.layer.shadowOpacity = 0.1
+        taskCard.layer.shadowOffset = CGSize(width: -1, height: 0.1)
+        taskCard.layer.shadowRadius = 0.001
+        
+        taskCard.layer.shadowPath = UIBezierPath(rect: self.bounds).cgPath
+        taskCard.layer.shouldRasterize = true
+        taskCard.layer.rasterizationScale = scale ? UIScreen.main.scale : 0.0001
     }
 }

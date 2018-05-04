@@ -56,6 +56,8 @@
 		EE5AA735203F615100D41D40 /* NewSubProjectPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5AA734203F615100D41D40 /* NewSubProjectPopUpViewController.swift */; };
 		EE5DA569203CD06B0053415B /* SubProjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5DA568203CD06B0053415B /* SubProjectModel.swift */; };
 		EE94EDBB1FCE16C00062E445 /* ProjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE94EDBA1FCE16C00062E445 /* ProjectTableViewCell.swift */; };
+		EE9685E8209BBEEF002EAFD4 /* TaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9685E7209BBEEF002EAFD4 /* TaskViewModel.swift */; };
+		EE994E90209C00D200AD9613 /* NewSpTaskPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE994E8F209C00D200AD9613 /* NewSpTaskPopUpViewController.swift */; };
 		EEA35239206B011D008B651D /* ProjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA35238206B011D008B651D /* ProjectViewModel.swift */; };
 		EEE310AC204F52650051880B /* SubProjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE310AB204F52650051880B /* SubProjectViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -139,6 +141,8 @@
 		EE5AA734203F615100D41D40 /* NewSubProjectPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSubProjectPopUpViewController.swift; sourceTree = "<group>"; };
 		EE5DA568203CD06B0053415B /* SubProjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubProjectModel.swift; sourceTree = "<group>"; };
 		EE94EDBA1FCE16C00062E445 /* ProjectTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectTableViewCell.swift; sourceTree = "<group>"; };
+		EE9685E7209BBEEF002EAFD4 /* TaskViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskViewModel.swift; sourceTree = "<group>"; };
+		EE994E8F209C00D200AD9613 /* NewSpTaskPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSpTaskPopUpViewController.swift; sourceTree = "<group>"; };
 		EEA35238206B011D008B651D /* ProjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectViewModel.swift; sourceTree = "<group>"; };
 		EEE310AB204F52650051880B /* SubProjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubProjectViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -267,6 +271,7 @@
 		C062D50C201A860E009C90AA /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				EE9685E7209BBEEF002EAFD4 /* TaskViewModel.swift */,
 				C062D50E201A8639009C90AA /* RegisterViewModel.swift */,
 				C0CD66002048B45000D4E75D /* VideoViewModel.swift */,
 				EEE310AB204F52650051880B /* SubProjectViewModel.swift */,
@@ -335,11 +340,12 @@
 				C09B09881FBBF2BC00DE17C3 /* LoginViewController.swift */,
 				C0F1C3161FCE67A6000270CB /* ViewController.swift */,
 				642D0C2420339DCE00387A4F /* NewTaskPopupViewController.swift */,
-				EE418A09201A8809005D94C9 /* NewProjectPopUpViewController.swift */,
 				EE146F9A2023BECA000CEDAC /* SubprojectViewController.swift */,
+				EE418A09201A8809005D94C9 /* NewProjectPopUpViewController.swift */,
 				EE5AA734203F615100D41D40 /* NewSubProjectPopUpViewController.swift */,
 				C06ABFDE206BF972005D9F1E /* SettingsViewController.swift */,
 				C0368AE02098170B00A9723F /* TasksViewController.swift */,
+				EE994E8F209C00D200AD9613 /* NewSpTaskPopUpViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -604,6 +610,8 @@
 				EE5DA569203CD06B0053415B /* SubProjectModel.swift in Sources */,
 				C06ABFDB206BDFE5005D9F1E /* LoginViewModel.swift in Sources */,
 				C062D50F201A8639009C90AA /* RegisterViewModel.swift in Sources */,
+				EE9685E8209BBEEF002EAFD4 /* TaskViewModel.swift in Sources */,
+				EE994E90209C00D200AD9613 /* NewSpTaskPopUpViewController.swift in Sources */,
 				EE5AA735203F615100D41D40 /* NewSubProjectPopUpViewController.swift in Sources */,
 				C06ABFE4206C1805005D9F1E /* ValidationError.swift in Sources */,
 				EE94EDBB1FCE16C00062E445 /* ProjectTableViewCell.swift in Sources */,
