@@ -38,7 +38,7 @@
                                                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Icp-zB-AQK" userLabel="Progress">
                                                     <rect key="frame" x="16" y="83" width="331" height="31"/>
                                                     <connections>
-                                                        <action selector="updateProgress:" destination="ZZt-Ko-hrf" eventType="valueChanged" id="0XO-L4-lh8"/>
+                                                        <action selector="updateProgress:" destination="aeP-7S-8bj" eventType="valueChanged" id="scI-Uf-KXd"/>
                                                     </connections>
                                                 </slider>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cdi-rs-rvu" userLabel="Deadline">
@@ -54,8 +54,7 @@
                                                         <color key="titleColor" red="1" green="0.0" blue="0.01164490638" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="deleteTask:" destination="aeP-7S-8bj" eventType="touchUpInside" id="KRz-dV-QuY"/>
-                                                        <action selector="deleteTask:" destination="ZZt-Ko-hrf" eventType="touchUpInside" id="Vo1-3f-zQh"/>
+                                                        <action selector="deleteTask:" destination="aeP-7S-8bj" eventType="touchUpInside" id="5qT-um-vwI"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -64,6 +63,7 @@
                                                 <constraint firstItem="Icp-zB-AQK" firstAttribute="leading" secondItem="q4i-8I-x9D" secondAttribute="leading" constant="18" id="06T-yE-qWw"/>
                                                 <constraint firstAttribute="trailing" secondItem="Icp-zB-AQK" secondAttribute="trailing" constant="18" id="FKd-yW-y4m"/>
                                                 <constraint firstAttribute="trailing" secondItem="Z5G-N8-Od2" secondAttribute="trailing" constant="8" id="G0u-4m-HuD"/>
+                                                <constraint firstAttribute="height" constant="117.5" id="LbD-KA-NmV"/>
                                                 <constraint firstAttribute="bottom" secondItem="Icp-zB-AQK" secondAttribute="bottom" constant="4.5" id="XYX-Zu-Ccz"/>
                                                 <constraint firstItem="Z5G-N8-Od2" firstAttribute="top" secondItem="q4i-8I-x9D" secondAttribute="top" constant="2" id="cUN-y2-bCr"/>
                                             </constraints>
@@ -77,7 +77,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="deadlineLabel" destination="cdi-rs-rvu" id="Bpg-72-MXj"/>
+                                    <outlet property="deadlineLabel" destination="cdi-rs-rvu" id="bDN-B9-AvM"/>
                                     <outlet property="descriptionLabel" destination="WVC-Xg-4HK" id="tbg-C6-Mff"/>
                                     <outlet property="progressSlider" destination="Icp-zB-AQK" id="gsg-oi-bOU"/>
                                     <outlet property="removeButton" destination="Z5G-N8-Od2" id="Hq3-9a-8a1"/>

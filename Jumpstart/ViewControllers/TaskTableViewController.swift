@@ -7,21 +7,29 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class TaskTableViewController: UITableViewController {
-
-    //MARK: Properties
     
-    // Edit loadSampleTasks() to change contents of the task list
     var taskList = [Task]()
+    var user: UserModel?
+    var taskViewModel: TaskViewModel!
+    var handel: AuthStateDidChangeListenerHandle?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.user = UserModel()
+        self.user?.uid = Auth.auth().currentUser?.uid
+        
+        self.taskViewModel = TaskViewModel()
 
         loadTasks()
         
         // View styling
         self.tableView.separatorColor = .clear //hide separator between cells
+    
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -33,10 +41,8 @@ class TaskTableViewController: UITableViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
-    // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -46,7 +52,6 @@ class TaskTableViewController: UITableViewController {
         return taskList.count
     }
 
-    // This function loads the table view with the tasks from taskList
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         //update template identifier
@@ -94,5 +99,78 @@ class TaskTableViewController: UITableViewController {
     //create three tasks and append them to list
     private func loadTasks() {
 
+    
+
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if(taskList[indexPath.row].progress == 100) { return 0 }
+        return 117.5
     }
+    
+    private func loadTasks() {
+        taskViewModel.user = self.user
+        taskViewModel.getAllTasks() { responseObject, error in
+            if responseObject != nil {
+                self.taskList.removeAll()
+                for i in responseObject! {
+                    let temp = i.value as! [String: Any]
+                    for x in temp {
+                        let task = Task()
+                        task?.tid = x.key
+                        let p:AnyObject = x.value as AnyObject
+                        task?.deadline = p["deadline"] as? String
+                        task?.progress = p["progress"] as? Int
+                        task?.description = p["description"] as? String
+                        task?.reminder = p["reminder"] as? Int
+                        
+                        print(task)
+                        
+                        self.taskList.append(task!)
+                    }
+                }
+                
+                self.tableView.reloadData()
+            }
+            
+            
+            if error != nil {
+                print(error)
+            }
+        }
+    }
+    
+    //MARK: Actions
+    @IBAction func updateProgress(_ sender: UISlider) {
+        // Get the cell position to delete
+        let position: CGPoint = (sender as AnyObject).convert(CGPoint(), to: tableView)
+        let indexPath: IndexPath = self.tableView.indexPathForRow(at: position)!
+        
+        // Update value for progress for task in data source
+        taskList[indexPath.row].progress = Int(sender.value * 100)
+        
+        // If task is completed, then need to hide from view (not delete)
+        if(sender.value == 1) {
+            let cell = self.tableView.cellForRow(at: indexPath)
+            cell?.isHidden = true
+            self.tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.fade)
+        }
+    }
+    
+    @IBAction func deleteTask(_ sender: Any) {
+        // Get the cell position to delete
+        let position: CGPoint = (sender as AnyObject).convert(CGPoint(), to: tableView)
+        let indexPath: IndexPath = self.tableView.indexPathForRow(at: position)!
+        
+        // Remove from data source
+        taskList.remove(at: indexPath.row)
+        
+        // Remove from database
+
+//        var id = taskList[indexPath.row].tid
+//        taskViewModel.task.tid = id
+//        taskViewModel.deleteTask()
+        
+
+        // Remove from view
+        self.tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.fade)
+     }
 }

@@ -43,7 +43,7 @@ class TaskViewModel: NSObject {
     private func createTaskCall(completionHandler: @escaping ([String:Any]?, Error?) -> ()) {
         let JSONString  = Mapper().toJSONString(task, prettyPrint: true)
         let parameters = convertToJSON(text: JSONString!)
-        Alamofire.request("https://us-central1-jumpstart-f48ac.cloudfunctions.net/createTask", method: .post, parameters: parameters, headers: nil).responseJSON { response in
+      Alamofire.request("https://us-central1-jumpstart-f48ac.cloudfunctions.net/createTask", method: .post, parameters: parameters, headers: nil).responseJSON { response in
             switch response.result {
             case .success(let value):
                 print(value)
@@ -53,6 +53,5 @@ class TaskViewModel: NSObject {
             }
         }
     }
-    
 }
 
