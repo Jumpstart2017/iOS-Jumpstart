@@ -42,6 +42,8 @@ class SubprojectViewController: UIViewController, UITableViewDelegate, UITableVi
         // Do any additional setup after loading the view.
         self.user = UserModel()
         self.user?.uid =  Auth.auth().currentUser?.uid
+        
+
 
         subProjectViewModel = SubProjectViewModel()
         subProjects = [SubProject]()
@@ -84,7 +86,6 @@ class SubprojectViewController: UIViewController, UITableViewDelegate, UITableVi
                 let p = Project(JSON: sub!)
                 p?.subprojects = [SubProject]()
                 p?.subprojects?.removeAll()
-                
                 if responseObject!["subprojects"] != nil {
                     let array = (responseObject!["subprojects"] as! NSArray).mutableCopy() as! NSMutableArray
                     for i in array {
@@ -218,7 +219,8 @@ class SubprojectViewController: UIViewController, UITableViewDelegate, UITableVi
         navigationItem.backBarButtonItem = backItem
         if segue.identifier == "tasks" {
             let destination = segue.destination as! TasksViewController
-            destination.subProject = self.specificProject?.subprojects![selectedIndex]
+            destination.subProject?.spid = self.specificProject?.subprojects![selectedIndex].spid
+            destination.title = self.specificProject?.subprojects![selectedIndex].title
         }
     }
     

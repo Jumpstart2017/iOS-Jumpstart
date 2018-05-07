@@ -7,28 +7,29 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class TaskTableViewController: UITableViewController {
-
-    //MARK: Properties
     
-    // Edit loadSampleTasks() to change contents of the task list
     var taskList = [Task]()
+    var user: UserModel?
+    var taskViewModel: TaskViewModel!
+    var handle: AuthStateDidChangeListenerHandle?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.user = UserModel()
+        self.user?.uid = Auth.auth().currentUser?.uid
+        
+        self.taskViewModel = TaskViewModel()
 
-        loadSampleTasks() //test data
+        loadTasks()
         
         // View styling
         self.tableView.separatorColor = .clear //hide separator between cells
-        
-      
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,14 +37,16 @@ class TaskTableViewController: UITableViewController {
         self.navigationController?.navigationBar.barTintColor = .jBlue
         self.navigationController?.navigationBar.backgroundColor = .jBlue
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor:UIColor.white]
+        
+        handle = Auth.auth().addStateDidChangeListener { (auth, user) in
+            self.user?.uid =  Auth.auth().currentUser?.uid
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
-    // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -53,7 +56,6 @@ class TaskTableViewController: UITableViewController {
         return taskList.count
     }
 
-    // This function loads the table view with the tasks from taskList
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         //update template identifier
@@ -67,22 +69,25 @@ class TaskTableViewController: UITableViewController {
         //get task for row index
         let task = taskList[indexPath.row]
         
+        /*
         //based on the integer value for 'reminder' get string value
         let reminderString = [
             "Daily",
             "Weekly",
             "Monthly"
         ]
+        */
         
         //set label and slider values
-        cell.descriptionLabel.text = task.description
-        cell.reminderLabel.text = reminderString[task.reminder!] + " Reminder"
+        cell.descriptionLabel.text = task.title
+        //cell.reminderLabel.text = reminderString[task.reminder!] + " Reminder"
         cell.deadlineLabel.text = "Deadline: " + task.deadline!
         cell.progressSlider.value = Float(task.progress!) / 100.0
     
         return cell
     }
 
+    /*
     @IBAction func newTask(_ sender: Any) {
         print("New task clicked")
         
@@ -93,81 +98,99 @@ class TaskTableViewController: UITableViewController {
         vc.modalTransitionStyle = .crossDissolve
         self.present(vc, animated: true, completion: nil)
     }
+    */
+
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if(taskList[indexPath.row].progress == 100) { return 0 }
+        return 117.5
+    }
     
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    private func loadTasks() {
+        
+        /*taskViewModel.user = self.user
+        taskViewModel.getAllTasks() { responseObject, error in
+            if responseObject != nil {
+                for obj in responseObject! {
+                    let t = obj.value as! NSDictionary
+                    print(t)
+                    let task = Task()
+                    if(t["completed"] != nil) {
+                        task?.completed = t["completed"] as? Bool
+                    } else { task?.completed = false }
+                    if(t["deadline"] != nil) { task?.deadline = t["deadline"] as? String
+                    } else { task?.deadline = "Deadline" }
+                    if(t["progress"] != nil) { task?.progress  = t["progress"] as? Int
+                    } else { task?.progress = 0 }
+                    if(t["title"] != nil) { task?.title = t["title"] as? String
+                    } else { task?.title = "Title" }
+                    self.taskList.append(task!)
+                }
+                self.tableView.reloadData()
+            }
+            
+            
+            if error != nil {
+                print(error)
+            }*/
+        
+            let task1 = Task()
+            let task2 = Task()
+            let task3 = Task()
+        
+            task1?.deadline = "May 4, 2018"
+            task1?.title = "Senior Design"
+            task1?.progress = 35
+        
+            task2?.deadline = "April 28, 2018"
+            task2?.title = "Finish ths project"
+            task2?.progress = 55
+        
+        
+        
+            task3?.deadline = "April 15, 2018"
+            task3?.title = "Hello"
+            task3?.progress = 69
+        
+            taskList.append(task1!)
+            taskList.append(task2!)
+            taskList.append(task3!)
+        
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-    //MARK: Private Methods
     
-    //create three tasks and append them to list
-    private func loadSampleTasks() {
-        //modify this later to pull from database
-        let Task1 = Task(
-            deadline: "11/24/17", 
-            description: "Paper",
-            progress: 75, 
-            reminder: 0,
-            project: "PHD"
-        )
+    //MARK: Actions
+    @IBAction func updateProgress(_ sender: UISlider) {
+        // Get the cell position to delete
+        let position: CGPoint = (sender as AnyObject).convert(CGPoint(), to: tableView)
+        let indexPath: IndexPath = self.tableView.indexPathForRow(at: position)!
         
-        let Task2 = Task(
-            deadline: "12/13/18", 
-            description: "Dissertaion", 
-            progress: 24, 
-            reminder: 1,
-            project: "Your mom's house"
-        )
+        // Update value for progress for task in data source
+        taskList[indexPath.row].progress = Int(sender.value * 100)
         
-        let Task3 = Task(
-            deadline: "3/30/18", 
-            description: "Introduction to book",
-            progress: 10, 
-            reminder: 2,
-            project: "Move on"
-        )
-        
-        taskList += [Task1, Task2, Task3] 
+        // If task is completed, then need to hide from view (not delete)
+        if(sender.value == 1) {
+            let cell = self.tableView.cellForRow(at: indexPath)
+            cell?.isHidden = true
+            self.tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.fade)
+        }
     }
+    
+    @IBAction func deleteTask(_ sender: Any) {
+        // Get the cell position to delete
+        let position: CGPoint = (sender as AnyObject).convert(CGPoint(), to: tableView)
+        let indexPath: IndexPath = self.tableView.indexPathForRow(at: position)!
+        
+        // Remove from data source
+        taskList.remove(at: indexPath.row)
+        
+        // Remove from database
+
+        /*
+        var id = taskList[indexPath.row].tid
+        taskViewModel.task.tid = id
+        taskViewModel.deleteTask()
+        */
+
+        // Remove from view
+        self.tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.fade)
+     }
 }
