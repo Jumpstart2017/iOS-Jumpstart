@@ -103,7 +103,8 @@ class TaskTableViewController: UITableViewController {
     }
     
     private func loadTasks() {
-        taskViewModel.user = self.user
+        
+        /*taskViewModel.user = self.user
         taskViewModel.getAllTasks() { responseObject, error in
             if responseObject != nil {
                 self.taskList.removeAll()
@@ -130,8 +131,30 @@ class TaskTableViewController: UITableViewController {
             
             if error != nil {
                 print(error)
-            }
-        }
+            }*/
+        
+            let task1 = Task()
+            let task2 = Task()
+            let task3 = Task()
+        
+            task1?.deadline = "May 4, 2018"
+            task1?.title = "Senior Design"
+            task1?.progress = 35
+        
+            task2?.deadline = "April 28, 2018"
+            task2?.title = "Finish ths project"
+            task2?.progress = 55
+        
+        
+        
+            task3?.deadline = "April 15, 2018"
+            task3?.title = "Hello"
+            task3?.progress = 69
+        
+            taskList.append(task1!)
+            taskList.append(task2!)
+            taskList.append(task3!)
+        
     }
     
     //MARK: Actions

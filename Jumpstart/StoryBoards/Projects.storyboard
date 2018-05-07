@@ -591,7 +591,6 @@
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="123" id="BB5-18-f8x"/>
-                                                        <constraint firstAttribute="width" constant="335" id="BC9-Ae-xqk"/>
                                                         <constraint firstAttribute="trailing" secondItem="a9i-g9-mO7" secondAttribute="trailing" constant="5" id="D6Z-x5-Nj0"/>
                                                         <constraint firstItem="pe9-yc-BAs" firstAttribute="top" secondItem="mUe-hG-qmD" secondAttribute="bottom" constant="5" id="USm-ey-yf5"/>
                                                         <constraint firstItem="4aM-ji-ukQ" firstAttribute="top" secondItem="pe9-yc-BAs" secondAttribute="bottom" constant="34" id="foe-UC-hHg"/>
@@ -604,10 +603,12 @@
                                                 </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="KxQ-M1-Zcn" firstAttribute="leading" secondItem="jUp-av-axm" secondAttribute="leading" constant="8" id="CNy-2k-VDu"/>
+                                                <constraint firstItem="KxQ-M1-Zcn" firstAttribute="leading" secondItem="jUp-av-axm" secondAttribute="leading" constant="8" id="TWE-qI-UQB"/>
                                                 <constraint firstAttribute="bottom" secondItem="KxQ-M1-Zcn" secondAttribute="bottom" constant="8" id="VIh-rU-feo"/>
-                                                <constraint firstAttribute="trailing" secondItem="KxQ-M1-Zcn" secondAttribute="trailing" constant="8" id="Vx6-yW-A7e"/>
+                                                <constraint firstAttribute="trailing" secondItem="KxQ-M1-Zcn" secondAttribute="trailing" constant="8" id="aYm-lc-KAm"/>
                                                 <constraint firstItem="KxQ-M1-Zcn" firstAttribute="top" secondItem="jUp-av-axm" secondAttribute="top" constant="8" id="gHg-Ua-9w4"/>
+                                                <constraint firstItem="KxQ-M1-Zcn" firstAttribute="top" secondItem="jUp-av-axm" secondAttribute="top" constant="8" id="qZr-9L-u0z"/>
+                                                <constraint firstAttribute="bottom" secondItem="KxQ-M1-Zcn" secondAttribute="bottom" constant="8" id="vjn-PQ-y8p"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
