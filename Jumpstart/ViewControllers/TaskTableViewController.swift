@@ -15,7 +15,7 @@ class TaskTableViewController: UITableViewController {
     var taskList = [Task]()
     var user: UserModel?
     var taskViewModel: TaskViewModel!
-    var handel: AuthStateDidChangeListenerHandle?
+    var handle: AuthStateDidChangeListenerHandle?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +37,10 @@ class TaskTableViewController: UITableViewController {
         self.navigationController?.navigationBar.barTintColor = .jBlue
         self.navigationController?.navigationBar.backgroundColor = .jBlue
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor:UIColor.white]
+        
+        handle = Auth.auth().addStateDidChangeListener { (auth, user) in
+            self.user?.uid =  Auth.auth().currentUser?.uid
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -76,7 +80,7 @@ class TaskTableViewController: UITableViewController {
         
         //set label and slider values
         cell.descriptionLabel.text = task.title
-//        cell.reminderLabel.text = reminderString[task.reminder!] + " Reminder"
+        //cell.reminderLabel.text = reminderString[task.reminder!] + " Reminder"
         cell.deadlineLabel.text = "Deadline: " + task.deadline!
         cell.progressSlider.value = Float(task.progress!) / 100.0
     
@@ -95,7 +99,6 @@ class TaskTableViewController: UITableViewController {
         self.present(vc, animated: true, completion: nil)
     }
     */
-    
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if(taskList[indexPath.row].progress == 100) { return 0 }
@@ -107,24 +110,21 @@ class TaskTableViewController: UITableViewController {
         /*taskViewModel.user = self.user
         taskViewModel.getAllTasks() { responseObject, error in
             if responseObject != nil {
-                self.taskList.removeAll()
-                for i in responseObject! {
-                    let temp = i.value as! [String: Any]
-                    for x in temp {
-                        let task = Task()
-                        //task?.tid = x.key
-                        let p:AnyObject = x.value as AnyObject
-                        task?.deadline = p["deadline"] as? String
-                        task?.progress = p["progress"] as? Int
-                        task?.title = p["description"] as? String
-                        task?.reminder = p["reminder"] as? Int
-                        
-                        print(task)
-                        
-                        self.taskList.append(task!)
-                    }
+                for obj in responseObject! {
+                    let t = obj.value as! NSDictionary
+                    print(t)
+                    let task = Task()
+                    if(t["completed"] != nil) {
+                        task?.completed = t["completed"] as? Bool
+                    } else { task?.completed = false }
+                    if(t["deadline"] != nil) { task?.deadline = t["deadline"] as? String
+                    } else { task?.deadline = "Deadline" }
+                    if(t["progress"] != nil) { task?.progress  = t["progress"] as? Int
+                    } else { task?.progress = 0 }
+                    if(t["title"] != nil) { task?.title = t["title"] as? String
+                    } else { task?.title = "Title" }
+                    self.taskList.append(task!)
                 }
-                
                 self.tableView.reloadData()
             }
             
@@ -184,10 +184,11 @@ class TaskTableViewController: UITableViewController {
         
         // Remove from database
 
-//        var id = taskList[indexPath.row].tid
-//        taskViewModel.task.tid = id
-//        taskViewModel.deleteTask()
-        
+        /*
+        var id = taskList[indexPath.row].tid
+        taskViewModel.task.tid = id
+        taskViewModel.deleteTask()
+        */
 
         // Remove from view
         self.tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.fade)
